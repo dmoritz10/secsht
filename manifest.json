@@ -1,10 +1,10 @@
 {
-	"name" : "Elaine",
-	"short_name" : "Elaine",
+	"name" : "secsht",
+	"short_name" : "secsht",
 	"description" : "",
 	"theme_color" : "#f9f9f9",
 	"background_color" : "#f9f9f9",
-	"start_url" : "https://dmoritz10.github.io/Elaine/",
+	"start_url" : "https://dmoritz10.github.io/secsht/",
 	"display" : "standalone",
 	"splash_pages": null,
     "icons": [
