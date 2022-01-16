@@ -1,0 +1,391 @@
+
+async function listSheet(title) {
+
+  var shtOptions = readOption('shtFilter')
+  var shtSelectFav = shtOptions.shtSelectFav
+
+  var objSht = await openShts(
+    [
+      { title: title, type: "all" }
+    ])
+
+  shtTitle = title
+  shtHdrs = objSht[shtTitle].colHdrs
+  shtVals = objSht[shtTitle].vals
+  shtId   = secSht[shtTitle].id
+  shtCols = secSht[shtTitle].Cols
+  shtRows = secSht[shtTitle].Rows
+
+  $("#shtTitle")[0].innerHTML = shtTitle
+
+  var $tblSheets = $("#shtContainer > .d-none")
+
+  var x = $tblSheets.clone();
+  $("#shtContainer").empty();
+  x.appendTo("#shtContainer");
+
+
+
+  for (var j = 0; j < shtVals.length; j++) {
+
+    var shtObj = makeObj(shtVals[j], shtHdrs)
+
+    if (
+      (shtSelectFav && !(shtObj['Favorite'].toLowerCase() === 'true'))
+    ) continue;
+
+    var ele = $tblSheets.clone();
+
+    ele.find('#shtProvider')[0].innerHTML = shtObj.Provider
+
+    ele.find('#btnShtEdit')[0].setAttribute("onclick", "editSheet(" + j + ")");
+
+    ele.find('#btnShtFavorite')[0].setAttribute("onclick", "setFavorite(" + j + ")");
+
+    ele.find('#btnShtShowSheet')[0].setAttribute("onclick", "showSheet(" + j + ")");
+
+
+    var fav = (shtObj['Favorite'].toLowerCase()) === 'true'
+
+    if (fav) {
+      ele.find('#ScFavIcon')[0].innerHTML = "star"
+      ele.find('#ScFavIcon').addClass('text-primary')
+    } else {
+      ele.find('#ScFavIcon')[0].innerHTML = "star_outline"
+      ele.find('#ScFavIcon').removeClass('text-primary')
+    }
+
+    ele.removeClass('d-none')
+
+    ele.appendTo("#shtContainer");
+
+  }
+
+  gotoTab('Sheets')
+
+  var srchVal = $("#shtSearchProviders").val()
+
+  if (srchVal) {
+
+      $("#shtContainer #shtProvider").filter(function() {
+        $(this).parent().parent().parent().toggle($(this).text().toLowerCase().indexOf(srchVal.toLowerCase()) > -1)
+      });
+   
+  }
+
+}
+
+
+async function btnShtMoreVertHtml() {
+
+  var shtOptions = readOption('shtFilter')
+  var shtSelectFav = shtOptions.shtSelectFav
+
+  $('#shtSelectFav').prop("checked", shtSelectFav);
+
+}
+
+async function btnShtSelectHtml(e) {
+
+  var shtSelectFavVal = $('#shtSelectFav').prop('checked')
+
+  await updateOption('shtFilter', {
+    'shtSelectFav': shtSelectFavVal
+  })
+
+  $("#btnShtMoreVert").click()
+
+  listSheet(shtTitle)
+
+}
+
+async function setFavorite(idx) {
+
+
+  var fav = shtVals[idx][shtHdrs.indexOf("Favorite")].toLowerCase() === 'true'
+
+  if (fav) {
+    shtVals[idx][shtHdrs.indexOf("Favorite")] = "FALSE"
+  } else {
+    shtVals[idx][shtHdrs.indexOf("Favorite")] = "TRUE"
+  }
+
+  await updateSheet(idx)
+
+  listSheet(shtTitle)
+
+}
+
+
+async function editSheet(idx) {
+
+
+  $("#sheet-modal").modal('show');
+  $("#sheet-form")[0].reset();
+
+  $('#shtmSheetName').html(shtTitle)
+
+  $('#shtmIdx').val(idx)
+
+  console.log(shtVals)
+  console.log(shtHdrs)
+  console.log(shtVals[idx])
+  console.log(shtVals[idx][shtHdrs['Provider']])
+
+  var shtObj = makeObj(shtVals[idx], shtHdrs)
+
+  console.log(shtObj)
+
+  $('#shtmProvider').val(shtObj['Provider'])
+  $('#shtmLogin').val(shtObj['Login'])
+  $('#shtmPassword').val(shtObj['Password'])
+  $('#shtmAccountNbr').val(shtObj['Account Nbr'])
+  $('#shtmPinNbr').val(shtObj['Pin Nbr'])
+  $('#shtmAutoPay').val(shtObj['Auto Pay'])
+  $('#shtmLoginUrl').val(shtObj['Login Url'])
+  $('#shtmSecurityQA').val(shtObj['Security Q/A'])
+  $('#shtmNotes').val(shtObj['Notes'])
+
+  $('#btnDeleteSheet').removeClass('d-none')
+
+}
+
+async function btnShtmSubmitSheetHtml() {
+
+  if (!$('#sheet-form').valid()) return
+
+  var idx = $('#shtmIdx').val()
+
+  var vals = shtVals[idx]
+
+  if (idx) {                                                       // update existing course
+
+    vals[shtHdrs.indexOf("Provider")] = $('#shtmProvider').val()
+    vals[shtHdrs.indexOf("Login")] = $('#shtmLogin').val()
+    vals[shtHdrs.indexOf("Password")] = $('#shtmPassword').val()
+    vals[shtHdrs.indexOf("Account Nbr")] = $('#shtmAccountNbr').val()
+    vals[shtHdrs.indexOf("Pin Nbr")] = $('#shtmPinNbr').val()
+    vals[shtHdrs.indexOf("Auto Pay")] = $('#shtmAutoPay').val()
+    vals[shtHdrs.indexOf("Login Url")] = $('#shtmLoginUrl').val()
+    vals[shtHdrs.indexOf("Security Q/A")] = $('#shtmSecurityQA').val()
+    vals[shtHdrs.indexOf("Notes")] = $('#shtmNotes').val()
+    vals[shtHdrs.indexOf("Last Change")] = formatDate(new Date())
+
+
+
+  } else {
+
+    if (dupProvider($('#shtmProvider').val())) {
+
+      toast("Provider already exists")
+
+      return
+    }
+
+    vals = []
+    vals[shtHdrs.indexOf("Provider")] = $('#shtmProvider').val()
+    vals[shtHdrs.indexOf("Login")] = $('#shtmLogin').val()
+    vals[shtHdrs.indexOf("Password")] = $('#shtmPassword').val()
+    vals[shtHdrs.indexOf("Account Nbr")] = $('#shtmAccountNbr').val()
+    vals[shtHdrs.indexOf("Pin Nbr")] = $('#shtmPinNbr').val()
+    vals[shtHdrs.indexOf("Auto Pay")] = $('#shtmAutoPay').val()
+    vals[shtHdrs.indexOf("Login Url")] = $('#shtmLoginUrl').val()
+    vals[shtHdrs.indexOf("Security Q/A")] = $('#shtmSecurityQA').val()
+    vals[shtHdrs.indexOf("Notes")] = $('#shtmNotes').val()
+    vals[shtHdrs.indexOf("Last Change")] = formatDate(new Date())
+
+    vals[shtHdrs.indexOf("Favorite")] = false
+
+  }
+
+  shtVals[idx] = vals
+
+console.log(shtVals)
+
+  await updateSheet(idx)
+
+
+  // To update only the SxS Hole Detail column
+
+  // c[cols.indexOf("SxS Hole Detail")] = $('#scmHoleDetail').val()
+  // arrShts['My Courses'].vals[idx] = c
+  // await updateCourse(c, idx)
+
+  await initialUI()
+
+  $("#sheet-modal").modal('hide');
+
+  listSheet(shtTitle)
+
+}
+
+async function updateSheet(idx) {
+
+  console.log('updatesheet')
+  console.log(idx)
+  console.log(shtId)
+  console.log('shtTitle', shtTitle)
+  console.log(shtVals)
+  console.log(shtVals[idx])
+  console.log(shtHdrs['Last Change'])
+
+  await checkAuth()
+
+  var resource = {
+    "majorDimension": "ROWS",
+    "values": [shtVals[idx]]
+  }
+
+  if (idx) {
+
+    var row = idx * 1 + 2
+    var rng = calcRngA1(row, 1, 1, shtHdrs.length)
+
+    var params = {
+      spreadsheetId: spreadsheetId,
+      range: "'" + shtTitle + "'!" + rng,
+      valueInputOption: 'RAW'
+    };
+
+
+    await gapi.client.sheets.spreadsheets.values.update(params, resource)
+      .then(function (response) {
+        console.log('Sheet update successful')
+        console.log(response)
+      }, function (reason) {
+        console.error('error updating sheet "' + row + '": ' + reason.result.error.message);
+        alert('error updating sheet "' + row + '": ' + reason.result.error.message);
+      });
+
+  } else {
+
+    var row = 2
+    var rng = calcRngA1(row, 1, 1, shtHdrs.length)
+
+    var params = {
+      spreadsheetId: spreadsheetId,
+      range: "'" + shtTitle + "'!" + rng,
+      valueInputOption: 'RAW',
+      insertDataOption: 'INSERT_ROWS'
+    };
+
+    await gapi.client.sheets.spreadsheets.values.append(params, resource)
+      .then(async function (response) {
+
+        console.log('sheetId', shtId)
+        console.log(secSht)
+
+        var request = { "requests": 
+          [{ "sortRange": 
+            { "range": { 
+              "sheetId": shtId, 
+              "startRowIndex": 1, 
+              "endRowIndex": shtVals.length+2, 
+              "startColumnIndex": 0, 
+              "endColumnIndex": shtHdrs.length 
+            }, 
+            "sortSpecs": 
+            [{ "sortOrder": "ASCENDING", "dimensionIndex": 0 }] 
+            } 
+          }] 
+        }
+
+        await gapi.client.sheets.spreadsheets.batchUpdate({
+          spreadsheetId: spreadsheetId,
+          resource: request
+        }).then(response => {
+
+          console.log('sort complete')
+          console.log(response)
+
+        })
+
+      },
+
+        function (reason) {
+
+          console.error('error appending sheet "' + shtTitle + '": ' + reason.result.error.message);
+          bootbox.alert('error appending sheet "' + shtTitle + '": ' + reason.result.error.message);
+
+        });
+
+  }
+
+}
+
+
+function fixUrl(url) {
+
+  if (url.substring(0, 8) !== 'https://' && url.substring(0, 7) !== 'http://') return 'https://' + url
+
+  return url
+
+}
+
+
+async function btnAddSheetHtml() {
+
+  $("#sheet-modal").modal('show');
+  $("#sheet-form")[0].reset();
+  $('#shtmModalTitle').html('')
+
+   $('#btnDeleteSheet').addClass('d-none')
+
+}
+
+async function btnDeleteSheetHtml() {
+
+  var confirmOK = await confirm("Are you sure you want to delete this provider ?")
+
+  if (!confirmOK) return
+  
+
+  var idx = $('#shtmIdx').val()*1
+
+  var request = { "requests": 
+  [
+    {
+      "deleteDimension": {
+        "range": {
+          "sheetId": shtId,
+          "dimension": "ROWS",
+          "startIndex": idx+1,
+          "endIndex": idx+2
+        }
+      }
+    }
+  ]
+}
+
+console.log(request)
+
+await gapi.client.sheets.spreadsheets.batchUpdate({
+  spreadsheetId: spreadsheetId,
+  resource: request
+
+}).then(response => {
+
+  console.log('delete complete')
+  console.log(response)
+
+})
+
+await initialUI()
+
+$("#sheet-modal").modal('hide');
+
+listSheet(shtTitle)
+
+}
+
+function dupProvider(provider) {
+
+  let arrProviders = shtVals.map(a => a[shtHdrs.indexOf('Provider')]);
+
+  if (arrProviders.indexOf(provider) > -1) {
+    return true
+  } else {
+    return false
+  }
+
+}
