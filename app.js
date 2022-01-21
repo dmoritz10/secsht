@@ -219,15 +219,15 @@ jQuery(function ($) {
               document.documentElement.requestFullscreen();
             });
           
-            var whiteList = $.fn.tooltip.Constructor.Default.whiteList
+            // var whiteList = $.fn.tooltip.Constructor.Default.whiteList
           
-                whiteList.table = []
-                whiteList.td = []
-                whiteList.th = []
-                whiteList.thead = []
-                whiteList.tr = []
-                whiteList.tbody = []
-                whiteList.button = []
+            //     whiteList.table = []
+            //     whiteList.td = []
+            //     whiteList.th = []
+            //     whiteList.thead = []
+            //     whiteList.tr = []
+            //     whiteList.tbody = []
+            //     whiteList.button = []
           
             setupFormValidation()
           
