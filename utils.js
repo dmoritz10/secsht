@@ -293,6 +293,8 @@ function gotoTab(tabName) {
 
   var $tab = $('[href="#' + tabName + '"]')
 
+  alert('gotoTab')
+
   $tab.trigger('click');
 
 }
