@@ -293,11 +293,11 @@ function gotoTab(tabName) {
 
   var $tab = $('[href="#' + tabName + '"]')
 
-  alert('gotoTab replace')
+  alert('gotoTab 2')
 
   $tab.trigger('click');
 
-  $( '#tab-content' ).find( 'div.active' )
+  $( '#tab-content div' ).find( '.active' )
   .removeClass( 'active' ).removeClass( 'show' );
   $tab.addClass( 'active' ).addClass( 'show' );
 
