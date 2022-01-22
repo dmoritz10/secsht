@@ -91,8 +91,6 @@ async function goHome() {
      return
    }
   
-  var hcpObj = readOption('handicapObj')
-
   // $('#hmNbrSheets').html(hcpObj.currHandicap.toFixed(1))
   // $('#hmNbrProviders').html(hcpObj.nbrRounds)
 
