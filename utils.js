@@ -293,7 +293,9 @@ function gotoTab(tabName) {
 
   var $tab = $('[href="#' + tabName + '"]')
 
-  alert('gotoTab xxxx')
+  var $tab = $('"#' + tabName + '"')
+
+  alert('gotoTab ccccc')
 
   // $tab.trigger('click');
 
