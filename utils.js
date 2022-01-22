@@ -295,15 +295,13 @@ function gotoTab(tabName) {
 
   var $tab = $('#' + tabName )
 
-  alert('gotoTab sdfsdf')
+  alert('gotoTab zzz')
 
   // $tab.trigger('click');
 
- console.log($( '.tab-content > div' ))
- console.log($tab)
- console.log($tab.parent())
+ console.log($( '.tab-content > div .active' ))
 
-  $( '.tab-content > div' ).removeClass( 'active' ).removeClass( 'show' );
+  $( '.tab-content > div .active' ).removeClass( 'active' ).removeClass( 'show' );
   $tab.addClass( 'active' ).addClass( 'show' );
 
 }
