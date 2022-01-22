@@ -297,8 +297,7 @@ function gotoTab(tabName) {
 
   $tab.trigger('click');
 
-  $( '#tab-content div' ).find( '.active' )
-  .removeClass( 'active' ).removeClass( 'show' );
+  $( '#tab-content div' ).removeClass( 'active' ).removeClass( 'show' );
   $tab.addClass( 'active' ).addClass( 'show' );
 
 }
