@@ -1,6 +1,6 @@
 
 <div class="">
-  <div class="  sticky-top border-bottom px-1" style="background-color: #f9f9f9;">
+  <div class="  sticky-top border-bottom px-1 pb-2" style="background-color: #f9f9f9;">
     <div class="row m-0 px-2 pt-2 pb-2">
       <div class="col-1 px-1 mt-2">
         <div class="label  text-center h1 mt-2 cursor-pointer" onclick="goHome()"><i class="material-icons">arrow_back_ios</i></div>
@@ -11,46 +11,45 @@
       <div class="col-1 px-1"> 
   
         <div id="shtSelectDropDown" class="dropdown">
-          <button class="btn dropdown-toggle pl-0" type="button" id="btnShtMoreVert" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
+          <button class="btn dropdown-toggle pl-0" type="button" data-bs-toggle="dropdown">
             <i class="material-icons md-36" style="width:12px">more_vert</i>
           </button>
-          <div>
-            <div class="dropdown-menu more-vert-menu">
-              <form id="shtSelectForm" class="px-4 pt-3">
-                <div class="form-check">
-                  <input type="checkbox" class="form-check-input" id="shtSelectFav">
-                  <label class="form-check-label" for="shtSelectFav">
-                    Select favorite Providers
-                  </label>
-                </div>
 
-                <button type="button" class="btn btn-primary float-right mt-2" id="btnShtSelect">Go</button>
-              </form>
-            </div>
+          <div class="dropdown-menu more-vert-menu">
+            <form class="px-4 py-3">
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="shtSelectFav">
+                <label class="form-check-label" for="shtSelectFav">
+                  Select favorite Providers
+                </label>
+              </div>
+
+              <button type="button" class="btn btn-primary float-end mt-2" id="btnShtSelect">Go</button>
+            </form>
+            
           </div>
+
         </div>
       </div>
   
     </div>
-    <div class=clearfix></div>
-
-    <div class="row m-0 px-2 py-3">
-      <div class="col px-1 mt-2">
-        <input class="form-control" id="shtSearchProviders" type="text"
-          placeholder="Search Providers">
-      </div>
-    </div>
-
   </div>
-  
+
+  <div class=clearfix></div>
+
+  <div class="row m-0 px-2 py-3">
+    <div class="col px-1 mt-2">
+      <input class="form-control" id="shtSearch" type="search"
+        placeholder="Search Providers">
+    </div>
+  </div>
 
   <div id="shtContainer" class=" mt-0 py-3 px-2" style="background-color:lightblue;">
     <div class=" my-2 border d-none" style="border-radius: 25px; background:lightgoldenrodyellow;">
 
       <div id="shtSrchProvider"  class="row m-2 p-0 my-3  align-items-center">
         <div class="col px-1">
-          <div id="shtProvider" class="label  text-left h5 pb-0 align-middle font-weight-bold"></div>
+          <div id="shtProvider" class="label  text-start h5 pb-0 align-middle fw-bold"></div>
         </div>
 
         <div class="col-2 px-1 align-right">
@@ -64,7 +63,7 @@
         </div>
 
         <div class="col-1 px-2">
-          <div id="btnShtShowSheet" class="label  text-right h2 text-muted align-middle cursor-pointer"><i
+          <div id="btnShtShowSheet" class="label  text-end h2 text-muted align-middle cursor-pointer"><i
               class="material-icons">arrow_forward_ios</i></div>
         </div>
 
@@ -94,78 +93,78 @@
             <div class="h5">Provider Maintenance</div>
             <div  id="shtmSheetName"></div>
           </div>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true"></span>
           </button>
         </div>
         <div class="modal-body" style="background-color:lightskyblue;">
           <form id="sheet-form" method="get" action=""  >
 
             <fieldset>
-              <div class="form-group row d-none">
+              <div class="row d-none">
                 <label for="shtmIdx" class="col-form-label">Id</label>
                 <div class="col-sm-8">
                   <input type="text" class="form-control" id="shtmIdx" name="shtmIdx">
                 </div>
               </div>
 
-              <div class="form-group row my-0">
+              <div class="row my-0">
                 <div class="col">
                   <label for="shtmProvider" class="col-form-label">Provider</label>
                   <input type="text" class="form-control text-success h4" id="shtmProvider" name="shtmProvider" required>
                 </div>
               </div>
 
-              <div class="form-group row my-0">
+              <div class="row my-0">
                 <div class="col">
                   <label for="shtmLogin" class="col-form-label">Login</label>
                   <input type="text" class="form-control text-success h4" id="shtmLogin" name="shtmLogin" required>
                 </div>
               </div>
 
-              <div class="form-group row my-0">
+              <div class="row my-0">
                 <div class="col">
                   <label for="shtmPassword" class="col-form-label">Password</label>
                   <input type="text" class="form-control text-success h4" id="shtmPassword" name="shtmPassword" required>
                 </div>
               </div>
 
-              <div class="form-group row my-0">
+              <div class="row my-0">
                 <div class="col">
                   <label for="shtmAccountNbr" class="col-form-label">Account Nbr</label>
                   <input type="text" class="form-control text-success h4" id="shtmAccountNbr" name="shtmAccountNbr">
                 </div>
               </div>
 
-              <div class="form-group row my-0">
+              <div class="row my-0">
                 <div class="col">
                   <label for="shtmPinNbr" class="col-form-label">Pin Nbr</label>
                   <input type="text" class="form-control text-success h4" id="shtmPinNbr" name="shtmPinNbr">
                 </div>
               </div>
 
-              <div class="form-group row my-0">
+              <div class="row my-0">
                 <div class="col">
                   <label for="shtmAutoPay" class="col-form-label">Auto Pay</label>
                   <input type="text" class="form-control text-success h4" id="shtmAutoPay" name="shtmAutoPay">
                 </div>
               </div>
 
-              <div class="form-group row my-0">
+              <div class="row my-0">
                 <div class="col">
                   <label for="shtmLoginUrl" class="col-form-label">Login Url</label>
                   <input type="url" class="form-control text-success h4" id="shtmLoginUrl" name="shtmLoginUrl">
                 </div>
               </div>
 
-              <div class="form-group row my-0">
+              <div class="row my-0">
                 <div class="col">
                   <label for="shtmSecurityQA" class="col-form-label">Security Q/A</label>
                   <input type="text" class="form-control text-success h4" id="shtmSecurityQA" name="shtmSecurityQA">
                 </div>
               </div>
 
-              <div class="form-group row my-0">
+              <div class="row my-0">
                 <div class="col">
                   <label for="shtmNotes" class="col-form-label">Notes</label>
                   <input type="text" class="form-control text-success h4" id="shtmNotes" name="shtmNotes">
@@ -180,7 +179,7 @@
         <div class="modal-footer">
           <input id="btnShtmSubmit" class="btn btn-primary" type="submit" value="Submit">
           <button id="btnShtmDelete" type="button" class="btn btn-primary" data-dismiss="modal">Delete</button>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         </div>
 
 

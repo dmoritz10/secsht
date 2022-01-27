@@ -207,27 +207,30 @@ jQuery(function ($) {
             $('#btnEncrypt')       .click(btnEncryptHtml);
             $('#btnDecrypt')       .click(btnDecryptHtml);
 
-            $("#shtSearchProviders").on("keyup", function() {
+            $("#shtSearch").on("input", function() {
                 var value = $(this).val().toLowerCase();
+
                 $("#shtContainer #shtProvider").filter(function() {
                   $(this).parent().parent().parent().toggle($(this).text().toLowerCase().indexOf(value) > -1)
                 });
-              });
+                
+            });
+
           
             // All tabs
             $('.divfullscreen').click(function(){
               document.documentElement.requestFullscreen();
             });
           
-            // var whiteList = $.fn.tooltip.Constructor.Default.whiteList
+            var whiteList = $.fn.tooltip.Constructor.Default.allowList
           
-            //     whiteList.table = []
-            //     whiteList.td = []
-            //     whiteList.th = []
-            //     whiteList.thead = []
-            //     whiteList.tr = []
-            //     whiteList.tbody = []
-            //     whiteList.button = []
+                whiteList.table = []
+                whiteList.td = []
+                whiteList.th = []
+                whiteList.thead = []
+                whiteList.tr = []
+                whiteList.tbody = []
+                whiteList.button = []
           
             setupFormValidation()
           

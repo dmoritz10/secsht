@@ -35,10 +35,10 @@ async function showSheet(idx) {
     .setHeader()
     .setTableHeaderClass()
     .setData(sht)
-    .setTableClass('table')
+    .setTableClass('table table-borderless')
     .setTrClass('d-flex')
-    .setTcClass(['text-right col-4 h5 text-success', 'text-left col h4', 'col-1'])
-    .setTdClass('py-1 pl-0 border-0 align-bottom')
+    .setTcClass(['text-end col-4 h5 text-success', 'text-start col h4', 'col-1'])
+    .setTdClass('py-1 pb-0 border-0 align-bottom')
     .build('#tblSheet');
         
 } 

@@ -63,7 +63,7 @@ async function listSheet(title) {
 
   gotoTab('Sheets')
 
-  var srchVal = $("#shtSearchProviders").val()
+  var srchVal = $("#shtSearch").val()
 
   if (srchVal) {
 
@@ -92,8 +92,6 @@ async function btnShtSelectHtml(e) {
   await updateOption('shtFilter', {
     'shtSelectFav': shtSelectFavVal
   })
-
-  $("#btnShtMoreVert").click()
 
   listSheet(shtTitle)
 
