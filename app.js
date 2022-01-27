@@ -106,18 +106,13 @@ jQuery(function ($) {
                     $('#authSigninStatus').html('Hi ' + signin.currUser.emailName + '.<br>You are signed in.')
                 }
 
-                var rtn = await getSSId(signin.currUser);
-
-                if (rtn.fileId) {spreadsheetId = rtn.fileId}
-                else {$('#authSigninStatus').html(rtn.msg);return}
+                showLogin()
                 
-                await initialUI();
-
-                goHome()
-
             } else {
 
                 console.log('NOT signed in')
+
+                showAuth()
 
                 $('#authSigninStatus').html('You are signed out.  Authorization is required.')
 

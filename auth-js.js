@@ -12,6 +12,20 @@ function btnSignoutHtml(event) {
     // signin.handleSignoutClick();
     gotoTab('Auth')
 }
+
+function showAuth() {
+
+  $('#secshtLogin').addClass('d-none')
+  $('#secshtAuth').removeClass('d-none')
+
+}
+      
+function showLogin() {
+
+  $('#secshtAuth').addClass('d-none')
+  $('#secshtLogin').removeClass('d-none')
+
+}
       
 async function btnEncryptHtml(event) {
 
