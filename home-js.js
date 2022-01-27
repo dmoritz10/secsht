@@ -87,15 +87,12 @@ async function goHome() {
   console.log('signinStatus')
   console.log(signinStatus)
    if (!signinStatus) {
+     showAuth()
      gotoTab('Auth')
      return
    }
   
-  var hcpObj = readOption('handicapObj')
-
-  // $('#hmNbrSheets').html(hcpObj.currHandicap.toFixed(1))
-  // $('#hmNbrProviders').html(hcpObj.nbrRounds)
-
+ 
   gotoTab('Home')
 
 }
