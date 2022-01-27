@@ -28,7 +28,7 @@ function showLogin() {
 }
 
 
-function btnAuthLoginHtml(user, pwd) {
+async function btnAuthLoginHtml(user, pwd) {
 
   var usr = $('#authUserName').val()
   var pwd = $('#authPwd').val()
