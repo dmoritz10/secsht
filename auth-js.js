@@ -10,6 +10,8 @@ function btnAuthHtml(event) {
 function btnSignoutHtml(event) {
   gapi.auth2.getAuthInstance().signOut();
     // signin.handleSignoutClick();
+    currUser = {}
+    showAuth()
     gotoTab('Auth')
 }
 
@@ -30,14 +32,14 @@ function showLogin() {
 
 async function btnAuthLoginHtml(user, pwd) {
 
-  var usr = $('#authUserName').val()
-  var pwd = $('#authPwd').val()
+  currUser.usr = $('#authUserName').val()
+  currUser.pwd = $('#authPwd').val()
 
   $('#authUserName').val('')
   $('#authPwd').val('')
 
 
-  var rtn = await getSSId(usr);
+  var rtn = await getSSId(currUser.usr);
 
   if (rtn.fileId) {spreadsheetId = rtn.fileId}
   else {$('#authSigninStatus').html(rtn.msg);return}
