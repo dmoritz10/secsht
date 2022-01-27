@@ -2,6 +2,10 @@
  
 Prompt for username / password on Auth page after authentication
 
+Prompt to change password => 
+    for each sheetdecrypt old pw then encrypt new pw
+    decrypt/encrypt shtList
+
 use username to build file name
     if file not found then invalid username
 
