@@ -107,7 +107,7 @@ jQuery(function ($) {
                 }
 
                 showLogin()
-                
+
             } else {
 
                 console.log('NOT signed in')
@@ -185,6 +185,7 @@ jQuery(function ($) {
           
             $('#btnAuth')                   .button().click(btnAuthHtml);
             $('#btnSignout')                .button().click(btnSignoutHtml);
+            $('#btnAuthLogin')                .button().click(btnAuthLoginHtml);
           
           
             // Home tab

@@ -26,6 +26,24 @@ function showLogin() {
   $('#secshtLogin').removeClass('d-none')
 
 }
+
+
+function btnAuthLoginHtml(user, pwd) {
+
+  goHome()
+
+  // var rtn = await getSSId(signin.currUser);
+
+  // if (rtn.fileId) {spreadsheetId = rtn.fileId}
+  // else {$('#authSigninStatus').html(rtn.msg);return}
+  
+  // await initialUI();
+
+  // goHome()
+
+
+
+}
       
 async function btnEncryptHtml(event) {
 
