@@ -5,7 +5,7 @@ async function getSSId(currUser) {
   console.log(currUser)
 
 
-  var q = "name = 'secsht - " + currUser.emailName +
+  var q = "name = 'secsht - " + currUser +
       "' AND " + "mimeType='application/vnd.google-apps.spreadsheet'" +
       " AND " + "trashed = false"
 
