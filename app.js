@@ -7,6 +7,9 @@
 
     var secSht = {}
 
+    var usr
+    var pwd
+
     var shtHdrs
     var shtVals
     var shtTitle

@@ -30,6 +30,9 @@ function showLogin() {
 
 function btnAuthLoginHtml(user, pwd) {
 
+  var usr = $('#authUserName').val()
+  var pwd = $('#authPwd').val()
+
   goHome()
 
   // var rtn = await getSSId(signin.currUser);
