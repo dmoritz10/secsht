@@ -33,16 +33,18 @@ function btnAuthLoginHtml(user, pwd) {
   var usr = $('#authUserName').val()
   var pwd = $('#authPwd').val()
 
-  goHome()
+  $('#authUserName').val('')
+  $('#authPwd').val('')
 
-  // var rtn = await getSSId(signin.currUser);
 
-  // if (rtn.fileId) {spreadsheetId = rtn.fileId}
-  // else {$('#authSigninStatus').html(rtn.msg);return}
+  var rtn = await getSSId(usr);
+
+  if (rtn.fileId) {spreadsheetId = rtn.fileId}
+  else {$('#authSigninStatus').html(rtn.msg);return}
   
-  // await initialUI();
+  await initialUI();
 
-  // goHome()
+  goHome()
 
 
 
