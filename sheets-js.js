@@ -12,14 +12,17 @@ async function listSheet(title) {
     console.log(objSht)
 
   shtTitle = title
-  shtHdrs = decryptArr(currUser.pwd, objSht[shtTitle].colHdrs)
-  var vals = decryptArr(currUser.pwd, objSht[shtTitle].vals)
-  vals.forEach((val, idx, arr)=> arr[idx].push(idx))
-  shtVals = vals.sort(function(a,b){ return a[0].toLowerCase() > b[0].toLowerCase() ? 1 : -1; });
-  console.log('shtVals', shtVals)
   shtId   = secSht[shtTitle].id
   shtCols = secSht[shtTitle].Cols
   shtRows = secSht[shtTitle].Rows
+  shtHdrs = decryptArr(currUser.pwd, objSht[shtTitle].colHdrs)
+  
+  var vals = decryptArr(currUser.pwd, objSht[shtTitle].vals)
+  vals.forEach((val, idx, arr)=> arr[idx].push(idx))
+  shtVals = vals.sort(function(a,b){ return a[0].toLowerCase() > b[0].toLowerCase() ? 1 : -1; });
+  
+  console.log('shtVals', shtVals)
+ 
 
   $("#shtTitle")[0].innerHTML = shtTitle
 
