@@ -191,7 +191,7 @@ async function decryptMessage(password, ciphertext){
     encrypted.slice(salt_len + iv_len)
     )
     .then(function(decrypted) {
-      console.log(decoder.decode(decrypted));
+      console.log('deecrypted', decoder.decode(decrypted));
       return decoder.decode(decrypted);
     })
     .catch(function(err) {
