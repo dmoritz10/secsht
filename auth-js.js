@@ -192,7 +192,7 @@ async function decryptMessage(password, ciphertext){
   );
   console.log(decoder.decode(decrypted));
 
-  return decrypted
+  return decoder.decode(decrypted
 
 
 }
