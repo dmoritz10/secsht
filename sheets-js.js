@@ -15,7 +15,7 @@ async function listSheet(title) {
   shtHdrs = decryptArr(currUser.pwd, objSht[shtTitle].colHdrs)
   var vals = decryptArr(currUser.pwd, objSht[shtTitle].vals)
   vals.forEach((val, idx, arr)=> arr[idx].push(idx))
-  shtVals = vals.sort(function(a,b){ return a[0] > b[0] ? 1 : -1; });
+  shtVals = vals.sort(function(a,b){ return a[0].toLowerCase() > b[0].toLowerCase() ? 1 : -1; });
   console.log('shtVals', shtVals)
   shtId   = secSht[shtTitle].id
   shtCols = secSht[shtTitle].Cols
