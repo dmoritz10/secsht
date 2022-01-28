@@ -213,8 +213,8 @@ function decryptArr(pwd, msg) {
     for (var i=0; i<msg[0].length; i++) {
       var r = msg[i]
       var row = []
-      for (var j=0; j<row.length; j++) {
-        row.push(row[j])
+      for (var j=0; j<r.length; j++) {
+        row.push(r[j])
       } 
     rtn.push(row)
     }
