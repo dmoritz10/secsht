@@ -48,9 +48,14 @@ async function initialUI() {
 
   var x = arrOptions.shtList
   var t = "The quick brown fox jumped over the lazy dog"
+        
   if (x == t) return {status: 100, msg: 'Sheets are not encrypted'}
 
   var dx = decryptMessage(currUser.pwd, x)
+
+  console.log('dx', dx)
+  console.log('t', t)
+  console.log(dx == t)
 
   if (dx != t) return {status: 101, msg: 'Invalid password'}
 
