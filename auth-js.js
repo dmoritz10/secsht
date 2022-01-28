@@ -199,4 +199,6 @@ async function decryptMessage(password, ciphertext){
       console.error(err);
     });
 
+    return decrypted
+
 }
