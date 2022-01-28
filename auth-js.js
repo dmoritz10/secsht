@@ -206,6 +206,8 @@ async function decryptMessage(password, ciphertext){
 
 function decryptArr(pwd, msg) {
 
+  console.log('dan')
+
   var rtn = []
 
   if (is2dArray(msg)) {
