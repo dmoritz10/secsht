@@ -191,11 +191,8 @@ async function decryptMessage(password, ciphertext){
     encrypted.slice(salt_len + iv_len)
     )
     .then(function(decrypted) {
-      //returns an ArrayBuffer containing the decrypted data
-      // alert(decrypted);
       console.log(decoder.decode(decrypted));
       return decoder.decode(decrypted);
-      //resolve(ats(decrypted));
     })
     .catch(function(err) {
       console.log(err)
