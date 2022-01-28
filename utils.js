@@ -458,3 +458,11 @@ function msToHHMMSS(ms) {
   return hhmmss.join(':');
 
 }
+
+function is2dArray(array){
+  if(array[0] === undefined){
+    return false;
+  }else{
+    return (array[0].constructor === Array);
+  }
+}

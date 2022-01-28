@@ -204,10 +204,29 @@ async function decryptMessage(password, ciphertext){
 
 }
 
-function decrypt(pwd, msg) {
+function decryptArr(pwd, msg) {
+
+  var rtn = []
+
+  if (is2dArray(msg)) {
+
+    for (var i=0; i<msg[0].length; i++) {
+      var r = msg[i]
+      var row = []
+      for (var j=0; j<row.length; j++) {
+        row.push(row[j])
+      } 
+    rtn.push(row)
+    }
+
+  } else {
+
+    for (var i=0; i<msg.length; i++) {
+      rtn.push(msg[i])
+    }
+
+  }
 
   return msg
-
-
 
 }
