@@ -189,10 +189,21 @@ async function decryptMessage(password, ciphertext){
     { name: "AES-CBC", iv },
     key,
     encrypted.slice(salt_len + iv_len)
-  );
-  console.log(decoder.decode(decrypted));
+    )
+    .then(function(decrypted) {
+      //returns an ArrayBuffer containing the decrypted data
+      // alert(decrypted);
+      console.log(decoder.decode(decrypted));
+      return decoder.decode(decrypted);
+      //resolve(ats(decrypted));
+    })
+    .catch(function(err) {
+      console.log(err)
+      console.error(err);
+    });
+  
 
-  return decoder.decode(decrypted)
+ \
 
 
 }
