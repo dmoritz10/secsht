@@ -197,6 +197,7 @@ async function decryptMessage(password, ciphertext){
     .catch(function(err) {
       console.log(err)
       console.error(err);
+      return err
     });
 
     return decrypted
