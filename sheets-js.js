@@ -9,9 +9,11 @@ async function listSheet(title) {
       { title: title, type: "all" }
     ])
 
+    console.log(objSht)
+
   shtTitle = title
-  shtHdrs = objSht[shtTitle].colHdrs
-  shtVals = objSht[shtTitle].vals
+  shtHdrs = decrypt(currUser.pwd, objSht[shtTitle].colHdrs)
+  shtVals = decrypt(objSht[shtTitle].vals)
   shtId   = secSht[shtTitle].id
   shtCols = secSht[shtTitle].Cols
   shtRows = secSht[shtTitle].Rows
