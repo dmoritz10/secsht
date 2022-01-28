@@ -51,7 +51,7 @@ async function initialUI() {
         
   if (x == t) return {status: 100, msg: 'Sheets are not encrypted'}
 
-  var dx = decryptMessage(currUser.pwd, x)
+  var dx = await decryptMessage(currUser.pwd, x)
 
   console.log('dx', dx)
   console.log('t', t)
