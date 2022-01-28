@@ -46,6 +46,8 @@ async function btnAuthLoginHtml(user, pwd) {
   
   var ui = await initialUI();
 
+  console.log(ui)
+
   if (ui.status != 0) return ui
 
   loadSheets()
