@@ -14,6 +14,8 @@ async function listSheet(title) {
   shtTitle = title
   shtHdrs = decryptArr(currUser.pwd, objSht[shtTitle].colHdrs)
   shtVals = decryptArr(currUser.pwd, objSht[shtTitle].vals)
+  shtVals.forEach((val, idx, arr)=> arr[idx].push(idx))
+  console.log('shtVals', shtVals)
   shtId   = secSht[shtTitle].id
   shtCols = secSht[shtTitle].Cols
   shtRows = secSht[shtTitle].Rows
