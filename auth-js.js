@@ -204,7 +204,7 @@ async function decryptMessage(password, ciphertext){
 
 }
 
-function decrypt(msg) {
+function decrypt(pwd, msg) {
 
   return msg
 
