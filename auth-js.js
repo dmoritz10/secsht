@@ -203,3 +203,11 @@ async function decryptMessage(password, ciphertext){
     return decrypted
 
 }
+
+function decrypt(msg) {
+
+  return msg
+
+
+
+}

@@ -13,7 +13,7 @@ async function listSheet(title) {
 
   shtTitle = title
   shtHdrs = decrypt(currUser.pwd, objSht[shtTitle].colHdrs)
-  shtVals = decrypt(objSht[shtTitle].vals)
+  shtVals = decrypt(currUser.pwd, objSht[shtTitle].vals)
   shtId   = secSht[shtTitle].id
   shtCols = secSht[shtTitle].Cols
   shtRows = secSht[shtTitle].Rows
