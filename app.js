@@ -188,8 +188,11 @@ jQuery(function ($) {
             $('#btnAuth')                   .button().click(btnAuthHtml);
             $('#btnSignout')                .button().click(btnSignoutHtml);
             $('#btnAuthLogin')                .button().click(btnAuthLoginHtml);
-          
-          
+            $('#btnAuthEncrypt')                .button().click(btnAuthEncryptHtml);
+            $('#btnAuthDecrypt')                .button().click(btnAuthDecryptHtml);
+         
+            <button id="btnAuthLogin" class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
+ 
             // Home tab
           
             // Sheets

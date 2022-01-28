@@ -80,6 +80,17 @@ async function btnDecryptHtml(event) {
   console.log('decryptMsg')
     
 }
+
+function btnAuthEncryptHtml() {
+
+  
+
+
+
+}
+
+
+
 async function encryptMessage(msg, password) {
 
   const encoder = new TextEncoder();
