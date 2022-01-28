@@ -191,8 +191,6 @@ jQuery(function ($) {
             $('#btnAuthEncrypt')                .button().click(btnAuthEncryptHtml);
             $('#btnAuthDecrypt')                .button().click(btnAuthDecryptHtml);
          
-            <button id="btnAuthLogin" class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
- 
             // Home tab
           
             // Sheets
