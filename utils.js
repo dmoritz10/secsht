@@ -46,7 +46,15 @@ async function initialUI() {
   arrOptions    = toObject(arrShts.Settings.vals)
   optionsIdx    = toObjectIdx(arrShts.Settings.vals)
 
-  loadSheets()
+  var x = arrOptions.shtList
+  var t = "The quick brown fox jumped over the lazy dog"
+  if (x == t) return {status: 100, msg: 'Sheets are not encrypted'}
+
+  var dx = decryptMessage(currUser.pwd, x)
+
+  if (dx != t) return {status: 101, msg: 'Invalid password'}
+
+  return {status: 0, msg: ''}
 
 };
 

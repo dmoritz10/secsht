@@ -44,17 +44,17 @@ async function btnAuthLoginHtml(user, pwd) {
   if (rtn.fileId) {spreadsheetId = rtn.fileId}
   else {$('#authSigninStatus').html(rtn.msg);return}
   
-  await initialUI();
+  var ui = await initialUI();
+
+  if (ui.status != 0) return ui
+
+  loadSheets()
 
   goHome()
-
-
 
 }
       
 async function btnEncryptHtml(event) {
-
-  var pswd = "cTeetime101"
 
   var msg = await prompt("Text to be encoded", "textarea");
 
@@ -64,12 +64,10 @@ async function btnEncryptHtml(event) {
   var encryptMsg = await encryptMessage(msg, key)
 
   
-console.log('encryptMsg xxx')
+console.log('encryptMsg', encryptMsg)
 
 }
 
-var ciphertext;
-var iv;
 
 async function btnDecryptHtml(event) {
 
@@ -126,7 +124,7 @@ const encrypted = await window.crypto.subtle.encrypt(
   plain_text
 );
 
-ciphertext = toBase64([
+var ciphertext = toBase64([
   ...salt,
   ...iv,
   ...new Uint8Array(encrypted)
@@ -138,9 +136,12 @@ console.log({
   encrypted: toBase64(encrypted),
   concatennated: ciphertext
 });
+
+return ciphertext
+
 }
 
-async function decryptMessage(password){
+async function decryptMessage(password, ciphertext){
 
   const encoder = new TextEncoder();
   const decoder = new TextDecoder();

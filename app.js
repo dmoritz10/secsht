@@ -8,8 +8,6 @@
     var secSht = {}
 
     var currUser = {}
-    var usr
-    var pwd
 
     var shtHdrs
     var shtVals
