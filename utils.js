@@ -53,6 +53,7 @@ async function initialUI() {
 
   var dx = await decryptMessage(currUser.pwd, x)
 
+  console.log('x', x)
   console.log('dx', dx)
   console.log('t', t)
   console.log(dx == t)
