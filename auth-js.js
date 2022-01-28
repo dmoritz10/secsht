@@ -83,13 +83,19 @@ async function btnDecryptHtml(event) {
 
 function btnAuthEncryptHtml() {
 
-  
+
 
 
 
 }
 
+function btnAuthDecryptHtml() {
 
+  
+
+
+
+}
 
 async function encryptMessage(msg, password) {
 
