@@ -210,13 +210,6 @@ console.log(shtVals)
 
   await updateSheet(idx)
 
-
-  // To update only the SxS Hole Detail column
-
-  // c[cols.indexOf("SxS Hole Detail")] = $('#scmHoleDetail').val()
-  // arrShts['My Courses'].vals[idx] = c
-  // await updateCourse(c, idx)
-
   await initialUI()
 
   $("#sheet-modal").modal('hide');
@@ -344,43 +337,45 @@ async function btnDeleteSheetHtml() {
   var confirmOK = await confirm("Are you sure you want to delete this provider ?")
 
   if (!confirmOK) return
-  
 
-  var idx = $('#shtmIdx').val()*1
 
-  var request = { "requests": 
-  [
-    {
-      "deleteDimension": {
-        "range": {
-          "sheetId": shtId,
-          "dimension": "ROWS",
-          "startIndex": idx+1,
-          "endIndex": idx+2
+  var idx = $('#shtmIdx').val() * 1
+
+  var request = {
+    "requests":
+      [
+        {
+          "deleteDimension": {
+            "range": {
+              "sheetId": shtId,
+              "dimension": "ROWS",
+              "startIndex": idx + 1,
+              "endIndex": idx + 2
+            }
+          }
         }
-      }
-    }
-  ]
-}
+      ]
+  }
 
-console.log(request)
 
-await gapi.client.sheets.spreadsheets.batchUpdate({
-  spreadsheetId: spreadsheetId,
-  resource: request
+  console.log(request)
 
-}).then(response => {
+  await gapi.client.sheets.spreadsheets.batchUpdate({
+    spreadsheetId: spreadsheetId,
+    resource: request
 
-  console.log('delete complete')
-  console.log(response)
+  }).then(response => {
 
-})
+    console.log('delete complete')
+    console.log(response)
 
-await initialUI()
+  })
 
-$("#sheet-modal").modal('hide');
+  await initialUI()
 
-listSheet(shtTitle)
+  $("#sheet-modal").modal('hide');
+
+  listSheet(shtTitle)
 
 }
 
