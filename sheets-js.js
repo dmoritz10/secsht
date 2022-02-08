@@ -9,7 +9,7 @@ async function listSheet(title) {
       { title: title, type: "all" }
     ])
 
-    console.log(objSht)
+  console.log(objSht)
 
   shtTitle = title
   shtId   = secSht[shtTitle].id
