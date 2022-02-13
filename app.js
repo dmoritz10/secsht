@@ -108,7 +108,7 @@ jQuery(function ($) {
                     $('#authSigninStatus').html('Hi ' + signin.currUser.emailName + '.<br>You are signed in.')
                 }
 
-                showLogin()
+                await showLogin()
 
             } else {
 

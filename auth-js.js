@@ -14,7 +14,7 @@ function btnSignoutHtml(event) {
     gotoTab('Auth')
 }
       
-function showLogin() {
+async function showLogin() {
   // prompt for user Name
   var userName = await prompt("User Name", "text");
 
