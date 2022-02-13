@@ -259,7 +259,7 @@ function decryptArr(pwd, msg) {
 
     console.log('msg', msg)
 
-    for (var i=0; i<msg[0].length; i++) {
+    for (var i=0; i<msg.length; i++) {
       var r = msg[i]
       var row = []
       for (var j=0; j<r.length; j++) {
