@@ -252,7 +252,7 @@ async function decryptMessage(ciphertext, password){
 
 }
 
-function decryptArr(pwd, msg) {
+function decryptArr(msg, pwd) {
 
   console.log('dan')
 
