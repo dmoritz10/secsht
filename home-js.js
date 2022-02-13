@@ -87,7 +87,6 @@ async function goHome() {
   console.log('signinStatus')
   console.log(signinStatus)
    if (!signinStatus) {
-     showAuth()
      gotoTab('Auth')
      return
    }

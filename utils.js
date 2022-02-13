@@ -46,22 +46,7 @@ async function initialUI() {
   arrOptions    = toObject(arrShts.Settings.vals)
   optionsIdx    = toObjectIdx(arrShts.Settings.vals)
 
-  var x = arrOptions.shtList
-  var t = "The quick brown fox jumped over the lazy dog"
-        
-  if (x == t) return {status: 100, msg: 'Sheets are not encrypted'}
-
-  var dx = await decryptMessage(currUser.pwd, x)
-
-  console.log('x', x)
-  console.log('dx', dx)
-  console.log('t', t)
-  console.log(dx == t)
-
-  if (dx != t) return {status: 101, msg: 'Invalid password'}
-
-  return {status: 0, msg: ''}
-
+ 
 };
 
 var confirm = function (msg) {

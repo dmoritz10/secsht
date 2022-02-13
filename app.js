@@ -114,8 +114,6 @@ jQuery(function ($) {
 
                 console.log('NOT signed in')
 
-                showAuth()
-
                 $('#authSigninStatus').html('You are signed out.  Authorization is required.')
 
                 signin.currUser = {}
@@ -187,9 +185,7 @@ jQuery(function ($) {
           
             $('#btnAuth')                   .button().click(btnAuthHtml);
             $('#btnSignout')                .button().click(btnSignoutHtml);
-            $('#btnAuthLogin')                .button().click(btnAuthLoginHtml);
-            $('#btnAuthEncrypt')                .button().click(btnAuthEncryptHtml);
-            $('#btnAuthDecrypt')                .button().click(btnAuthDecryptHtml);
+            // $('#btnAuthLogin')                .button().click(btnAuthLoginHtml);
          
             // Home tab
           

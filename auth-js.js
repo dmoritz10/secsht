@@ -11,21 +11,45 @@ function btnSignoutHtml(event) {
   gapi.auth2.getAuthInstance().signOut();
     // signin.handleSignoutClick();
     currUser = {}
-    showAuth()
     gotoTab('Auth')
-}
-
-function showAuth() {
-
-  $('#secshtLogin').addClass('d-none')
-  $('#secshtAuth').removeClass('d-none')
-
 }
       
 function showLogin() {
+  // prompt for user Name
+  var userName = await prompt("User Name", "text");
 
-  $('#secshtAuth').addClass('d-none')
-  $('#secshtLogin').removeClass('d-none')
+  var rtn = await getSSId(userName);
+
+  if (rtn.fileId) {spreadsheetId = rtn.fileId}
+  else {$('#authSigninStatus').html(rtn.msg);return}
+
+  var ui = await initialUI();
+
+  var x = arrOptions.shtList
+  var t = "The quick brown fox jumped over the lazy dog"
+        
+  if (x == t) {
+    var pwd = await prompt("Password has not be setup.  Enter Password", "password");
+    var pdrcnfrm = await prompt("Confirm Password", "password");
+    if (pwd != pdrcnfrm) {
+      var confirmOK = await confirm("Passwords don't match.")
+      return
+    }
+  } else {
+    var pwd = await prompt("Enter Password", "password");
+  }
+
+  var dx = await decryptMessage(pwd, x)
+
+  console.log('x', x)
+  console.log('dx', dx)
+  console.log('t', t)
+  console.log(dx == t)
+
+  if (dx != t) return {await confirm("Invaled password");return}
+
+  currUser.usr = userName
+  currUser.pwd = pwd
 
 }
 
