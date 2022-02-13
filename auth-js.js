@@ -257,6 +257,8 @@ function decryptArr(pwd, msg) {
 
   if (is2dArray(msg)) {
 
+    console.log('msg', msg)
+
     for (var i=0; i<msg[0].length; i++) {
       var r = msg[i]
       var row = []
