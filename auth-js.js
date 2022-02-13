@@ -36,13 +36,15 @@ async function showLogin() {
       return
     }
     var encPwd = encryptMessage(t, pwd)
+
+    console.log(encPwd)
     await updateOption('shtList', encPwd)
     x = encPwd
   } else {
     var pwd = await prompt("Enter Password", "password");
   }
 
-  var dx = await decryptMessage(pwd, x)
+  var dx = await decryptMessage(x, pwd)
 
   console.log('x', x)
   console.log('dx', dx)
