@@ -35,7 +35,7 @@ async function showLogin() {
       var confirmOK = await confirm("Passwords don't match.")
       return
     }
-    var encPwd = encryptMessage(t, pwd)
+    var encPwd = await encryptMessage(t, pwd)
 
     console.log('enPwd', encPwd)
     await updateOption('shtList', encPwd)
