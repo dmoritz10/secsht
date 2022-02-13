@@ -37,6 +37,7 @@ async function showLogin() {
     }
     var encPwd = encryptMessage(pwd, t)
     await updateOption('shtList', encPwd)
+    x = encPwd
   } else {
     var pwd = await prompt("Enter Password", "password");
   }
