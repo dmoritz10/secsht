@@ -46,7 +46,7 @@ async function showLogin() {
   console.log('t', t)
   console.log(dx == t)
 
-  if (dx != t) return {await confirm("Invaled password");return}
+  if (dx != t) {await confirm("Invaled password");return}
 
   currUser.usr = userName
   currUser.pwd = pwd
