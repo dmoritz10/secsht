@@ -35,7 +35,7 @@ async function showLogin() {
       var confirmOK = await confirm("Passwords don't match.")
       return
     }
-    var encPwd = encryptMessage(t, pwd)
+    var encPwd = encryptMessage(pwd, t)
     await updateOption('shtList', encPwd)
     x = encPwd
   } else {
@@ -191,7 +191,7 @@ return ciphertext
 
 }
 
-async function decryptMessage(password, ciphertext){
+async function decryptMessage(ciphertext, password){
 
   const encoder = new TextEncoder();
   const decoder = new TextDecoder();
