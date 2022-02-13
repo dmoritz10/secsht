@@ -37,7 +37,7 @@ async function showLogin() {
     }
     var encPwd = encryptMessage(t, pwd)
 
-    console.log(encPwd)
+    console.log('enPwd', encPwd)
     await updateOption('shtList', encPwd)
     x = encPwd
   } else {
