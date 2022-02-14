@@ -1,5 +1,5 @@
 
-function loadSheets() {
+async function loadSheets() {
 
 
   return new Promise(async resolve => {
@@ -46,9 +46,9 @@ function loadSheets() {
 
         if (sht.gridProperties.columnCount == arrOptions['Nbr Columns per Sheet']) {
 
-          var enc = testEncrypted(sht.sheetId)
+          var enc = await testEncrypted(sht.sheetId)
 
-          if (enc.sec) {
+          if (enc.secSht) {
 
             ele.find('#hmSheet')[0].innerHTML = sht.title
 
@@ -78,10 +78,10 @@ function loadSheets() {
               enc:  enc.enc
             }
 
-          nbrSheets++
-          nbrProviders += sht.gridProperties.rowCount
+            nbrSheets++
+            nbrProviders += sht.gridProperties.rowCount
 
-        }
+          }
 
         }
     
@@ -98,7 +98,16 @@ function loadSheets() {
 
 }
 
+async function testEncrypted(sheetId) {
 
+  return {
+
+    sec: true,
+    enc: true
+  }
+
+
+}
 
 async function goHome() {
 

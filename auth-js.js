@@ -58,7 +58,7 @@ async function showLogin() {
   currUser.usr = userName
   currUser.pwd = pwd
 
-  loadSheets()
+  await loadSheets()
 
   goHome()
 
@@ -85,7 +85,7 @@ async function btnAuthLoginHtml(user, pwd) {
 
   if (ui.status != 0) return ui
 
-  loadSheets()
+  await loadSheets()
 
   goHome()
 
