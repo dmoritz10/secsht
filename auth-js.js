@@ -58,9 +58,15 @@ async function showLogin() {
   currUser.usr = userName
   currUser.pwd = pwd
 
+console.log('pre loadsheets')
+
   await loadSheets()
+  console.log('post loadsheets')
 
   goHome()
+
+console.log('post  goHome')
+
 
 }
 
