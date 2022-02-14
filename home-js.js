@@ -23,7 +23,6 @@ function loadSheets() {
 
     console.log('loadSheets', sheets)
 
-    
 
     if (sheets) {
 
@@ -47,22 +46,42 @@ function loadSheets() {
 
         if (sht.gridProperties.columnCount == arrOptions['Nbr Columns per Sheet']) {
 
-          ele.find('#hmSheet')[0].innerHTML = sht.title
+          var testEncrypted(sht.sheetId)
 
-          ele.find('#hmShowSheet')[0].setAttribute("onclick", "listSheet('" + sht.title + "')");
+          if (testEncrypted.secSht) {
 
-          ele.removeClass('d-none')
+            ele.find('#hmSheet')[0].innerHTML = sht.title
 
-          ele.appendTo("#hmContainer");
+            if (testEncrypted.enc) {
+              ele.find('#btnCrypt')[0].innerHTML = "decrypt"
+              ele.find('#btnCrypt')[0].addClass('btn-success')
+              ele.find('#btnCrypt')[0].removeClass('btn-danger')
+              ele.find('#btnCrypt')[0].setAttribute("onclick", "decryptSheet('" + sht.id + "')");
 
-          secSht[sht.title] = {
-            id:   sht.sheetId,
-            cols: sht.gridProperties.columnCount,
-            rows: sht.gridProperties.rowCount
-          }
+            } else {
+              ele.find('#btnCrypt')[0].innerHTML = "encrypt"
+              ele.find('#btnCrypt')[0].removeClass('btn-success')
+              ele.find('#btnCrypt')[0].addClass('btn-danger')
+              ele.find('#btnCrypt')[0].setAttribute("onclick", "encryptSheet('" + sht.id + "')");
+            }
+
+            ele.find('#hmShowSheet')[0].setAttribute("onclick", "listSheet('" + sht.title + "')");
+
+            ele.removeClass('d-none')
+
+            ele.appendTo("#hmContainer");
+
+            secSht[sht.title] = {
+              id:   sht.sheetId,
+              cols: sht.gridProperties.columnCount,
+              rows: sht.gridProperties.rowCount,
+              enc:  testEncrypted.enc
+            }
 
           nbrSheets++
           nbrProviders += sht.gridProperties.rowCount
+
+        }
 
         }
     
