@@ -226,13 +226,15 @@ async function updateSheet(idx) {
   console.log(shtId)
   console.log('shtTitle', shtTitle)
   console.log(shtVals)
-  console.log(JSON.parse(JSON.stringify(shtVals[idx].pop())))
 
   await checkAuth()
 
+  var vals = shtVals[idx].pop()
+  console.log(JSON.parse(JSON.stringify(shtVals[idx].pop())))
+
   var resource = {
     "majorDimension": "ROWS",
-    "values": [shtVals[idx].pop()]    // remove idx element from end of array
+    "values": [vals]    // remove idx element from end of array
   }
 
   if (idx) {
