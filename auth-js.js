@@ -3,7 +3,7 @@
 function btnAuthHtml(event) {
 
     // handleAuthClick();
-    // gapi.auth2.getAuthInstance().signIn();
+    gapi.auth2.getAuthInstance().signIn();
     signin.updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
 
     
