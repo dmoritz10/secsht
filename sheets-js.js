@@ -210,7 +210,7 @@ console.log(shtVals)
 
   await updateSheet(idx)
 
-  await initialUI()
+  // await initialUI()
 
   $("#sheet-modal").modal('hide');
 
@@ -371,7 +371,7 @@ async function btnDeleteSheetHtml() {
 
   })
 
-  await initialUI()
+  // await initialUI()
 
   $("#sheet-modal").modal('hide');
 
