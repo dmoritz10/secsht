@@ -92,7 +92,7 @@ async function loadSheets() {
 
       console.log('secSht', secSht)
 
-      if (secSht.length = 0) toast("There are no Secure Sheets to display")
+      if (secSht.length == 0) toast("There are no Secure Sheets to display")
 
     }
 
