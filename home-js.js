@@ -75,7 +75,7 @@ async function loadSheets() {
               id:   sht.sheetId,
               cols: sht.gridProperties.columnCount,
               rows: sht.gridProperties.rowCount,
-              enc:  enc.secSht
+              enc:  enc.enc
             }
 
             nbrSheets++
@@ -116,7 +116,7 @@ async function testEncrypted(title) {
   if (shtHdrs[0] == 'Provider') {
 
     return {
-      sec:    false,
+      enc:    false,
       secSht: true
     }
 
@@ -125,14 +125,14 @@ async function testEncrypted(title) {
   if (decrypt(shtHdrs[0], currUser.pwd) == "Provider") {
 
     return {
-      sec:    true,
+      enc:    true,
       secSht: true
     }
 
   }
 
   return {
-    sec:    null,
+    enc:    null,
     secSht: false
   }
 
