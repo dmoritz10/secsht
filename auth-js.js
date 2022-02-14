@@ -61,7 +61,8 @@ async function showLogin() {
 console.log('pre loadsheets')
 
   await loadSheets()
-  console.log('post loadsheets')
+
+console.log('post loadsheets')
 
   goHome()
 
