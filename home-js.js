@@ -2,7 +2,7 @@
 async function loadSheets() {
 
 
-  return new Promise(async resolve => {
+  // return new Promise(async resolve => {
 
 
     await checkAuth()
@@ -98,7 +98,7 @@ async function loadSheets() {
 
     }
 
-  })
+  // })
 
 }
 
