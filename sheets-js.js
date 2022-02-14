@@ -232,7 +232,7 @@ async function updateSheet(idx) {
 
   var resource = {
     "majorDimension": "ROWS",
-    "values": [shtVals[idx]]
+    "values": [shtVals[idx].pop()]    // remove idx element from end of array
   }
 
   if (idx) {
