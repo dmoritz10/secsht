@@ -102,8 +102,8 @@ async function testEncrypted(sheetId) {
 
   return {
 
-    sec: true,
-    enc: true
+    sec:    true,
+    secSht: true
   }
 
 
