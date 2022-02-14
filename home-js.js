@@ -48,7 +48,7 @@ function loadSheets() {
 
           var enc = testEncrypted(sht.sheetId)
 
-          if (enc.secSht) {
+          if (enc.sec) {
 
             ele.find('#hmSheet')[0].innerHTML = sht.title
 
