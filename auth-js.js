@@ -277,7 +277,7 @@ function decryptArr(msg, pwd) {
       var r = msg[i]
       var row = []
       for (var j=0; j<r.length; j++) {
-        row.push(r[j])
+        row.push(decryptMessage(r[j], currUser.pwd)
       } 
     rtn.push(row)
     }
@@ -285,11 +285,43 @@ function decryptArr(msg, pwd) {
   } else {
 
     for (var i=0; i<msg.length; i++) {
-      rtn.push(msg[i])
+      rtn.push(decryptMessage(msg[i], currUser.pwd)
     }
 
   }
 
-  return msg
+  return rtn
+
+}
+
+
+function encryptArr(msg, pwd) {
+
+  console.log('dan')
+
+  var rtn = []
+
+  if (is2dArray(msg)) {
+
+    console.log('msg', msg)
+
+    for (var i=0; i<msg.length; i++) {
+      var r = msg[i]
+      var row = []
+      for (var j=0; j<r.length; j++) {
+        row.push(encryptMessage(r[j], pwd)
+      } 
+    rtn.push(row)
+    }
+
+  } else {
+
+    for (var i=0; i<msg.length; i++) {
+      rtn.push(encryptMessage(msg[i], pwd)
+    }
+
+  }
+
+  return rtn
 
 }

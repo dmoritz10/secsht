@@ -1,10 +1,6 @@
 
 async function loadSheets() {
 
-
-  // return new Promise(async resolve => {
-
-
     await checkAuth()
 
     var sheets = await gapi.client.sheets.spreadsheets.get({
@@ -58,13 +54,13 @@ async function loadSheets() {
               ele.find('#btnCrypt')[0].innerHTML = "decrypt"
               // ele.find('#btnCrypt')[0].addClass('btn-success')
               // ele.find('#btnCrypt')[0].removeClass('btn-danger')
-              ele.find('#btnCrypt')[0].setAttribute("onclick", "decryptSheet('" + sht.id + "')");
+              ele.find('#btnCrypt')[0].setAttribute("onclick", "decryptSheet('" + sht.title + "')");
 
             } else {
               ele.find('#btnCrypt')[0].innerHTML = "encrypt"
               // ele.find('#btnCrypt')[0].removeClass('btn-success')
               // ele.find('#btnCrypt')[0].addClass('btn-danger')
-              ele.find('#btnCrypt')[0].setAttribute("onclick", "encryptSheet('" + sht.id + "')");
+              ele.find('#btnCrypt')[0].setAttribute("onclick", "encryptSheet('" + sht.title + "')");
             }
 
             ele.find('#hmShowSheet')[0].setAttribute("onclick", "listSheet('" + sht.title + "')");
@@ -97,8 +93,6 @@ async function loadSheets() {
       if (secSht.length == 0) toast("There are no Secure Sheets to display")
 
     }
-
-  // })
 
 }
 
@@ -137,6 +131,37 @@ async function testEncrypted(title) {
     enc:    null,
     secSht: false
   }
+
+}
+
+async function encryptSheet(title) {
+
+  var objSht = await openShts(
+    [
+      { title: title, type: "all" }
+    ])
+
+  console.log(objSht)
+
+  var shtHdrs = objSht[title].colHdrs
+  var shtArr = shtHdrs.concat(objSht[title].vals) 
+
+  console.log(shtHdrs)
+
+  if (decrypt(shtHdrs[0], currUser.pwd) == "Provider") {
+    bootbox.alert('Sheet "' + shtTitle + '" is already encrypted.');
+    return
+  }
+
+  if (shtHdrs[0] != 'Provider') {
+    bootbox.alert('Sheet "' + shtTitle + '" not a valide Secure Sheet.');
+    return
+  }
+
+  var encShtArr = encryptArr(shtArr, currUser.pwd)
+
+
+
 
 }
 
