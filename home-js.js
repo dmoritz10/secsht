@@ -109,7 +109,7 @@ async function testEncrypted(title) {
 
   console.log(objSht)
 
-  var shtHdrs = objSht[0].colHdrs
+  var shtHdrs = objSht[title].colHdrs
 
   if (shtHdrs[0] == 'Provider') {
 
