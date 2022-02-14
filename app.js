@@ -56,8 +56,6 @@ jQuery(function ($) {
 
             console.log('initClient start')
 
-            1 == 1
-        
             await gapi.client.init({
                 apiKey:                 signin.API_KEY,
                 clientId:               signin.CLIENT_ID,
