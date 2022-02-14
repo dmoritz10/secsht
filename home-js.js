@@ -54,14 +54,14 @@ async function loadSheets() {
 
             if (enc.enc) {
               ele.find('#btnCrypt')[0].innerHTML = "decrypt"
-              ele.find('#btnCrypt')[0].addClass('btn-success')
-              ele.find('#btnCrypt')[0].removeClass('btn-danger')
+              // ele.find('#btnCrypt')[0].addClass('btn-success')
+              // ele.find('#btnCrypt')[0].removeClass('btn-danger')
               ele.find('#btnCrypt')[0].setAttribute("onclick", "decryptSheet('" + sht.id + "')");
 
             } else {
               ele.find('#btnCrypt')[0].innerHTML = "encrypt"
-              ele.find('#btnCrypt')[0].removeClass('btn-success')
-              ele.find('#btnCrypt')[0].addClass('btn-danger')
+              // ele.find('#btnCrypt')[0].removeClass('btn-success')
+              // ele.find('#btnCrypt')[0].addClass('btn-danger')
               ele.find('#btnCrypt')[0].setAttribute("onclick", "encryptSheet('" + sht.id + "')");
             }
 
@@ -102,12 +102,37 @@ async function loadSheets() {
 
 async function testEncrypted(sheetId) {
 
-  return {
+  var objSht = await openShts(
+    [
+      { title: title, type: "headers" }
+    ])
 
-    sec:    true,
-    secSht: true
+  console.log(objSht)
+
+  var shtHdrs = objSht[0].colHdrs
+
+  if (shtHdrs[0] == 'Provider') {
+
+    return {
+      sec:    false,
+      secSht: true
+    }
+
   }
 
+  if (decrypt(shtHdrs[0], currUser.pwd) == "Provider") {
+
+    return {
+      sec:    true,
+      secSht: true
+    }
+
+  }
+
+  return {
+    sec:    null,
+    secSht: false
+  }
 
 }
 
