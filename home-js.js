@@ -46,13 +46,13 @@ function loadSheets() {
 
         if (sht.gridProperties.columnCount == arrOptions['Nbr Columns per Sheet']) {
 
-          var testEncrypted(sht.sheetId)
+          var enc = testEncrypted(sht.sheetId)
 
-          if (testEncrypted.secSht) {
+          if (enc.secSht) {
 
             ele.find('#hmSheet')[0].innerHTML = sht.title
 
-            if (testEncrypted.enc) {
+            if (enc.enc) {
               ele.find('#btnCrypt')[0].innerHTML = "decrypt"
               ele.find('#btnCrypt')[0].addClass('btn-success')
               ele.find('#btnCrypt')[0].removeClass('btn-danger')
@@ -75,7 +75,7 @@ function loadSheets() {
               id:   sht.sheetId,
               cols: sht.gridProperties.columnCount,
               rows: sht.gridProperties.rowCount,
-              enc:  testEncrypted.enc
+              enc:  enc.enc
             }
 
           nbrSheets++
