@@ -160,7 +160,7 @@ async function encryptSheet(title) {
 
   var encShtArr = encryptArr(shtArr, currUser.pwd)
 
-
+console.log(encShtArr)
 
 
 }
