@@ -226,7 +226,7 @@ async function updateSheet(idx) {
   console.log(shtId)
   console.log('shtTitle', shtTitle)
   console.log(shtVals)
-  console.log(shtVals[idx].pop())
+  console.log(JSON.parse(JSON.stringify(shtVals[idx].pop())))
 
   await checkAuth()
 
