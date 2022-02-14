@@ -48,6 +48,8 @@ async function loadSheets() {
 
           var enc = await testEncrypted(sht.title)
 
+          console.log('enc', enc)
+
           if (enc.secSht) {
 
             ele.find('#hmSheet')[0].innerHTML = sht.title
