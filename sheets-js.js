@@ -229,8 +229,8 @@ async function updateSheet(idx) {
 
   await checkAuth()
 
-  var vals = shtVals[idx].pop()
-  console.log(JSON.parse(JSON.stringify(shtVals[idx].pop())))
+  var vals = shtVals[idx].slice(0, -1)
+  console.log(vals)
 
   var resource = {
     "majorDimension": "ROWS",
