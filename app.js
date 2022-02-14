@@ -19,6 +19,8 @@
     var optionsIdx
   
     var timerStart
+
+    var signin
  
 
 /*global jQuery */
@@ -26,7 +28,7 @@ jQuery(function ($) {
 	// 'use strict';
 
 
-    var signin =  {
+    signin =  {
 
         currUser : {},
 
