@@ -46,7 +46,7 @@ async function loadSheets() {
 
         if (sht.gridProperties.columnCount == arrOptions['Nbr Columns per Sheet']) {
 
-          var enc = await testEncrypted(sht.sheetId)
+          var enc = await testEncrypted(sht.title)
 
           if (enc.secSht) {
 
@@ -100,7 +100,7 @@ async function loadSheets() {
 
 }
 
-async function testEncrypted(sheetId) {
+async function testEncrypted(title) {
 
   var objSht = await openShts(
     [
