@@ -198,7 +198,8 @@ async function btnShtmSubmitSheetHtml() {
     vals[shtHdrs.indexOf("Login Url")] = $('#shtmLoginUrl').val()
     vals[shtHdrs.indexOf("Security Q/A")] = $('#shtmSecurityQA').val()
     vals[shtHdrs.indexOf("Notes")] = $('#shtmNotes').val()
-    vals[shtHdrs.indexOf("Last Change")] = formatDate(new Date())
+    // vals[shtHdrs.indexOf("Last Change")] = formatDate(new Date())
+    vals[shtHdrs.indexOf("Last Change")] = 'hi dan'
 
     vals[shtHdrs.indexOf("Favorite")] = false
 
