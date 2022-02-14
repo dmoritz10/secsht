@@ -75,7 +75,7 @@ async function loadSheets() {
               id:   sht.sheetId,
               cols: sht.gridProperties.columnCount,
               rows: sht.gridProperties.rowCount,
-              enc:  enc.enc
+              enc:  enc.secSht
             }
 
             nbrSheets++
