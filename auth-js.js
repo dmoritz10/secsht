@@ -277,7 +277,7 @@ function decryptArr(msg, pwd) {
       var r = msg[i]
       var row = []
       for (var j=0; j<r.length; j++) {
-        row.push(decryptMessage(r[j], currUser.pwd)
+        row.push(decryptMessage(r[j], currUser.pwd))
       } 
     rtn.push(row)
     }
@@ -309,7 +309,7 @@ function encryptArr(msg, pwd) {
       var r = msg[i]
       var row = []
       for (var j=0; j<r.length; j++) {
-        row.push(encryptMessage(r[j], pwd)
+        row.push(encryptMessage(r[j], pwd))
       } 
     rtn.push(row)
     }
