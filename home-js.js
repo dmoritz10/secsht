@@ -103,7 +103,7 @@ function updateHomePage(ele) {
 
   
 
-  console.log(ele)
+  console.log('ele', ele)
 
 
 
