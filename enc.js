@@ -21,9 +21,6 @@ async function testEncrypted(title) {
 
     }
 
-    console.log(await decryptMessage(shtHdrs[0], currUser.pwd))
-console.log(currUser.pwd)
-
     if (await decryptMessage(shtHdrs[0], currUser.pwd) == "Provider") {
 
         return {
@@ -73,6 +70,37 @@ async function encryptSheet(title) {
     console.log(encShtArr)
 
     await updateSheet(title, encShtArr)
+
+}
+
+async function decryptSheet(title) {
+
+    var objSht = await openShts(
+        [
+            { title: title, type: "all" }
+        ])
+
+    console.log(objSht)
+
+    var shtHdrs = objSht[title].colHdrs
+    var shtArr = [shtHdrs].concat(objSht[title].vals)
+
+    console.log('shtArr', shtArr)
+
+    var decHdrs = await decryptMessage(shtHdrs[0], currUser.pwd)
+
+    console.log(decHdrs)
+
+    if (decHdrs != "Provider") {
+        bootbox.alert('Sheet "' + shtTitle + '" is not an encrtpted Secure Sheet.');
+        return
+    }
+
+    var deccShtArr = await decryptArr(shtArr, currUser.pwd)
+
+    console.log(deccShtArr)
+
+    await updateSheet(title, decShtArr)
 
 }
 
