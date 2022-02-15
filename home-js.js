@@ -100,11 +100,7 @@ async function loadSheets() {
 
 function updateHomePage(title, enc) {
 
-  var x = ele.find('#hmSheet')
-
-
-
-  console.log(x)
+  
 
   var y = $("#hmContainer hmSheet")
 
