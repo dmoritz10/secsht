@@ -52,17 +52,14 @@ async function loadSheets() {
 
             if (enc.enc) {
               ele.find('#btnCrypt')[0].innerHTML = "decrypt"
-
-              updateHomePage(ele.find('#btnCrypt'))
-              
-              ele.find('#btnCrypt').css( "background-color", "red" );
-              ele.find('#btnCrypt').addClass('btn-danger')
+              ele.find('#btnCrypt').addClass('btn-success')
+              ele.find('#btnCrypt').removeClass('btn-danger')
               ele.find('#btnCrypt')[0].setAttribute("onclick", "decryptSheet('" + sht.title + "')");
 
             } else {
               ele.find('#btnCrypt')[0].innerHTML = "encrypt"
-              // ele.find('#btnCrypt')[0].removeClass('btn-success')
-              // ele.find('#btnCrypt')[0].addClass('btn-danger')
+              ele.find('#btnCrypt').removeClass('btn-success')
+              ele.find('#btnCrypt').addClass('btn-danger')
               ele.find('#btnCrypt')[0].setAttribute("onclick", "encryptSheet('" + sht.title + "')");
             }
 
