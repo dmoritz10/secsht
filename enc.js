@@ -73,7 +73,7 @@ async function encryptSheet(title) {
 
     secSht.enc = false
 
-    updateHomePage(title, 'decrypt')
+    loadSheets()
 
 }
 
@@ -108,7 +108,7 @@ async function decryptSheet(title) {
 
     secSht.enc = false
 
-    updateHomePage(title, 'encrypt')
+    loadSheets()
 
 }
 
