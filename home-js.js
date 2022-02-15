@@ -148,7 +148,7 @@ async function encryptSheet(title) {
 
   console.log(shtHdrs)
 
-  var decHdrs = decryptMessage(shtHdrs[0], currUser.pwd)
+  var decHdrs = await decryptMessage(shtHdrs[0], currUser.pwd)
 
   console.log(decHdrs)
 
