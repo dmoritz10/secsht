@@ -71,6 +71,10 @@ async function encryptSheet(title) {
 
     await updateSheet(title, encShtArr)
 
+    secSht.enc = false
+
+    updateHomePage(title, 'decrypt')
+
 }
 
 async function decryptSheet(title) {
@@ -101,6 +105,10 @@ async function decryptSheet(title) {
     console.log(decShtArr)
 
     await updateSheet(title, decShtArr)
+
+    secSht.enc = false
+
+    updateHomePage(title, 'encrypt')
 
 }
 

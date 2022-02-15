@@ -94,6 +94,29 @@ async function loadSheets() {
 
     }
 
+    updateHomePage(title, 'encrypt')
+
+}
+
+function updateHomePage(title, enc) {
+
+  var x = ele.find('#hmSheet')
+
+
+
+  console.log(x)
+
+  var y = $("#hmContainer hmSheet")
+
+  console.log(y)
+
+
+
+
+  // ele.find('#btnCrypt')[0].setAttribute("onclick", "decryptSheet('" + sht.title + "')");
+
+
+
 }
 
 async function goHome() {
