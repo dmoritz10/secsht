@@ -15,9 +15,11 @@ async function listSheet(title) {
   shtId   = secSht[shtTitle].id
   shtCols = secSht[shtTitle].Cols
   shtRows = secSht[shtTitle].Rows
-  shtHdrs = decryptArr(objSht[shtTitle].colHdrs, currUser.pwd)
+  // shtHdrs = decryptArr(objSht[shtTitle].colHdrs, currUser.pwd)
+  shtHdrs = objSht[shtTitle].colHdrs
   
-  var vals = decryptArr(objSht[shtTitle].vals, currUser.pwd)
+  // var vals = decryptArr(objSht[shtTitle].vals, currUser.pwd)
+  var vals = objSht[shtTitle].vals
   vals.forEach((val, idx, arr)=> arr[idx].push(idx))
   shtVals = vals.sort(function(a,b){ return a[0].toLowerCase() > b[0].toLowerCase() ? 1 : -1; });
   
