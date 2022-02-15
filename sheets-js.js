@@ -43,9 +43,15 @@ async function listSheet(title) {
 
     var shtObj = makeObj(shtVals[j], shtHdrs)
 
+    console.log(shtObj['Favorite'])
+    console.log(shtObj['      var provider = await decryptArr(shtObj['Provider'], currUser.pwd)
+    '])
+
     if (shtEnc) {
       var fav = await decryptArr(shtObj['Favorite'], currUser.pwd)
+      console.log(fav)
       var provider = await decryptArr(shtObj['Provider'], currUser.pwd)
+      console.log(provider)
     } else {
       var fav = shtObj['Favorite']
       var provider = shtObj['Provider']
