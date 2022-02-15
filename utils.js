@@ -445,6 +445,10 @@ function msToHHMMSS(ms) {
 }
 
 function is2dArray(array){
+
+console.log(array)
+console.log(array[0])
+
   if(array[0] === undefined){
 
 console.log('2d false')
