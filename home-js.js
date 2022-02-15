@@ -55,7 +55,7 @@ async function loadSheets() {
 
               updateHomePage(ele.find('#btnCrypt'))
               
-              ele.find('#btnCrypt')[0].addClass('btn-success')
+              ele.find('#btnCrypt')[0].css( "background-color", "red" );
               // ele.find('#btnCrypt')[0].removeClass('btn-danger')
               ele.find('#btnCrypt')[0].setAttribute("onclick", "decryptSheet('" + sht.title + "')");
 
