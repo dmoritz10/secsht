@@ -94,7 +94,7 @@ async function loadSheets() {
 
     }
 
-    updateHomePage(title, 'encrypt')
+    updateHomePage(sht.title, 'encrypt')
 
 }
 
