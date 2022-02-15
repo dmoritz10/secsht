@@ -123,12 +123,12 @@ async function setFavorite(idx) {
   var favCurr = shtVals[idx][shtHdrs.indexOf("Favorite")]
 
   if (shtEnc) {
-    var fav = decryptMessage(favCurr, currUser.pwd).toLowerCase() === 'true'
+    var fav = await decryptMessage(favCurr, currUser.pwd).toLowerCase() === 'true'
 
     if (fav) {
-      shtVals[idx][shtHdrs.indexOf("Favorite")] = encryptMessage("FALSE", currUser.pwd)
+      shtVals[idx][shtHdrs.indexOf("Favorite")] = await encryptMessage("FALSE", currUser.pwd)
     } else {
-      shtVals[idx][shtHdrs.indexOf("Favorite")] = encryptMessage("TRUE", currUser.pwd)
+      shtVals[idx][shtHdrs.indexOf("Favorite")] = await encryptMessage("TRUE", currUser.pwd)
     }
 
   } else {
