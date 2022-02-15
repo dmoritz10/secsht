@@ -446,21 +446,9 @@ function msToHHMMSS(ms) {
 
 function is2dArray(array){
 
-console.log(array)
-console.log(array[0])
-
   if(array[0] === undefined){
-
-console.log('2d false')
-
     return false;
-  }else{
-
-console.log(array[0])
-console.log(array[0].constructor)
-console.log(array[0].constructor === Array)
-console.log(array[0].constructor === 'Array')
-
+  } else {
     return (array[0].constructor === Array);
   }
 }
