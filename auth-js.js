@@ -18,9 +18,9 @@ function btnSignoutHtml(event) {
       
 async function showLogin() {
   // prompt for user Name
-  // var userName = await prompt("User Name", "text");
+  var userName = await prompt("User Name", "text");
 
-  var userName = 'dmoritz10'
+  // var userName = 'dmoritz10'
 
   var rtn = await getSSId(userName);
 
