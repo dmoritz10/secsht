@@ -21,10 +21,10 @@ async function testEncrypted(title) {
 
     }
 
-    console.log(decryptMessage(shtHdrs[0], currUser.pwd))
+    console.log(await decryptMessage(shtHdrs[0], currUser.pwd))
 console.log(currUser.pwd)
 
-    if (decryptMessage(shtHdrs[0], currUser.pwd) == "Provider") {
+    if (await decryptMessage(shtHdrs[0], currUser.pwd) == "Provider") {
 
         return {
             enc: true,
