@@ -18,7 +18,9 @@ function btnSignoutHtml(event) {
       
 async function showLogin() {
   // prompt for user Name
-  var userName = await prompt("User Name", "text");
+  // var userName = await prompt("User Name", "text");
+
+  var userName = 'dmoritz10'
 
   var rtn = await getSSId(userName);
 
@@ -43,8 +45,10 @@ async function showLogin() {
     await updateOption('shtList', encPwd)
     x = encPwd
   } else {
-    var pwd = await prompt("Enter Password", "password");
+    // var pwd = await prompt("Enter Password", "password");
   }
+
+var pwd = 'tempdm10'
 
   var dx = await decryptMessage(x, pwd)
 
