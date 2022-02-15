@@ -47,9 +47,11 @@ async function encryptSheet(title) {
     console.log(objSht)
 
     var shtHdrs = objSht[title].colHdrs
-    var shtArr = shtHdrs.concat(objSht[title].vals)
+    var shtArr = [shtHdrs].concat(objSht[title].vals)
+
 
     console.log(shtArr)
+
 
     var decHdrs = await decryptMessage(shtHdrs[0], currUser.pwd)
 
