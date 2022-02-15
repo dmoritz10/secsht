@@ -96,9 +96,9 @@ async function decryptSheet(title) {
         return
     }
 
-    var deccShtArr = await decryptArr(shtArr, currUser.pwd)
+    var decShtArr = await decryptArr(shtArr, currUser.pwd)
 
-    console.log(deccShtArr)
+    console.log(decShtArr)
 
     await updateSheet(title, decShtArr)
 
