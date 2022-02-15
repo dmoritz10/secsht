@@ -120,6 +120,8 @@ async function btnShtSelectHtml(e) {
 
 async function setFavorite(idx) {
 
+  console.log('idx', idx)
+
   var favCurr = shtVals[idx][shtHdrs.indexOf("Favorite")]
 
   if (shtEnc) {
@@ -141,6 +143,7 @@ async function setFavorite(idx) {
       shtVals[idx][shtHdrs.indexOf("Favorite")] = "TRUE"
     }
   }
+
   await updateSheetRow(idx)
 
   listSheet(shtTitle)
