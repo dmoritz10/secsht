@@ -61,18 +61,18 @@ async function encryptSheet(title) {
     }
 
     if (shtHdrs[0] != 'Provider') {
-        bootbox.alert('Sheet "' + shtTitle + '" not a valide Secure Sheet.');
+        bootbox.alert('Sheet "' + shtTitle + '" not a valid Secure Sheet.');
         return
     }
 
-    var encShtArr = encryptArr(shtArr, currUser.pwd)
+    var encShtArr = await encryptArr(shtArr, currUser.pwd)
 
     console.log(encShtArr)
 
 }
 
 
-function encryptArr(msg, pwd) {
+async function encryptArr(msg, pwd) {
 
     console.log('dan')
 
@@ -86,7 +86,7 @@ function encryptArr(msg, pwd) {
             var r = msg[i]
             var row = []
             for (var j = 0; j < r.length; j++) {
-                row.push(encryptMessage(r[j], pwd))
+                row.push(await encryptMessage(r[j], pwd))
             }
             rtn.push(row)
         }
@@ -94,7 +94,7 @@ function encryptArr(msg, pwd) {
     } else {
 
         for (var i = 0; i < msg.length; i++) {
-            rtn.push(encryptMessage(msg[i], pwd))
+            rtn.push(await encryptMessage(msg[i], pwd))
         }
 
     }
@@ -102,7 +102,8 @@ function encryptArr(msg, pwd) {
     return rtn
 
 }
-function decryptArr(msg, pwd) {
+
+async function decryptArr(msg, pwd) {
 
     console.log('dan')
 
@@ -116,7 +117,7 @@ function decryptArr(msg, pwd) {
             var r = msg[i]
             var row = []
             for (var j = 0; j < r.length; j++) {
-                row.push(decryptMessage(r[j], currUser.pwd))
+                row.push(await decryptMessage(r[j], currUser.pwd))
             }
             rtn.push(row)
         }
@@ -124,7 +125,7 @@ function decryptArr(msg, pwd) {
     } else {
 
         for (var i = 0; i < msg.length; i++) {
-            rtn.push(decryptMessage(msg[i], currUser.pwd))
+            rtn.push(await decryptMessage(msg[i], currUser.pwd))
         }
 
     }
