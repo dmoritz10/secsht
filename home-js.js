@@ -148,7 +148,11 @@ async function encryptSheet(title) {
 
   console.log(shtHdrs)
 
-  if (decryptMessage(shtHdrs[0], currUser.pwd) == "Provider") {
+  var decHdrs = decryptMessage(shtHdrs[0], currUser.pwd)
+
+  console.log(decHdrs)
+
+  if (decHdrs == "Provider") {
     bootbox.alert('Sheet "' + shtTitle + '" is already encrypted.');
     return
   }
