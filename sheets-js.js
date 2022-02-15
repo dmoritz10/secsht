@@ -44,13 +44,12 @@ async function listSheet(title) {
     var shtObj = makeObj(shtVals[j], shtHdrs)
 
     console.log(shtObj['Favorite'])
-    console.log(shtObj['      var provider = await decryptArr(shtObj['Provider'], currUser.pwd)
-    '])
+    console.log(shtObj['Provider'])
 
     if (shtEnc) {
-      var fav = await decryptArr(shtObj['Favorite'], currUser.pwd)
+      var fav = await decryptMessage(shtObj['Favorite'], currUser.pwd)
       console.log(fav)
-      var provider = await decryptArr(shtObj['Provider'], currUser.pwd)
+      var provider = await decryptMessage(shtObj['Provider'], currUser.pwd)
       console.log(provider)
     } else {
       var fav = shtObj['Favorite']
