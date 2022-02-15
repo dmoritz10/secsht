@@ -280,7 +280,7 @@ async function updateSheet(title, vals) {
 
     var params = {
     spreadsheetId: spreadsheetId,
-    range: "'" + shtTitle + "'!" + rng,
+    range: "'" + title + "'!" + rng,
     valueInputOption: 'RAW'
     };
 
@@ -290,8 +290,8 @@ async function updateSheet(title, vals) {
             console.log('Sheet update successful')
             console.log(response)
         }, function (reason) {
-            console.error('error updating sheet "' + row + '": ' + reason.result.error.message);
-            alert('error updating sheet "' + row + '": ' + reason.result.error.message);
+            console.error('error updating sheet "' + title + '": ' + reason.result.error.message);
+            alert('error updating sheet "' + title + '": ' + reason.result.error.message);
         });
 
 } 
