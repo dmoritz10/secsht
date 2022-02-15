@@ -52,6 +52,9 @@ async function loadSheets() {
 
             if (enc.enc) {
               ele.find('#btnCrypt')[0].innerHTML = "decrypt"
+
+              updateHomePage(ele.find('#btnCrypt'))
+              
               // ele.find('#btnCrypt')[0].addClass('btn-success')
               // ele.find('#btnCrypt')[0].removeClass('btn-danger')
               ele.find('#btnCrypt')[0].setAttribute("onclick", "decryptSheet('" + sht.title + "')");
@@ -94,17 +97,13 @@ async function loadSheets() {
 
     }
 
-    updateHomePage(sht.title, 'encrypt')
-
 }
 
-function updateHomePage(title, enc) {
+function updateHomePage(ele) {
 
   
 
-  var y = $("#hmContainer hmSheet")
-
-  console.log(y)
+  console.log(ele)
 
 
 
