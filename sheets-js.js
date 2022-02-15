@@ -15,8 +15,13 @@ async function listSheet(title) {
   shtId   = secSht[shtTitle].id
   shtCols = secSht[shtTitle].Cols
   shtRows = secSht[shtTitle].Rows
-  // shtHdrs = decryptArr(objSht[shtTitle].colHdrs, currUser.pwd)
-  shtHdrs = objSht[shtTitle].colHdrs
+  shtEnc  = secSht[shtTitle].enc
+
+  if (shtEnc) {
+    shtHdrs = await decryptArr(objSht[shtTitle].colHdrs, currUser.pwd)
+  } else {
+    shtHdrs = objSht[shtTitle].colHdrs
+  }
   
   // var vals = decryptArr(objSht[shtTitle].vals, currUser.pwd)
   var vals = objSht[shtTitle].vals
@@ -38,13 +43,21 @@ async function listSheet(title) {
 
     var shtObj = makeObj(shtVals[j], shtHdrs)
 
+    if (shtEnc) {
+      var fav = await decryptArr(shtObj['Favorite'], currUser.pwd)
+      var provider = await decryptArr(shtObj['Provider'], currUser.pwd)
+    } else {
+      var fav = shtObj['Favorite']
+      var provider = shtObj['Provider']
+    }
+
     if (
-      (shtSelectFav && !(shtObj['Favorite'].toLowerCase() === 'true'))
+      (shtSelectFav && !(fav.toLowerCase() === 'true'))
     ) continue;
 
     var ele = $tblSheets.clone();
 
-    ele.find('#shtProvider')[0].innerHTML = shtObj.Provider
+    ele.find('#shtProvider')[0].innerHTML = provider
 
     ele.find('#btnShtEdit')[0].setAttribute("onclick", "editSheet(" + j + ")");
 
