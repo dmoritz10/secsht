@@ -114,7 +114,7 @@ async function setFavorite(idx) {
     shtVals[idx][shtHdrs.indexOf("Favorite")] = "TRUE"
   }
 
-  await updateSheet(idx)
+  await updateSheetRow(idx)
 
   listSheet(shtTitle)
 
@@ -205,7 +205,7 @@ async function btnShtmSubmitSheetHtml() {
 
 console.log(shtVals)
 
-  await updateSheet(idx)
+  await updateSheetRow(idx)
 
   // await initialUI()
 
@@ -215,9 +215,9 @@ console.log(shtVals)
 
 }
 
-async function updateSheet(idx) {
+async function updateSheetRow(idx) {
 
-  console.log('updatesheet')
+  console.log('updateSheetRow')
   console.log(idx)
   console.log(shtId)
   console.log('shtTitle', shtTitle)
@@ -225,12 +225,12 @@ async function updateSheet(idx) {
 
   await checkAuth()
 
-  var vals = shtVals[idx].slice(0, -1)
+  var vals = shtVals[idx].slice(0, -1) // remove idx element from end of array
   console.log(vals)
 
   var resource = {
     "majorDimension": "ROWS",
-    "values": [vals]    // remove idx element from end of array
+    "values": [vals]    
   }
 
   if (idx) {
@@ -272,30 +272,30 @@ async function updateSheet(idx) {
         console.log('sheetId', shtId)
         console.log(secSht)
 
-        var request = { "requests": 
-          [{ "sortRange": 
-            { "range": { 
-              "sheetId": shtId, 
-              "startRowIndex": 1, 
-              "endRowIndex": shtVals.length+2, 
-              "startColumnIndex": 0, 
-              "endColumnIndex": shtHdrs.length 
-            }, 
-            "sortSpecs": 
-            [{ "sortOrder": "ASCENDING", "dimensionIndex": 0 }] 
-            } 
-          }] 
-        }
+        // var request = { "requests": 
+        //   [{ "sortRange": 
+        //     { "range": { 
+        //       "sheetId": shtId, 
+        //       "startRowIndex": 1, 
+        //       "endRowIndex": shtVals.length+2, 
+        //       "startColumnIndex": 0, 
+        //       "endColumnIndex": shtHdrs.length 
+        //     }, 
+        //     "sortSpecs": 
+        //     [{ "sortOrder": "ASCENDING", "dimensionIndex": 0 }] 
+        //     } 
+        //   }] 
+        // }
 
-        await gapi.client.sheets.spreadsheets.batchUpdate({
-          spreadsheetId: spreadsheetId,
-          resource: request
-        }).then(response => {
+        // await gapi.client.sheets.spreadsheets.batchUpdate({
+        //   spreadsheetId: spreadsheetId,
+        //   resource: request
+        // }).then(response => {
 
-          console.log('sort complete')
-          console.log(response)
+        //   console.log('sort complete')
+        //   console.log(response)
 
-        })
+        // })
 
       },
 
