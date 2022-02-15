@@ -21,7 +21,7 @@ async function testEncrypted(title) {
 
     }
 
-    if (decrypt(shtHdrs[0], currUser.pwd) == "Provider") {
+    if (decryptMessage(shtHdrs[0], currUser.pwd) == "Provider") {
 
         return {
             enc: true,
