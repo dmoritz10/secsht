@@ -21,6 +21,9 @@ async function testEncrypted(title) {
 
     }
 
+    console.log(decryptMessage(shtHdrs[0], currUser.pwd)
+console.log(currUser.pwd)
+
     if (decryptMessage(shtHdrs[0], currUser.pwd) == "Provider") {
 
         return {
