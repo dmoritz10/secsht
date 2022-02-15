@@ -32,8 +32,6 @@ async function listSheet(title) {
   $("#shtContainer").empty();
   x.appendTo("#shtContainer");
 
-
-
   for (var j = 0; j < shtVals.length; j++) {
 
     var shtObj = makeObj(shtVals[j], shtHdrs)
