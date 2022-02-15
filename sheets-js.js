@@ -120,15 +120,26 @@ async function btnShtSelectHtml(e) {
 
 async function setFavorite(idx) {
 
+  var favCurr = shtVals[idx][shtHdrs.indexOf("Favorite")]
 
-  var fav = shtVals[idx][shtHdrs.indexOf("Favorite")].toLowerCase() === 'true'
+  if (shtEnc) {
+    var fav = decryptMessage(favCurr, currUser.pwd).toLowerCase() === 'true'
 
-  if (fav) {
-    shtVals[idx][shtHdrs.indexOf("Favorite")] = "FALSE"
+    if (fav) {
+      shtVals[idx][shtHdrs.indexOf("Favorite")] = encryptMessage("FALSE", currUser.pwd)
+    } else {
+      shtVals[idx][shtHdrs.indexOf("Favorite")] = encryptMessage("TRUE", currUser.pwd)
+    }
+
   } else {
-    shtVals[idx][shtHdrs.indexOf("Favorite")] = "TRUE"
-  }
+    var fav = favCurr.toLowerCase() === 'true'
 
+    if (fav) {
+      shtVals[idx][shtHdrs.indexOf("Favorite")] = "FALSE"
+    } else {
+      shtVals[idx][shtHdrs.indexOf("Favorite")] = "TRUE"
+    }
+  }
   await updateSheetRow(idx)
 
   listSheet(shtTitle)
