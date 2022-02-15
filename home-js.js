@@ -55,8 +55,8 @@ async function loadSheets() {
 
               updateHomePage(ele.find('#btnCrypt'))
               
-              ele.find('#btnCrypt')[0].css( "background-color", "red" );
-              // ele.find('#btnCrypt')[0].removeClass('btn-danger')
+              ele.find('#btnCrypt').css( "background-color", "red" );
+              ele.find('#btnCrypt').addClass('btn-danger')
               ele.find('#btnCrypt')[0].setAttribute("onclick", "decryptSheet('" + sht.title + "')");
 
             } else {
