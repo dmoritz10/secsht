@@ -30,7 +30,7 @@ async function listSheet(title) {
 
   for (var i=0;i<vals.length;i++) {
 
-    vals[i].push(idx)
+    vals[i].push(i)
     
     if (shtEnc) vals[i][0] = await decryptMessage(vals[i][0], currUser.pwd) // sort won't take a promise
     
