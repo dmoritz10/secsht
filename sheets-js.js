@@ -33,9 +33,9 @@ async function listSheet(title) {
     else vals[i].push(vals[i][0])
   }
 
-  var sortCol = vals.length - 1
+  var sortCol = vals[0].length - 1
 
-  console.log('vals', sortCol, vals)
+  console.log('valssss', sortCol, vals)
 
   shtVals = vals.sort(function(a,b){ 
 
