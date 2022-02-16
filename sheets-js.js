@@ -37,15 +37,11 @@ async function listSheet(title) {
 
   console.log('valssss', sortCol, vals)
 
-  shtVals = vals.sort(function(a,b){ 
-
-    return a[sortCol].toLowerCase() > b[sortCol].toLowerCase() ? 1 : -1; 
-
-  });
+  shtVals = vals.sort(function(a,b){return a[sortCol].toLowerCase() > b[sortCol].toLowerCase() ? 1 : -1; });
   
-  shtVals.forEach((val, idx, arr)=> arr[idx].slice(0, -1)) // remove sort element from end of array
+  shtVals.forEach((val, idx, arr)=> arr[idx].pop()) // remove sort element from end of array
   
-  console.log('shtVals zzzzz', shtVals)
+  console.log('shtVals ccccc', shtVals)
  
 
   $("#shtTitle")[0].innerHTML = shtTitle
