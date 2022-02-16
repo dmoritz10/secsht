@@ -32,15 +32,15 @@ async function listSheet(title) {
 
     vals[i].push(i)
     
-    if (shtEnc) vals[i][0] = await decryptMessage(vals[i][0], currUser.pwd) // sort won't take a promise
+    // if (shtEnc) vals[i][0] = await decryptMessage(vals[i][0], currUser.pwd) // sort won't take a promise
     
     if (shtEnc) vals[i].push(await decryptMessage(vals[i][0], currUser.pwd)) // sort won't take a promise
-    else vals[i].push(vals[i][0])
+    else        vals[i].push(vals[i][0])
   
   }
 
   var sortCol = vals[0].length - 1
-  var sortCol = 0
+  // var sortCol = 0
 
   console.log('valssss', sortCol, vals)
 
