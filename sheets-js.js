@@ -27,8 +27,11 @@ async function listSheet(title) {
   var vals = objSht[shtTitle].vals
   vals.forEach((val, idx, arr)=> arr[idx].push(idx))
   shtVals = vals.sort(function(a,b){ 
-    let aa = shtEnc ? await decryptArr(a[0], currUser.pwd) : a[0]
-    let bb = shtEnc ? await decryptArr(b[0], currUser.pwd) : b[0]
+    let aaa = await decryptArr(a[0], currUser.pwd)
+    let aaa = await decryptArr(b[0], currUser.pwd)
+
+    let aa = shtEnc ? aaa : a[0]
+    let bb = shtEnc ? bbb : b[0]
     return aa.toLowerCase() > bb.toLowerCase() ? 1 : -1; 
   });
   
