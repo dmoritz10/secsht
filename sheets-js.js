@@ -37,7 +37,8 @@ async function listSheet(title) {
       var bbb = b[0]
     }
     
-    return aaa.toLowerCase() > bbb.toLowerCase() ? 1 : -1; 
+    // return aaa.toLowerCase() > bbb.toLowerCase() ? 1 : -1; 
+    return a[0].toLowerCase() > b[0].toLowerCase() ? 1 : -1; 
 
   });
   
