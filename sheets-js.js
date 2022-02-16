@@ -29,11 +29,13 @@ async function listSheet(title) {
   vals.forEach((val, idx, arr) => arr[idx].push(idx))
 
   for (var i=0;i<vals.length;i++) {
-    if (shtEnc) vals[i].push(await decryptMessage(vals[i][0], currUser.pwd))
+    if (shtEnc) vals[i].push(await decryptMessage(vals[i][0], currUser.pwd)) // sort won't take a promise
     else vals[i].push(vals[i][0])
   }
 
   var sortCol = vals.length - 1
+
+  console.log('vals', sortCol, vals)
 
   shtVals = vals.sort(function(a,b){ 
 
