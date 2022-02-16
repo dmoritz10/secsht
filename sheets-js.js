@@ -26,7 +26,11 @@ async function listSheet(title) {
   // var vals = decryptArr(objSht[shtTitle].vals, currUser.pwd)
   var vals = objSht[shtTitle].vals
   vals.forEach((val, idx, arr)=> arr[idx].push(idx))
-  shtVals = vals.sort(function(a,b){ return a[0].toLowerCase() > b[0].toLowerCase() ? 1 : -1; });
+  shtVals = vals.sort(function(a,b){ 
+    let aa = shtEnc ? await decryptArr(a[0], currUser.pwd) : a[0]
+    let bb = shtEnc ? await decryptArr(b[0], currUser.pwd) : b[0]
+    return aa.toLowerCase() > bb.toLowerCase() ? 1 : -1; 
+  });
   
   console.log('shtVals', shtVals)
  
