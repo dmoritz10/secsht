@@ -25,22 +25,23 @@ async function listSheet(title) {
   
   // var vals = decryptArr(objSht[shtTitle].vals, currUser.pwd)
   var vals = objSht[shtTitle].vals
+
   vals.forEach((val, idx, arr)=> arr[idx].push(idx))
+
+  if (shtEnc) {
+    vals.forEach((val, idx, arr)=> arr[idx].push(await decryptArr(a[0], currUser.pwd)))
+    var sortCol = vals.length - 1
+  } else {
+    var sortCol = 0
+  }
 
   shtVals = vals.sort(function(a,b){ 
 
-    // if (shtEnc) {
-    //   var aaa = await decryptArr(a[0], currUser.pwd)
-    //   var bbb = await decryptArr(b[0], currUser.pwd)
-    // } else {
-    //   var aaa = a[0]
-    //   var bbb = b[0]
-    // }
-    
-    // return aaa.toLowerCase() > bbb.toLowerCase() ? 1 : -1; 
-    return a[0].toLowerCase() > b[0].toLowerCase() ? 1 : -1; 
+    return a[sortCol].toLowerCase() > b[sortCol].toLowerCase() ? 1 : -1; 
 
   });
+  
+  if (shtEnc) shtVals.forEach((val, idx, arr)=> arr[idx].slice(0, -1)) // remove sort element from end of array
   
   console.log('shtVals ffff', shtVals)
  
