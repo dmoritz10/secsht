@@ -42,7 +42,7 @@ async function listSheet(title) {
 
   });
   
-  console.log('shtVals', shtVals)
+  console.log('shtVals xxx', shtVals)
  
 
   $("#shtTitle")[0].innerHTML = shtTitle
