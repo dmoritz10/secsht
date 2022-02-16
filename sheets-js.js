@@ -263,7 +263,7 @@ async function updateSheetRow(idx) {
     "values": [vals]    
   }
 
-  if (idx) {
+  if (idx > -1) {
 
     console.log('update', idx)
 
