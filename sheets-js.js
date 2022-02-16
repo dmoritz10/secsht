@@ -27,22 +27,22 @@ async function listSheet(title) {
   var vals = objSht[shtTitle].vals
   vals.forEach((val, idx, arr)=> arr[idx].push(idx))
 
-  shtVals = vals.sort(async function(a,b){ 
+  shtVals = vals.sort(function(a,b){ 
 
-    if (shtEnc) {
-      var aaa = await decryptArr(a[0], currUser.pwd)
-      var bbb = await decryptArr(b[0], currUser.pwd)
-    } else {
-      var aaa = a[0]
-      var bbb = b[0]
-    }
+    // if (shtEnc) {
+    //   var aaa = await decryptArr(a[0], currUser.pwd)
+    //   var bbb = await decryptArr(b[0], currUser.pwd)
+    // } else {
+    //   var aaa = a[0]
+    //   var bbb = b[0]
+    // }
     
     // return aaa.toLowerCase() > bbb.toLowerCase() ? 1 : -1; 
     return a[0].toLowerCase() > b[0].toLowerCase() ? 1 : -1; 
 
   });
   
-  console.log('shtVals xxx', shtVals)
+  console.log('shtVals ffff', shtVals)
  
 
   $("#shtTitle")[0].innerHTML = shtTitle
