@@ -26,20 +26,27 @@ async function listSheet(title) {
   // var vals = decryptArr(objSht[shtTitle].vals, currUser.pwd)
   var vals = objSht[shtTitle].vals
 
-  vals.forEach((val, idx, arr) => arr[idx].push(idx))
+  // vals.forEach((val, idx, arr) => arr[idx].push(idx))
 
   for (var i=0;i<vals.length;i++) {
-    if (shtEnc) vals[i].push(await decryptMessage(vals[i][0], currUser.pwd)) // sort won't take a promise
-    else vals[i].push(vals[i][0])
+
+    vals[i].push(idx)
+    
+    if (shtEnc) vals[i][0] = await decryptMessage(vals[i][0], currUser.pwd) // sort won't take a promise
+    
+    // if (shtEnc) vals[i].push(await decryptMessage(vals[i][0], currUser.pwd)) // sort won't take a promise
+    // else vals[i].push(vals[i][0])
+  
   }
 
-  var sortCol = vals[0].length - 1
+  // var sortCol = vals[0].length - 1
+  var sortCol = 0
 
   console.log('valssss', sortCol, vals)
 
   shtVals = vals.sort(function(a,b){return a[sortCol].toLowerCase() > b[sortCol].toLowerCase() ? 1 : -1; });
   
-  shtVals.forEach((val, idx, arr)=> arr[idx].pop()) // remove sort element from end of array
+  // shtVals.forEach((val, idx, arr)=> arr[idx].pop()) // remove sort element from end of array
   
   console.log('shtVals ccccc', shtVals)
  
@@ -58,7 +65,8 @@ async function listSheet(title) {
 
     if (shtEnc) {
       var fav = await decryptMessage(shtObj['Favorite'], currUser.pwd)
-      var provider = await decryptMessage(shtObj['Provider'], currUser.pwd)
+      // var provider = await decryptMessage(shtObj['Provider'], currUser.pwd)
+      var provider = shtObj['Provider']
     } else {
       var fav = shtObj['Favorite']
       var provider = shtObj['Provider']
