@@ -26,7 +26,7 @@ async function listSheet(title) {
   // var vals = decryptArr(objSht[shtTitle].vals, currUser.pwd)
   var vals = objSht[shtTitle].vals
   vals.forEach((val, idx, arr)=> arr[idx].push(idx))
-  shtVals = vals.sort(function(a,b){ 
+  shtVals = vals.sort(async function(a,b){ 
     let aaa = await decryptArr(a[0], currUser.pwd)
     let aaa = await decryptArr(b[0], currUser.pwd)
 
