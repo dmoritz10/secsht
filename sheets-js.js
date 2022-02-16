@@ -26,10 +26,10 @@ async function listSheet(title) {
   // var vals = decryptArr(objSht[shtTitle].vals, currUser.pwd)
   var vals = objSht[shtTitle].vals
 
-  vals.forEach((val, idx, arr)=> arr[idx].push(idx))
+  vals.forEach((val, idx, arr) => arr[idx].push(idx))
 
   if (shtEnc) {
-    vals.forEach((val, idx, arr)=> arr[idx].push(await decryptMessage(a[0], currUser.pwd)))
+    vals.forEach((val, idx, arr) => arr[idx].push( decryptMessage(a[0], currUser.pwd)))
     var sortCol = vals.length - 1
   } else {
     var sortCol = 0
@@ -43,7 +43,7 @@ async function listSheet(title) {
   
   if (shtEnc) shtVals.forEach((val, idx, arr)=> arr[idx].slice(0, -1)) // remove sort element from end of array
   
-  console.log('shtVals cccc', shtVals)
+  console.log('shtVals ssss', shtVals)
  
 
   $("#shtTitle")[0].innerHTML = shtTitle
