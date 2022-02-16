@@ -265,6 +265,8 @@ async function updateSheetRow(idx) {
 
   if (idx) {
 
+    console.log('update', idx)
+
     var row = idx * 1 + 2
     var rng = calcRngA1(row, 1, 1, shtHdrs.length)
 
@@ -285,6 +287,7 @@ async function updateSheetRow(idx) {
       });
 
   } else {
+    console.log('append', idx)
 
     var row = 2
     var rng = calcRngA1(row, 1, 1, shtHdrs.length)
