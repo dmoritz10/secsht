@@ -61,7 +61,9 @@ async function listSheet(title) {
 
   for (var j = 0; j < shtVals.length; j++) {
 
-    var shtObj = makeObj(shtVals[j], shtHdrs)
+    const hdrs = [...shtHdrs].push('idx');
+
+    var shtObj = makeObj(shtVals[j], hdrs)
 
     console.log('shtObj', shtObj)
 
@@ -82,7 +84,7 @@ async function listSheet(title) {
 
     ele.find('#shtProvider')[0].innerHTML = provider
 
-    ele.find('#shtIdx')[0].text('hi dan')
+    ele.find('#shtIdx')[0].text(shtObj['idx'])
     
     ele.find('#btnShtEdit')[0].setAttribute("onclick", "editSheet(" + j + ")");
 
