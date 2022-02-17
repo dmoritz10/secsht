@@ -82,7 +82,7 @@ async function listSheet(title) {
 
     ele.find('#shtProvider')[0].innerHTML = provider
 
-    ele.find('#shtIdx')[0].text = 'hi dan'
+    ele.find('#shtIdx')[0].text('hi dan')
     
     ele.find('#btnShtEdit')[0].setAttribute("onclick", "editSheet(" + j + ")");
 
