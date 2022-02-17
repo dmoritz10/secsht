@@ -63,6 +63,8 @@ async function listSheet(title) {
 
     var shtObj = makeObj(shtVals[j], shtHdrs)
 
+    console.log('shtObj', shtObj)
+
     if (shtEnc) {
       var fav = await decryptMessage(shtObj['Favorite'], currUser.pwd)
       var provider = await decryptMessage(shtObj['Provider'], currUser.pwd)
@@ -80,6 +82,8 @@ async function listSheet(title) {
 
     ele.find('#shtProvider')[0].innerHTML = provider
 
+    ele.find('#shtidx')[0].text = 'hi dan'
+    
     ele.find('#btnShtEdit')[0].setAttribute("onclick", "editSheet(" + j + ")");
 
     ele.find('#btnShtFavorite')[0].setAttribute("onclick", "setFavorite(" + j + ")");
