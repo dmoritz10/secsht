@@ -62,8 +62,8 @@ async function listSheet(title) {
   for (var j = 0; j < shtVals.length; j++) {
 
     var hdrs = [...shtHdrs]
-    hdr.push('idx');
-    
+    hdrs.push('idx');
+
     var shtObj = makeObj(shtVals[j], hdrs)
 
     console.log('shtObj', shtObj)
