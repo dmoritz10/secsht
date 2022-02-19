@@ -68,6 +68,9 @@ async function listSheet(title) {
 
     console.log('shtObj', shtObj)
 
+    var idx = shtObj['idx']
+    shtObj.pop()
+
     if (shtEnc) {
       var fav = await decryptMessage(shtObj['Favorite'], currUser.pwd)
       var provider = await decryptMessage(shtObj['Provider'], currUser.pwd)
@@ -81,17 +84,18 @@ async function listSheet(title) {
       (shtSelectFav && !(fav.toLowerCase() === 'true'))
     ) continue;
 
+
     var ele = $tblSheets.clone();
 
     ele.find('#shtProvider')[0].innerHTML = provider
 
-    ele.find('#shtIdx')[0].innerHTML = shtObj['idx']
+    ele.find('#shtIdx')[0].innerHTML = idx
     
-    ele.find('#btnShtEdit')[0].setAttribute("onclick", "editSheet(" + j + ")");
+    ele.find('#btnShtEdit')[0].setAttribute("onclick", "editSheet(" + idx + ")");
 
-    ele.find('#btnShtFavorite')[0].setAttribute("onclick", "setFavorite(" + j + ")");
+    ele.find('#btnShtFavorite')[0].setAttribute("onclick", "setFavorite(" + idx + ")");
 
-    ele.find('#btnShtShowSheet')[0].setAttribute("onclick", "showSheet(" + j + ")");
+    ele.find('#btnShtShowSheet')[0].setAttribute("onclick", "showSheet(" + idx + ")");
 
 
     var fav = (shtObj['Favorite'].toLowerCase()) === 'true'
