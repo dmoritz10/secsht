@@ -69,7 +69,7 @@ async function listSheet(title) {
     console.log('shtObj', shtObj)
 
     var idx = shtObj['idx']
-    shtVals.pop()                 // remove idx
+    shtVals[j].pop()                 // remove idx
 
     if (shtEnc) {
       var fav = await decryptMessage(shtObj['Favorite'], currUser.pwd)
