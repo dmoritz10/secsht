@@ -273,7 +273,7 @@ async function btnShtmSubmitSheetHtml() {
 
   }
 
-console.log(shtVals)
+console.log('shtVals', shtVals)
 
   await updateSheetRow(arrIdx, shtIdx)
 
