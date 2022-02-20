@@ -89,8 +89,6 @@ async function listSheet(title) {
 
     ele.find('#shtProvider')[0].innerHTML = provider
 
-    ele.find('#shtIdx')[0].innerHTML = idx
-    
     ele.find('#btnShtEdit')[0].setAttribute("onclick", "editSheet(" + j + ")");
 
     ele.find('#btnShtFavorite')[0].setAttribute("onclick", "setFavorite(" + idx + ", " + shtIdx + ")");
