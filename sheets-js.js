@@ -306,7 +306,7 @@ async function updateSheetRow(arrIdx, shtIdx) {
 
     console.log('update', shtIdx)
 
-    var row = shtIdx * 1 + 1
+    var row = shtIdx * 1 + 2
     var rng = calcRngA1(row, 1, 1, shtHdrs.length)
 
     var params = {
