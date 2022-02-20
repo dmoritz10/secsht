@@ -103,7 +103,7 @@ console.log('shtIdx', shtIdx)
 
     var boolFav = fav.toLowerCase() === 'true'
 
-    console.log('boolFav', boolFav)
+    console.log('boolFav ccc', boolFav)
 
 
     if (boolFav) {
