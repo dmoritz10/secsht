@@ -83,6 +83,8 @@ console.log('shtIdx', shtIdx)
       var provider = shtObj['Provider']
     }
 
+    console.log('fav', fav)
+
     if (
       (shtSelectFav && !(fav.toLowerCase() === 'true'))
     ) continue;
