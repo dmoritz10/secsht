@@ -101,7 +101,7 @@ console.log('shtIdx', shtIdx)
     ele.find('#btnShtShowSheet')[0].setAttribute("onclick", "showSheet(" + j + ")");
 
 
-    var boolFav = !!fav
+    var boolFav = fav.toLowerCase() === 'true'
 
     console.log('boolFav', boolFav)
 
