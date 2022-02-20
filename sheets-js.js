@@ -228,7 +228,7 @@ async function btnShtmSubmitSheetHtml() {
 
   var vals = shtVals[arrIdx]
 
-  if (idarrIdxx) {                                                       // update existing course
+  if (arrIdx) {                                                       // update existing course
 
     vals[shtHdrs.indexOf("Provider")] = $('#shtmProvider').val()
     vals[shtHdrs.indexOf("Login")] = $('#shtmLogin').val()
