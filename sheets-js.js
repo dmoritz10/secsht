@@ -70,8 +70,6 @@ async function listSheet(title) {
 
     var shtIdx = shtObj['idx']
 
-console.log('shtIdx', shtIdx)
-
     shtVals[j].pop()                 // remove idx
 
     if (shtEnc) {
@@ -83,8 +81,6 @@ console.log('shtIdx', shtIdx)
       var provider = shtObj['Provider']
     }
 
-    console.log('fav', fav)
-
     if (
       (shtSelectFav && !(fav.toLowerCase() === 'true'))
     ) continue;
@@ -94,7 +90,7 @@ console.log('shtIdx', shtIdx)
 
     ele.find('#shtProvider')[0].innerHTML = provider
 
-    ele.find('#btnShtEdit')[0].setAttribute("onclick", "editSheet(" + j + ")");
+    ele.find('#btnShtEdit')[0].setAttribute("onclick", "editSheet(" + j + ", " + shtIdx + ")");
 
     ele.find('#btnShtFavorite')[0].setAttribute("onclick", "setFavorite(" + j + ", " + shtIdx + ")");
 
@@ -102,9 +98,6 @@ console.log('shtIdx', shtIdx)
 
 
     var boolFav = fav.toLowerCase() === 'true'
-
-    console.log('boolFav ccc', boolFav)
-
 
     if (boolFav) {
       ele.find('#ScFavIcon')[0].innerHTML = "star"
@@ -165,13 +158,9 @@ async function setFavorite(arrIdx, shtIdx) {
 
   var favCurr = shtVals[arrIdx][shtHdrs.indexOf("Favorite")]
 
-  console.log("favCurr", favCurr)
-
   if (shtEnc) {
     var x = await decryptMessage(favCurr, currUser.pwd)
     var fav = x.toLowerCase() === 'true'
-
-console.log('fav', x, fav)
 
     if (fav) {
       shtVals[arrIdx][shtHdrs.indexOf("Favorite")] = await encryptMessage("FALSE", currUser.pwd)
@@ -189,7 +178,6 @@ console.log('fav', x, fav)
     }
   }
 
-  console.log('shtIdx', arrIdx, shtIdx)
   await updateSheetRow(arrIdx, shtIdx)
 
   listSheet(shtTitle)
@@ -197,7 +185,7 @@ console.log('fav', x, fav)
 }
 
 
-async function editSheet(idx) {
+async function editSheet(arrIdx, shtIdx) {
 
 
   $("#sheet-modal").modal('show');
@@ -205,14 +193,15 @@ async function editSheet(idx) {
 
   $('#shtmSheetName').html(shtTitle)
 
-  $('#shtmIdx').val(idx)
+  $('#shtmArrIdx').val(arrIdx)
+  $('#shtmShtIdx').val(shtIdx)
 
   console.log(shtVals)
   console.log(shtHdrs)
-  console.log(shtVals[idx])
-  console.log(shtVals[idx][shtHdrs['Provider']])
+  console.log(shtVals[arrIdx])
+  console.log(shtVals[arrIdx][shtHdrs['Provider']])
 
-  var shtObj = makeObj(shtVals[idx], shtHdrs)
+  var shtObj = makeObj(shtVals[arrIdx], shtHdrs)
 
   console.log(shtObj)
 
@@ -234,7 +223,8 @@ async function btnShtmSubmitSheetHtml() {
 
   if (!$('#sheet-form').valid()) return
 
-  var idx = $('#shtmIdx').val()
+  var arrIdx = $('#shtmArrIdx').val()
+  var shtIdx = $('#shtmShtIdx').val()
 
   var vals = shtVals[idx]
 
@@ -281,7 +271,7 @@ async function btnShtmSubmitSheetHtml() {
 
 console.log(shtVals)
 
-  await updateSheetRow(idx)
+  await updateSheetRow(arrIdx, shtIdx)
 
   // await initialUI()
 
@@ -416,7 +406,7 @@ async function btnDeleteSheetHtml() {
   if (!confirmOK) return
 
 
-  var idx = $('#shtmIdx').val() * 1
+  var idx = $('#shtmArrIdx').val() * 1
 
   var request = {
     "requests":
