@@ -177,7 +177,7 @@ async function setFavorite(arrIdx, shtIdx) {
     }
   }
 
-  await updateSheetRow(shtIdx)
+  await updateSheetRow(shtIdx+1)
 
   listSheet(shtTitle)
 
