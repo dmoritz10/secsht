@@ -263,9 +263,9 @@ async function btnShtmSubmitSheetHtml() {
     vals[shtHdrs.indexOf("Login Url")] = $('#shtmLoginUrl').val()
     vals[shtHdrs.indexOf("Security Q/A")] = $('#shtmSecurityQA').val()
     vals[shtHdrs.indexOf("Notes")] = $('#shtmNotes').val()
+    vals[shtHdrs.indexOf("Favorite")] = false
     vals[shtHdrs.indexOf("Last Change")] = formatDate(new Date())
 
-    vals[shtHdrs.indexOf("Favorite")] = false
 
     shtVals.push(vals)
     arrIdx = shtVals.length-1
@@ -276,8 +276,6 @@ async function btnShtmSubmitSheetHtml() {
 console.log('shtVals', shtVals)
 
   await updateSheetRow(arrIdx, shtIdx)
-
-  // await initialUI()
 
   $("#sheet-modal").modal('hide');
 
