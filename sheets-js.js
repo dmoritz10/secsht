@@ -228,6 +228,8 @@ async function btnShtmSubmitSheetHtml() {
 
   var vals = shtVals[arrIdx]
 
+  console.log('idx', arrIdx, shtIdx)
+
   if (arrIdx) {                                                       // update existing course
 
     vals[shtHdrs.indexOf("Provider")] = $('#shtmProvider').val()
