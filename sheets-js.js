@@ -253,7 +253,7 @@ async function btnShtmSubmitSheetHtml() {
       return
     }
 
-    vals = []
+    var vals = []
     vals[shtHdrs.indexOf("Provider")] = $('#shtmProvider').val()
     vals[shtHdrs.indexOf("Login")] = $('#shtmLogin').val()
     vals[shtHdrs.indexOf("Password")] = $('#shtmPassword').val()
