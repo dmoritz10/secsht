@@ -100,9 +100,13 @@ console.log('shtIdx', shtIdx)
 
     ele.find('#btnShtShowSheet')[0].setAttribute("onclick", "showSheet(" + j + ")");
 
-    console.log('favorite', fav)
 
-    if (fav) {
+    var boolFav = !!fav
+
+    console.log('boolFav', boolFav)
+
+
+    if (boolFav) {
       ele.find('#ScFavIcon')[0].innerHTML = "star"
       ele.find('#ScFavIcon').addClass('text-primary')
     } else {
