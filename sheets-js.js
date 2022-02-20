@@ -91,7 +91,7 @@ async function listSheet(title) {
 
     ele.find('#btnShtEdit')[0].setAttribute("onclick", "editSheet(" + j + ")");
 
-    ele.find('#btnShtFavorite')[0].setAttribute("onclick", "setFavorite(" + idx + ", " + shtIdx + ")");
+    ele.find('#btnShtFavorite')[0].setAttribute("onclick", "setFavorite(" + j + ", " + shtIdx + ")");
 
     ele.find('#btnShtShowSheet')[0].setAttribute("onclick", "showSheet(" + j + ")");
 
