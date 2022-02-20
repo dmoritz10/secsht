@@ -266,10 +266,11 @@ async function btnShtmSubmitSheetHtml() {
     vals[shtHdrs.indexOf("Favorite")] = false
     vals[shtHdrs.indexOf("Last Change")] = formatDate(new Date())
 
-
-    shtVals.push(vals)
     arrIdx = shtVals.length-1
     shtIdx = -1
+    vals.push(arrIdx)
+    shtVals.push(vals)
+ 
 
   }
 
