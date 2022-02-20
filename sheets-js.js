@@ -66,9 +66,12 @@ async function listSheet(title) {
 
     var shtObj = makeObj(shtVals[j], hdrs)
 
-    console.log('shtObj', shtObj)
+    console.log('shtObj', JSON.parse(JSON.stringefy(shtObj)))
 
     var shtIdx = shtObj['idx']
+
+console.log('shtIdx', shtIdx)
+
     shtVals[j].pop()                 // remove idx
 
     if (shtEnc) {
