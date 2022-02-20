@@ -166,6 +166,8 @@ async function setFavorite(arrIdx, shtIdx) {
     var x = await decryptMessage(favCurr, currUser.pwd)
     var fav = x.toLowerCase() === 'true'
 
+console.log('fav', x, fav)
+
     if (fav) {
       shtVals[arrIdx][shtHdrs.indexOf("Favorite")] = await encryptMessage("FALSE", currUser.pwd)
     } else {
