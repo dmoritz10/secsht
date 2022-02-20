@@ -66,7 +66,7 @@ async function listSheet(title) {
 
     var shtObj = makeObj(shtVals[j], hdrs)
 
-    console.log('shtObj', JSON.parse(JSON.stringefy(shtObj)))
+    console.log('shtObj', JSON.parse(JSON.stringify(shtObj)))
 
     var shtIdx = shtObj['idx']
 
