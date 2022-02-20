@@ -178,7 +178,7 @@ async function setFavorite(arrIdx, shtIdx) {
   }
 
   console.log('shtIdx', shtIdx)
-  await updateSheetRow(shtIdx*1 + 1)
+  await updateSheetRow(shtIdx*1 + 2)
 
   listSheet(shtTitle)
 
