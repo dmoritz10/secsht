@@ -226,9 +226,9 @@ async function btnShtmSubmitSheetHtml() {
   var arrIdx = $('#shtmArrIdx').val()
   var shtIdx = $('#shtmShtIdx').val()
 
-  var vals = shtVals[idx]
+  var vals = shtVals[arrIdx]
 
-  if (idx) {                                                       // update existing course
+  if (idarrIdxx) {                                                       // update existing course
 
     vals[shtHdrs.indexOf("Provider")] = $('#shtmProvider').val()
     vals[shtHdrs.indexOf("Login")] = $('#shtmLogin').val()
@@ -267,7 +267,7 @@ async function btnShtmSubmitSheetHtml() {
 
   }
 
-  shtVals[idx] = vals
+  shtVals[arrIdx] = vals
 
 console.log(shtVals)
 
