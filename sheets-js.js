@@ -101,8 +101,6 @@ console.log('shtIdx', shtIdx)
     ele.find('#btnShtShowSheet')[0].setAttribute("onclick", "showSheet(" + j + ")");
 
 
-    var fav = (shtObj['Favorite'].toLowerCase()) === 'true'
-
     if (fav) {
       ele.find('#ScFavIcon')[0].innerHTML = "star"
       ele.find('#ScFavIcon').addClass('text-primary')
