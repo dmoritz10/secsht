@@ -68,7 +68,7 @@ async function listSheet(title) {
 
     console.log('shtObj', shtObj)
 
-    var idx = shtObj['idx']
+    var shtIdx = shtObj['idx']
     shtVals[j].pop()                 // remove idx
 
     if (shtEnc) {
@@ -91,11 +91,11 @@ async function listSheet(title) {
 
     ele.find('#shtIdx')[0].innerHTML = idx
     
-    ele.find('#btnShtEdit')[0].setAttribute("onclick", "editSheet(" + idx + ")");
+    ele.find('#btnShtEdit')[0].setAttribute("onclick", "editSheet(" + j + ")");
 
-    ele.find('#btnShtFavorite')[0].setAttribute("onclick", "setFavorite(" + idx + ")");
+    ele.find('#btnShtFavorite')[0].setAttribute("onclick", "setFavorite(" + idx + ", " + shtIdx + ")");
 
-    ele.find('#btnShtShowSheet')[0].setAttribute("onclick", "showSheet(" + idx + ")");
+    ele.find('#btnShtShowSheet')[0].setAttribute("onclick", "showSheet(" + j + ")");
 
 
     var fav = (shtObj['Favorite'].toLowerCase()) === 'true'
@@ -150,33 +150,33 @@ async function btnShtSelectHtml(e) {
 
 }
 
-async function setFavorite(idx) {
+async function setFavorite(arrIdx, shtIdx) {
 
-  console.log('idx', idx)
+  console.log('arrIdx', arrIdx)
 
-  var favCurr = shtVals[idx][shtHdrs.indexOf("Favorite")]
+  var favCurr = shtVals[arrIdx][shtHdrs.indexOf("Favorite")]
 
   if (shtEnc) {
     var x = await decryptMessage(favCurr, currUser.pwd)
     var fav = x.toLowerCase() === 'true'
 
     if (fav) {
-      shtVals[idx][shtHdrs.indexOf("Favorite")] = await encryptMessage("FALSE", currUser.pwd)
+      shtVals[arrIdx][shtHdrs.indexOf("Favorite")] = await encryptMessage("FALSE", currUser.pwd)
     } else {
-      shtVals[idx][shtHdrs.indexOf("Favorite")] = await encryptMessage("TRUE", currUser.pwd)
+      shtVals[arrIdx][shtHdrs.indexOf("Favorite")] = await encryptMessage("TRUE", currUser.pwd)
     }
 
   } else {
     var fav = favCurr.toLowerCase() === 'true'
 
     if (fav) {
-      shtVals[idx][shtHdrs.indexOf("Favorite")] = "FALSE"
+      shtVals[arrIdx][shtHdrs.indexOf("Favorite")] = "FALSE"
     } else {
-      shtVals[idx][shtHdrs.indexOf("Favorite")] = "TRUE"
+      shtVals[arrIdx][shtHdrs.indexOf("Favorite")] = "TRUE"
     }
   }
 
-  await updateSheetRow(idx)
+  await updateSheetRow(shtIdx)
 
   listSheet(shtTitle)
 
