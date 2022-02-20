@@ -152,6 +152,9 @@ async function btnShtSelectHtml(e) {
 
 async function setFavorite(arrIdx, shtIdx) {
 
+                                                // arrIdx - the index of the element in the sorted array
+                                                // shtIdx = the index of the element in the sheet (un-sorted)
+
   console.log('arrIdx', arrIdx)
 
   var favCurr = shtVals[arrIdx][shtHdrs.indexOf("Favorite")]
