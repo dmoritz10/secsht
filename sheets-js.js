@@ -267,9 +267,11 @@ async function btnShtmSubmitSheetHtml() {
 
     vals[shtHdrs.indexOf("Favorite")] = false
 
-  }
+    shtVals.push(vals)
+    arrIdx = shtVals.length-1
+    shtIdx = -1
 
-  shtVals[arrIdx] = vals
+  }
 
 console.log(shtVals)
 
