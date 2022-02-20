@@ -157,6 +157,8 @@ async function setFavorite(arrIdx, shtIdx) {
 
   var favCurr = shtVals[arrIdx][shtHdrs.indexOf("Favorite")]
 
+  console.log("favCurr", favCurr)
+
   if (shtEnc) {
     var x = await decryptMessage(favCurr, currUser.pwd)
     var fav = x.toLowerCase() === 'true'
@@ -279,17 +281,17 @@ console.log(shtVals)
 
 }
 
-async function updateSheetRow(idx) {
+async function updateSheetRow(arrIdx, shtIdx) {
 
   console.log('updateSheetRow')
-  console.log(idx)
-  console.log(shtId)
+  console.log(arrIdx)
+  console.log(shtIdx)
   console.log('shtTitle', shtTitle)
   console.log(shtVals)
 
   await checkAuth()
 
-  var vals = shtVals[idx].slice(0, -1) // remove idx element from end of array
+  var vals = shtVals[arrIdx].slice(0, -1) // remove idx element from end of array
   console.log(vals)
 
   var resource = {
@@ -297,12 +299,11 @@ async function updateSheetRow(idx) {
     "values": [vals]    
   }
 
-  if (idx > -1) {
+  if (shtIdx > -1) {
 
-    console.log('update', idx)
+    console.log('update', shtIdx)
 
-    // var row = idx * 1 + 2
-    var row = idx
+    var row = shtIdx * 1 + 1
     var rng = calcRngA1(row, 1, 1, shtHdrs.length)
 
     var params = {
@@ -322,7 +323,7 @@ async function updateSheetRow(idx) {
       });
 
   } else {
-    console.log('append', idx)
+    console.log('append', shtIdx)
 
     var row = 2
     var rng = calcRngA1(row, 1, 1, shtHdrs.length)
