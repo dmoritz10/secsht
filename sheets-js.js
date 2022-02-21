@@ -266,10 +266,10 @@ async function btnShtmSubmitSheetHtml() {
     vals[shtHdrs.indexOf("Favorite")] = false
     vals[shtHdrs.indexOf("Last Change")] = formatDate(new Date())
 
-    arrIdx = shtVals.length-1
+    // arrIdx = shtVals.length-1
     shtIdx = -1
-    vals.push(arrIdx)
-    shtVals.push(vals)
+    // vals.push(arrIdx)
+    // shtVals.push(vals)
  
 
   }
@@ -284,7 +284,7 @@ console.log('shtVals', shtVals)
 
 }
 
-async function updateSheetRow(arrIdx, shtIdx) {
+async function updateSheetRow(vals, shtIdx) {
 
   console.log('updateSheetRow')
   console.log(arrIdx)
