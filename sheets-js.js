@@ -287,7 +287,7 @@ console.log('shtVals', shtVals)
 async function updateSheetRow(vals, shtIdx) {
 
   console.log('updateSheetRow')
-  console.log(arrIdx)
+  console.log(vals)
   console.log(shtIdx)
   console.log('shtTitle', shtTitle)
   console.log(shtVals)
