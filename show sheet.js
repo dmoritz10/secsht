@@ -5,8 +5,6 @@ async function showSheet(idx) {
 
   var sht = []
 
-console.log('shtEncfsdff', shtEnc)
-
   var vals = shtEnc ? await decryptArr(shtVals[idx], currUser.pwd) : shtVals[idx]
   
   $("#ssSheet")[0].innerHTML = vals[shtHdrs.indexOf('Provider')]

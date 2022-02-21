@@ -278,9 +278,12 @@ async function btnShtmSubmitSheetHtml() {
 
   }
 
+  var valsEnc = shtEnc ? await encryptArr(vals, currUser.pwd) : vals
+
+
 console.log('shtVals', shtVals)
 
-  await updateSheetRow(vals, shtIdx)
+  await updateSheetRow(valsEnc, shtIdx)
 
   $("#sheet-modal").modal('hide');
 
