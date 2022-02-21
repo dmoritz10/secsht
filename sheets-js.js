@@ -218,6 +218,7 @@ async function editSheet(arrIdx, shtIdx) {
   $('#shtmLoginUrl').val(shtObj['Login Url'])
   $('#shtmSecurityQA').val(shtObj['Security Q/A'])
   $('#shtmNotes').val(shtObj['Notes'])
+  $('#shtmFavorite').val(shtObj['Favorite'])
 
   $('#btnDeleteSheet').removeClass('d-none')
 
@@ -246,6 +247,9 @@ async function btnShtmSubmitSheetHtml() {
     vals[shtHdrs.indexOf("Security Q/A")] = $('#shtmSecurityQA').val()
     vals[shtHdrs.indexOf("Notes")] = $('#shtmNotes').val()
     vals[shtHdrs.indexOf("Last Change")] = formatDate(new Date())
+    vals[shtHdrs.indexOf("Favorite")] = $('#shtmFavorite').val()
+
+    shtmFavorite
 
 
   } else {
@@ -269,6 +273,8 @@ async function btnShtmSubmitSheetHtml() {
     vals[shtHdrs.indexOf("Notes")] = $('#shtmNotes').val()
     vals[shtHdrs.indexOf("Favorite")] = false
     vals[shtHdrs.indexOf("Last Change")] = formatDate(new Date())
+
+    vals[shtHdrs.indexOf("Favorite")] = $('#shtmFavorite').val()
 
     // arrIdx = shtVals.length-1
     shtIdx = -1
