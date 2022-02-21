@@ -276,7 +276,7 @@ async function btnShtmSubmitSheetHtml() {
 
 console.log('shtVals', shtVals)
 
-  await updateSheetRow(arrIdx, shtIdx)
+  await updateSheetRow(vals, shtIdx)
 
   $("#sheet-modal").modal('hide');
 
