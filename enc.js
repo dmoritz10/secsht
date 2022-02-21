@@ -159,7 +159,7 @@ async function decryptArr(msg, pwd) {
             var r = msg[i]
             var row = []
             for (var j = 0; j < r.length; j++) {
-                row.push(await decryptMessage(r[j], currUser.pwd))
+                row.push(await decryptMessage(r[j], pwd))
             }
             rtn.push(row)
         }
@@ -167,7 +167,7 @@ async function decryptArr(msg, pwd) {
     } else {
 
         for (var i = 0; i < msg.length; i++) {
-            rtn.push(await decryptMessage(msg[i], currUser.pwd))
+            rtn.push(await decryptMessage(msg[i], pwd))
         }
 
     }

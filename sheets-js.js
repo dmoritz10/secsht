@@ -203,7 +203,9 @@ async function editSheet(arrIdx, shtIdx) {
   console.log(shtVals[arrIdx])
   console.log(shtVals[arrIdx][shtHdrs['Provider']])
 
-  var shtObj = makeObj(shtVals[arrIdx], shtHdrs)
+  var vals = shtEnc ? await decryptArr(shtVals[arrIdx], currUser.pwd) : shtVals[arrIdx]
+
+  var shtObj = makeObj(vals, shtHdrs)
 
   console.log(shtObj)
 
