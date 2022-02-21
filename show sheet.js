@@ -10,11 +10,9 @@ console.log('shtEncfsdff', shtEnc)
 
   var vals = shtEnc ? await decryptArr(shtVals[idx], currUser.pwd) : shtVals[idx]
 
-  var shtObj = makeObj(vals, shtHdrs)
-
   for (var i=1; i<shtHdrs.length;i++) {
 
-    var val = shtVals[idx][i]
+    var val = vals[i]
     var icon = ''
 
     if (val) {
@@ -29,7 +27,7 @@ console.log('shtEncfsdff', shtEnc)
       }
     }
 
-    sht.push([shtHdrs[i], shtVals[idx][i], icon])
+    sht.push([shtHdrs[i], vals[i], icon])
 
   }
   
