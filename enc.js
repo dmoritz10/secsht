@@ -10,8 +10,6 @@ async function testEncrypted(title) {
 
     var shtHdrs = objSht[title].colHdrs
 
-    console.log(shtHdrs)
-
     if (shtHdrs[0] == 'Provider') {
 
         return {
@@ -39,23 +37,17 @@ async function testEncrypted(title) {
 
 async function encryptSheet(title) {
 
-    var ts = new Date()
+    // var ts = new Date()
 
     var objSht = await openShts(
         [
             { title: title, type: "all" }
         ])
 
-    console.log(objSht)
-
     var shtHdrs = objSht[title].colHdrs
     var shtArr = [shtHdrs].concat(objSht[title].vals)
 
-    console.log('shtArr', shtArr)
-
     var decHdrs = await decryptMessage(shtHdrs[0], currUser.pwd)
-
-    console.log(decHdrs)
 
     if (decHdrs == "Provider") {
         bootbox.alert('Sheet "' + shtTitle + '" is already encrypted.');
@@ -69,14 +61,12 @@ async function encryptSheet(title) {
 
     var encShtArr = await encryptArr(shtArr, currUser.pwd)
 
-    console.log(encShtArr)
-
     await updateSheet(title, encShtArr)
 
     secSht.enc = false
 
-    var et = ts - new Date()
-    alert(et)
+    // var et = ts - new Date()
+    // alert(et)
 
     loadSheets()
 
@@ -86,22 +76,17 @@ async function encryptSheet(title) {
 
 async function decryptSheet(title) {
 
-    var ts = new Date()
+    // var ts = new Date()
+
     var objSht = await openShts(
         [
             { title: title, type: "all" }
         ])
 
-    console.log(objSht)
-
     var shtHdrs = objSht[title].colHdrs
     var shtArr = [shtHdrs].concat(objSht[title].vals)
 
-    console.log('shtArr', shtArr)
-
     var decHdrs = await decryptMessage(shtHdrs[0], currUser.pwd)
-
-    console.log(decHdrs)
 
     if (decHdrs != "Provider") {
         bootbox.alert('Sheet "' + shtTitle + '" is not an encrtpted Secure Sheet.');
@@ -110,14 +95,12 @@ async function decryptSheet(title) {
 
     var decShtArr = await decryptArr(shtArr, currUser.pwd)
 
-    console.log(decShtArr)
-
     await updateSheet(title, decShtArr)
 
     secSht.enc = false
 
-    var et = ts - new Date()
-    alert(et)
+    // var et = ts - new Date()
+    // alert(et)
 
     loadSheets()
 
@@ -125,8 +108,6 @@ async function decryptSheet(title) {
 
 
 async function encryptArr(msg, pwd) {
-
-    console.log('msg', msg)
 
     var rtn = []
 
@@ -157,8 +138,6 @@ async function encryptArr(msg, pwd) {
 }
 
 async function decryptArr(msg, pwd) {
-
-    console.log('dan')
 
     var rtn = []
 
@@ -239,12 +218,12 @@ async function encryptMessage(msg, password) {
         ...new Uint8Array(encrypted)
     ])
 
-    console.log({
-        salt: toBase64(salt),
-        iv: toBase64(iv),
-        encrypted: toBase64(encrypted),
-        concatennated: ciphertext
-    });
+    // console.log({
+    //     salt: toBase64(salt),
+    //     iv: toBase64(iv),
+    //     encrypted: toBase64(encrypted),
+    //     concatennated: ciphertext
+    // });
 
     return ciphertext
 
@@ -298,7 +277,7 @@ async function decryptMessage(ciphertext, password) {
         encrypted.slice(salt_len + iv_len)
     )
         .then(function (decrypted) {
-            console.log('deecrypted', decoder.decode(decrypted));
+            // console.log('deecrypted', decoder.decode(decrypted));
             return decoder.decode(decrypted);
         })
         .catch(function (err) {
@@ -311,37 +290,3 @@ async function decryptMessage(ciphertext, password) {
 
 }
 
-async function updateSheet(title, vals) {
-
-    console.log('updateSheet')
-    console.log(shtId)
-    console.log('shtTitle', shtTitle)
-    console.log(vals)
-  
-    await checkAuth()
-  
-    var resource = {
-      "majorDimension": "ROWS",
-      "values": vals   
-    }
-  
-  
-    var rng = calcRngA1(1, 1, vals.length, vals[0].length)
-
-    var params = {
-    spreadsheetId: spreadsheetId,
-    range: "'" + title + "'!" + rng,
-    valueInputOption: 'RAW'
-    };
-
-
-    await gapi.client.sheets.spreadsheets.values.update(params, resource)
-        .then(function (response) {
-            console.log('Sheet update successful')
-            console.log(response)
-        }, function (reason) {
-            console.error('error updating sheet "' + title + '": ' + reason.result.error.message);
-            alert('error updating sheet "' + title + '": ' + reason.result.error.message);
-        });
-
-} 

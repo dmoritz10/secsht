@@ -452,3 +452,122 @@ function is2dArray(array){
     return (array[0].constructor === Array);
   }
 }
+
+async function updateSheet(title, vals) {
+
+  await checkAuth()
+
+  var resource = {
+    "majorDimension": "ROWS",
+    "values": vals   
+  }
+
+
+  var rng = calcRngA1(1, 1, vals.length, vals[0].length)
+
+  var params = {
+  spreadsheetId: spreadsheetId,
+  range: "'" + title + "'!" + rng,
+  valueInputOption: 'RAW'
+  };
+
+
+  await gapi.client.sheets.spreadsheets.values.update(params, resource)
+      .then(function (response) {
+          console.log('Sheet update successful')
+          console.log(response)
+      }, function (reason) {
+          console.error('error updating sheet "' + title + '": ' + reason.result.error.message);
+          alert('error updating sheet "' + title + '": ' + reason.result.error.message);
+      });
+
+} 
+
+async function updateSheetRow(vals, shtIdx) {
+
+
+  await checkAuth()
+
+  var resource = {
+    "majorDimension": "ROWS",
+    "values": [vals]    
+  }
+
+  if (shtIdx > -1) {
+
+    console.log('update', shtIdx)
+
+    var row = shtIdx * 1 + 2
+    var rng = calcRngA1(row, 1, 1, shtHdrs.length)
+
+    var params = {
+      spreadsheetId: spreadsheetId,
+      range: "'" + shtTitle + "'!" + rng,
+      valueInputOption: 'RAW'
+    };
+
+
+    await gapi.client.sheets.spreadsheets.values.update(params, resource)
+      .then(function (response) {
+        console.log('Sheet update successful')
+        console.log(response)
+      }, function (reason) {
+        console.error('error updating sheet "' + row + '": ' + reason.result.error.message);
+        alert('error updating sheet "' + row + '": ' + reason.result.error.message);
+      });
+
+  } else {
+
+    var row = 2
+    var rng = calcRngA1(row, 1, 1, shtHdrs.length)
+
+    var params = {
+      spreadsheetId: spreadsheetId,
+      range: "'" + shtTitle + "'!" + rng,
+      valueInputOption: 'RAW',
+      insertDataOption: 'INSERT_ROWS'
+    };
+
+    await gapi.client.sheets.spreadsheets.values.append(params, resource)
+      .then(async function (response) {
+
+        console.log('sheetId', shtId)
+        console.log(secSht)
+
+        // var request = { "requests": 
+        //   [{ "sortRange": 
+        //     { "range": { 
+        //       "sheetId": shtId, 
+        //       "startRowIndex": 1, 
+        //       "endRowIndex": shtVals.length+2, 
+        //       "startColumnIndex": 0, 
+        //       "endColumnIndex": shtHdrs.length 
+        //     }, 
+        //     "sortSpecs": 
+        //     [{ "sortOrder": "ASCENDING", "dimensionIndex": 0 }] 
+        //     } 
+        //   }] 
+        // }
+
+        // await gapi.client.sheets.spreadsheets.batchUpdate({
+        //   spreadsheetId: spreadsheetId,
+        //   resource: request
+        // }).then(response => {
+
+        //   console.log('sort complete')
+        //   console.log(response)
+
+        // })
+
+      },
+
+        function (reason) {
+
+          console.error('error appending sheet "' + shtTitle + '": ' + reason.result.error.message);
+          bootbox.alert('error appending sheet "' + shtTitle + '": ' + reason.result.error.message);
+
+        });
+
+  }
+
+}

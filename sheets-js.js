@@ -9,8 +9,6 @@ async function listSheet(title) {
       { title: title, type: "all" }
     ])
 
-  console.log(objSht)
-
   shtTitle = title
   shtId   = secSht[shtTitle].id
   shtCols = secSht[shtTitle].Cols
@@ -23,16 +21,11 @@ async function listSheet(title) {
     shtHdrs = objSht[shtTitle].colHdrs
   }
   
-  // var vals = decryptArr(objSht[shtTitle].vals, currUser.pwd)
   var vals = objSht[shtTitle].vals
-
-  // vals.forEach((val, idx, arr) => arr[idx].push(idx))
 
   for (var i=0;i<vals.length;i++) {
 
     vals[i].push(i)
-    
-    // if (shtEnc) vals[i][0] = await decryptMessage(vals[i][0], currUser.pwd) // sort won't take a promise
     
     if (shtEnc) vals[i].push(await decryptMessage(vals[i][0], currUser.pwd)) // sort won't take a promise
     else        vals[i].push(vals[i][0])
@@ -40,16 +33,11 @@ async function listSheet(title) {
   }
 
   var sortCol = vals[0].length - 1
-  // var sortCol = 0
-
-  console.log('valssss', sortCol, vals)
 
   shtVals = vals.sort(function(a,b){return a[sortCol].toLowerCase() > b[sortCol].toLowerCase() ? 1 : -1; });
   
   shtVals.forEach((val, idx, arr)=> arr[idx].pop()) // remove sort element from end of array
   
-  console.log('shtVals ccccc', shtVals)
- 
 
   $("#shtTitle")[0].innerHTML = shtTitle
 
@@ -66,8 +54,6 @@ async function listSheet(title) {
 
     var shtObj = makeObj(shtVals[j], hdrs)
 
-    console.log('shtObj', JSON.parse(JSON.stringify(shtObj)))
-
     var shtIdx = shtObj['idx']
 
     shtVals[j].pop()                 // remove idx
@@ -75,7 +61,6 @@ async function listSheet(title) {
     if (shtEnc) {
       var fav = await decryptMessage(shtObj['Favorite'], currUser.pwd)
       var provider = await decryptMessage(shtObj['Provider'], currUser.pwd)
-      // var provider = shtObj['Provider']
     } else {
       var fav = shtObj['Favorite']
       var provider = shtObj['Provider']
@@ -154,8 +139,6 @@ async function setFavorite(arrIdx, shtIdx) {
                                                 // arrIdx - the index of the element in the sorted array
                                                 // shtIdx = the index of the element in the sheet (un-sorted)
 
-  console.log('arrIdx', arrIdx)
-
   var favCurr = shtVals[arrIdx][shtHdrs.indexOf("Favorite")]
 
   if (shtEnc) {
@@ -178,8 +161,6 @@ async function setFavorite(arrIdx, shtIdx) {
     }
   }
 
-  console.log('shtVals',JSON.parse(JSON.stringify(shtVals[arrIdx])))
-
   await updateSheetRow(shtVals[arrIdx], shtIdx)
 
   listSheet(shtTitle)
@@ -198,16 +179,10 @@ async function editSheet(arrIdx, shtIdx) {
   $('#shtmArrIdx').val(arrIdx)
   $('#shtmShtIdx').val(shtIdx)
 
-  console.log(shtVals)
-  console.log(shtHdrs)
-  console.log(shtVals[arrIdx])
-  console.log(shtVals[arrIdx][shtHdrs['Provider']])
 
   var vals = shtEnc ? await decryptArr(shtVals[arrIdx], currUser.pwd) : shtVals[arrIdx]
 
   var shtObj = makeObj(vals, shtHdrs)
-
-  console.log(shtObj)
 
   $('#shtmProvider').val(shtObj['Provider'])
   $('#shtmLogin').val(shtObj['Login'])
@@ -232,8 +207,6 @@ async function btnShtmSubmitSheetHtml() {
   var shtIdx = $('#shtmShtIdx').val()
 
   var vals = shtVals[arrIdx]
-
-  console.log('idx', arrIdx, shtIdx)
 
   if (arrIdx) {                                                       // update existing course
 
@@ -276,18 +249,12 @@ async function btnShtmSubmitSheetHtml() {
 
     vals[shtHdrs.indexOf("Favorite")] = $('#shtmFavorite').val()
 
-    // arrIdx = shtVals.length-1
     shtIdx = -1
-    // vals.push(arrIdx)
-    // shtVals.push(vals)
- 
 
   }
 
   var valsEnc = shtEnc ? await encryptArr(vals, currUser.pwd) : vals
 
-
-console.log('shtVals', shtVals)
 
   await updateSheetRow(valsEnc, shtIdx)
 
@@ -297,103 +264,6 @@ console.log('shtVals', shtVals)
 
 }
 
-async function updateSheetRow(vals, shtIdx) {
-
-  console.log('updateSheetRow')
-  console.log(vals)
-  console.log(shtIdx)
-  console.log('shtTitle', shtTitle)
-  console.log(shtVals)
-
-  await checkAuth()
-
-  // var vals = shtVals[arrIdx].slice(0, -1) // remove idx element from end of array
-  console.log(vals)
-
-  var resource = {
-    "majorDimension": "ROWS",
-    "values": [vals]    
-  }
-
-  if (shtIdx > -1) {
-
-    console.log('update', shtIdx)
-
-    var row = shtIdx * 1 + 2
-    var rng = calcRngA1(row, 1, 1, shtHdrs.length)
-
-    var params = {
-      spreadsheetId: spreadsheetId,
-      range: "'" + shtTitle + "'!" + rng,
-      valueInputOption: 'RAW'
-    };
-
-
-    await gapi.client.sheets.spreadsheets.values.update(params, resource)
-      .then(function (response) {
-        console.log('Sheet update successful')
-        console.log(response)
-      }, function (reason) {
-        console.error('error updating sheet "' + row + '": ' + reason.result.error.message);
-        alert('error updating sheet "' + row + '": ' + reason.result.error.message);
-      });
-
-  } else {
-    console.log('append', shtIdx)
-
-    var row = 2
-    var rng = calcRngA1(row, 1, 1, shtHdrs.length)
-
-    var params = {
-      spreadsheetId: spreadsheetId,
-      range: "'" + shtTitle + "'!" + rng,
-      valueInputOption: 'RAW',
-      insertDataOption: 'INSERT_ROWS'
-    };
-
-    await gapi.client.sheets.spreadsheets.values.append(params, resource)
-      .then(async function (response) {
-
-        console.log('sheetId', shtId)
-        console.log(secSht)
-
-        // var request = { "requests": 
-        //   [{ "sortRange": 
-        //     { "range": { 
-        //       "sheetId": shtId, 
-        //       "startRowIndex": 1, 
-        //       "endRowIndex": shtVals.length+2, 
-        //       "startColumnIndex": 0, 
-        //       "endColumnIndex": shtHdrs.length 
-        //     }, 
-        //     "sortSpecs": 
-        //     [{ "sortOrder": "ASCENDING", "dimensionIndex": 0 }] 
-        //     } 
-        //   }] 
-        // }
-
-        // await gapi.client.sheets.spreadsheets.batchUpdate({
-        //   spreadsheetId: spreadsheetId,
-        //   resource: request
-        // }).then(response => {
-
-        //   console.log('sort complete')
-        //   console.log(response)
-
-        // })
-
-      },
-
-        function (reason) {
-
-          console.error('error appending sheet "' + shtTitle + '": ' + reason.result.error.message);
-          bootbox.alert('error appending sheet "' + shtTitle + '": ' + reason.result.error.message);
-
-        });
-
-  }
-
-}
 
 
 function fixUrl(url) {
@@ -441,8 +311,6 @@ async function btnDeleteSheetHtml() {
   }
 
 
-  console.log(request)
-
   await gapi.client.sheets.spreadsheets.batchUpdate({
     spreadsheetId: spreadsheetId,
     resource: request
@@ -453,8 +321,6 @@ async function btnDeleteSheetHtml() {
     console.log(response)
 
   })
-
-  // await initialUI()
 
   $("#sheet-modal").modal('hide');
 
