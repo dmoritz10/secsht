@@ -2,13 +2,14 @@ async function showSheet(idx) {
 
   gotoTab('ShowSheet')
 
-  $("#ssSheet")[0].innerHTML = shtVals[idx][shtHdrs.indexOf('Provider')]
 
   var sht = []
 
 console.log('shtEncfsdff', shtEnc)
 
   var vals = shtEnc ? await decryptArr(shtVals[idx], currUser.pwd) : shtVals[idx]
+  
+  $("#ssSheet")[0].innerHTML = vals[shtHdrs.indexOf('Provider')]
 
   for (var i=1; i<shtHdrs.length;i++) {
 
