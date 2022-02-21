@@ -294,7 +294,7 @@ async function updateSheetRow(vals, shtIdx) {
 
   await checkAuth()
 
-  var vals = shtVals[arrIdx].slice(0, -1) // remove idx element from end of array
+  // var vals = shtVals[arrIdx].slice(0, -1) // remove idx element from end of array
   console.log(vals)
 
   var resource = {
