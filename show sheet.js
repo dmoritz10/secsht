@@ -48,6 +48,7 @@ function copyToClpbrd(txt) {
 
   navigator.clipboard.writeText(txt).then(function() {
     console.log('Async: Copying to clipboard was successful!');
+    toast('Copied to clipboard')
   }, function(err) {
     console.error('Async: Could not copy text: ', err);
   });
