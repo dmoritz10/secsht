@@ -178,6 +178,8 @@ async function setFavorite(arrIdx, shtIdx) {
     }
   }
 
+  console.log('shtVals',JSON.parse(JSON.stringify(shtVals[arrIdx])))
+
   await updateSheetRow(shtVals[arrIdx], shtIdx)
 
   listSheet(shtTitle)
