@@ -6,7 +6,7 @@ async function showSheet(idx) {
 
   var sht = []
 
-  var vals = shtEnc ? await decryptArr(shtVals[idx], currUser.pwd) : shtVals[arrIdx]
+  var vals = shtEnc ? await decryptArr(shtVals[idx], currUser.pwd) : shtVals[idx]
 
   var shtObj = makeObj(vals, shtHdrs)
 
