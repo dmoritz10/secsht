@@ -36,7 +36,7 @@ async function showSheet(idx) {
     .setHeader()
     .setTableHeaderClass()
     .setData(sht)
-    .setTableClass('table table-borderless')
+    .setTableClass('table border-bottom')
     .setTrClass('d-flex')
     .setTcClass(['text-end col-4 h5 text-success', 'text-start col h4', 'col-1'])
     .setTdClass('py-1 pb-0 border-0 align-bottom')
