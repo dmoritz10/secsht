@@ -39,6 +39,8 @@ async function testEncrypted(title) {
 
 async function encryptSheet(title) {
 
+    var ts = new Date()
+
     var objSht = await openShts(
         [
             { title: title, type: "all" }
@@ -73,12 +75,18 @@ async function encryptSheet(title) {
 
     secSht.enc = false
 
+    var et = ts - new Date()
+    alert(et)
+
     loadSheets()
+
+    
 
 }
 
 async function decryptSheet(title) {
 
+    var ts = new Date()
     var objSht = await openShts(
         [
             { title: title, type: "all" }
@@ -107,6 +115,9 @@ async function decryptSheet(title) {
     await updateSheet(title, decShtArr)
 
     secSht.enc = false
+
+    var et = ts - new Date()
+    alert(et)
 
     loadSheets()
 
