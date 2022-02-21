@@ -6,7 +6,9 @@ async function showSheet(idx) {
 
   var sht = []
 
-  var shtObj = makeObj(shtVals[idx], shtHdrs)
+  var vals = shtEnc ? await decryptArr(shtVals[idx], currUser.pwd) : shtVals[arrIdx]
+
+  var shtObj = makeObj(vals, shtHdrs)
 
   for (var i=1; i<shtHdrs.length;i++) {
 
