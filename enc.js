@@ -40,7 +40,7 @@ async function encryptSheet(title) {
     // var ts = new Date()
 
     $("#hmContainer *").prop('disabled',true);
-console.log('modal dan')
+console.log('modal dancccc')
     // modal(true, $("#hmContainer" ))
 
     return
