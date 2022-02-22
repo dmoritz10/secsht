@@ -41,9 +41,9 @@ async function encryptSheet(title) {
 
     // $("div *").prop('disabled',true);
 
-alert('hi dan')
+alert('hi dadddn')
 
-    modal(true, $("#home"))
+$("#overlay").css({"display":"block"});
 
     return
 
