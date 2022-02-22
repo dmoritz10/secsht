@@ -572,12 +572,10 @@ async function updateSheetRow(vals, shtIdx) {
 
 }
 
-function modal(state, xThis) {
+function modal(state) {
   if (state) {
-    xThis.blur()
-    $("#modalOverlay").fadeIn();
+    $("#overlay").css({"display":"block"});
   } else {
-    $("#modalOverlay").fadeOut();
-    xThis.focus()
+    $("#overlay").css({"display":"none"});
   }
 }
