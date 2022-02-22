@@ -39,7 +39,7 @@ async function encryptSheet(title) {
 
     // var ts = new Date()
 
-    $("div *").prop('disabled',true);
+    $("#hmContainer *").prop('disabled',true);
 
     return
 
