@@ -39,11 +39,7 @@ async function encryptSheet(title) {
 
     // var ts = new Date()
 
-    $("#hmContainer *").prop('disabled',true);
-console.log('modal dancccc')
-    // modal(true, $("#hmContainer" ))
-
-    return
+    $("div *").prop('disabled',true);
 
     var objSht = await openShts(
         [
@@ -74,8 +70,7 @@ console.log('modal dancccc')
     // var et = ts - new Date()
     // alert(et)
 
-    $("div *").prop('disabled',false);
-
+    $("div *").prop('disabled',true);
 
     loadSheets()
 
