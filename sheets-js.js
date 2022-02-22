@@ -1,6 +1,8 @@
 
 async function listSheet(title) {
 
+  modal(true)
+
   var shtOptions = readOption('shtFilter')
   var shtSelectFav = shtOptions.shtSelectFav
 
@@ -109,6 +111,8 @@ async function listSheet(title) {
       });
    
   }
+
+  modal(false)
 
 }
 
