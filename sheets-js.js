@@ -36,6 +36,9 @@ async function listSheet(title) {
 
   var sortCol = vals[0].length - 1
 
+  console.log('vals',vals)
+  console.log(sortCol)
+
   shtVals = vals.sort(function(a,b){return a[sortCol].toLowerCase() > b[sortCol].toLowerCase() ? 1 : -1; });
   
   shtVals.forEach((val, idx, arr)=> arr[idx].pop()) // remove sort element from end of array
