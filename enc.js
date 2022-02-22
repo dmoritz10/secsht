@@ -70,7 +70,7 @@ async function encryptSheet(title) {
     // var et = ts - new Date()
     // alert(et)
 
-    // $("div *").enable();
+    $("div *").enable();
 
     loadSheets()
 
