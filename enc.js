@@ -39,7 +39,7 @@ async function encryptSheet(title) {
 
     // var ts = new Date()
 
-    modal(true, $(this))
+    $("div *").disable();
 
     var objSht = await openShts(
         [
@@ -70,7 +70,7 @@ async function encryptSheet(title) {
     // var et = ts - new Date()
     // alert(et)
 
-    modal(false, $(this))
+    // $("div *").enable();
 
     loadSheets()
 
