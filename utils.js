@@ -571,3 +571,13 @@ async function updateSheetRow(vals, shtIdx) {
   }
 
 }
+
+function modal(state, xThis) {
+  if (state) {
+    xThis.blur()
+    $("#modalOverlay").fadeIn();
+  } else {
+    $("#modalOverlay").fadeOut();
+    xThis.focus()
+  }
+}

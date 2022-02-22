@@ -39,6 +39,8 @@ async function encryptSheet(title) {
 
     // var ts = new Date()
 
+    modal(true, $(this))
+
     var objSht = await openShts(
         [
             { title: title, type: "all" }
@@ -67,6 +69,8 @@ async function encryptSheet(title) {
 
     // var et = ts - new Date()
     // alert(et)
+
+    modal(false, $(this))
 
     loadSheets()
 
