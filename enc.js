@@ -41,6 +41,8 @@ async function encryptSheet(title) {
 
     $("div *").prop('disabled',true);
 
+    return
+
     var objSht = await openShts(
         [
             { title: title, type: "all" }
