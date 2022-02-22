@@ -574,8 +574,10 @@ async function updateSheetRow(vals, shtIdx) {
 
 function modal(state) {
   if (state) {
-    $("#overlay").css({"display":"block"});
+    $("#overlay").fadeIn("slow");;
+
+    // $("#overlay").css({"display":"block"});
   } else {
-    $("#overlay").css({"display":"none"});
+    $("#overlay").fadeOut("slow");;
   }
 }
