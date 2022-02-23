@@ -152,7 +152,7 @@ for each sheet from secSht object
   console.log('secSht',secSht)
   
 
-  secSht.forEach( sht => {
+  secSht.forEach( sht => async {
 
     console.log('sht',sht)
 
