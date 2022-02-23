@@ -124,3 +124,11 @@ async function goHome() {
   gotoTab('Home')
 
 }
+
+async function btnHMChangePwdHtml() {
+
+  alert('hi dan')
+
+
+
+}

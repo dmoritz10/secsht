@@ -8,11 +8,26 @@
         <div class="label  text-center h1 divfullscreen">Secure Sheet</div>
       </div>
       <div class="col-2 px-1"> 
-          <div class="btn-group" role="group">
-              <button class="btn btn-light py-2" id="btnSignout">
-                <span class="material-icons">logout</span></button>
+
+        <div id="hmSelectDropDown" class="dropdown">
+          <button class="btn dropdown-toggle pl-0" type="button" id="btnHMMoreVert" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <i class="material-icons md-36" style="width:12px">more_vert</i>
+          </button>
+          <div  class="">
+            <div class="dropdown-menu more-vert-menu">
+              <form id="hmSelectForm" class="px-4 pt-3">
+                
+                <button type="button" class="btn btn-primary mt-4" id="btnHMChangePwd">Go</button>
+                <button type="button" class="btn btn-primary mt-4" id="btnSignout">Reset</button>
+              
+              </form>
+            </div>
           </div>
-      </div>
+        </div>
+
+
+       </div>
   
     </div>
   

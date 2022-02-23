@@ -186,10 +186,13 @@ jQuery(function ($) {
             // Auth tab
           
             $('#btnAuth')                   .button().click(btnAuthHtml);
-            $('#btnSignout')                .button().click(btnSignoutHtml);
             // $('#btnAuthLogin')                .button().click(btnAuthLoginHtml);
          
             // Home tab
+
+            $('#btnHMChangePwd')   .click(btnHMChangePwdHtml);
+            $('#btnSignout')                .button().click(btnSignoutHtml);
+
           
             // Sheets
             $('#btnShtSelect')            .click(btnShtSelectHtml);
@@ -197,7 +200,7 @@ jQuery(function ($) {
             $('#shtSelectDropDown')        .on('show.bs.dropdown', function () {
                 btnShtMoreVertHtml()
             })
-            
+
             $('#btnShtAddProvider')   .click(btnAddSheetHtml);
             $('#btnShtmSubmit')       .button().click(btnShtmSubmitSheetHtml);
             $('#btnShtmDelete')       .click(btnDeleteSheetHtml);
