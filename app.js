@@ -191,7 +191,7 @@ jQuery(function ($) {
             // Home tab
 
             $('#hmSelectDropDown').on('show.bs.dropdown', function () {
-                btnHmMoreVertHtml()
+                btnHMMoreVertHtml()
             })
 
             $('#btnHMChangePwd')   .click(btnHMChangePwdHtml);
