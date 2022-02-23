@@ -126,6 +126,12 @@ async function goHome() {
 }
 
 async function btnHMMoreVertHtml() {
+
+  
+}
+
+async function btnHMChangePwdHtml() {
+
   
 /*
 
@@ -184,12 +190,6 @@ for each sheet from secSht object
   currUser.pwd = nPwd
   var encPwd = await encryptMessage(vPwd, nPwd)
   await updateOption('shtList', encPwd)
-  
-}
-
-async function btnHMChangePwdHtml() {
-
-  alert('hi dan')
 
 
 
