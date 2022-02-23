@@ -125,6 +125,19 @@ async function goHome() {
 
 }
 
+async function btnHCPMoreVertHtml() {
+
+  
+}
+
+async function btnHMSelectHtml(e) {
+  
+
+                      
+  $("#btnHCPMoreVert").click()
+  
+
+}
 async function btnHMChangePwdHtml() {
 
   alert('hi dan')
