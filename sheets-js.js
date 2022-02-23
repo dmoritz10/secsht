@@ -299,7 +299,7 @@ async function btnDeleteSheetHtml() {
   if (!confirmOK) return
 
 
-  var idx = $('#shtmArrIdx').val() * 1
+  var idx = $('#shtmShtIdx').val() * 1
 
   var request = {
     "requests":
