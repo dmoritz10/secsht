@@ -324,7 +324,7 @@ async function btnDeleteSheetHtml() {
 
   }).then(response => {
 
-    console.log('delete complete')
+    console.log('delete complete - ', shtmShtIdx)
     console.log(response)
 
   })
