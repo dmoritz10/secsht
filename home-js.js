@@ -127,8 +127,63 @@ async function goHome() {
 
 async function btnHMMoreVertHtml() {
   
-  // $("#btnHMMoreVert").click()
+/*
 
+Prompt for existing password
+Verify against shtList
+
+Prompt for new password / confirm
+decrypt / encrypt shtList 
+
+for each sheet from secSht object
+  if secSht.enc
+    decrypt sheet using old password
+    encrypt sheet using new password
+    display progress
+
+*/
+
+  var vPwd = verifyCurrPwd()
+  if (!vPwd) return
+
+  var nPwd = requestNewPwd()
+  if (!nPwd) return
+
+  console.log('secSht',secSht)
+  
+
+  secSht.forEach( sht => {
+
+    console.log('sht',sht)
+
+    if (sht.enc) {
+
+      var objSht = await openShts(
+        [
+          { title: sht.title, type: "all" }
+        ])
+    
+      shtTitle = title
+      shtId   = sht.id
+      shtCols = sht.Cols
+      shtRows = sht.Rows
+      shtEnc  = secSht[shtTitle].enc
+      
+      var hdrs = await decryptArr(objSht[shtTitle].colHdrs, currUser.pwd)
+      
+      var vals = await decryptArr(objSht[shtTitle].vals, currUser.pwd)
+
+
+
+    }
+
+
+
+  })
+
+  currUser.pwd = nPwd
+  var encPwd = await encryptMessage(vPwd, nPwd)
+  await updateOption('shtList', encPwd)
   
 }
 
