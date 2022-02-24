@@ -196,6 +196,7 @@ for each sheet from secSht object
 async function verifyCurrPwd() {
   
   var pwdTest = arrOptions.shtList
+
   var pwd = await prompt("Enter Password", "password");
 
   var dx = await decryptMessage(pwdTest, pwd)
@@ -210,7 +211,9 @@ async function verifyCurrPwd() {
 async function requestNewPwd() {
   
   var pwd = await prompt("Enter Password", "password");
+
   var pdrcnfrm = await prompt("Confirm Password", "password");
+  
   if (pwd != pdrcnfrm) {
     var confirmOK = await confirm("Passwords don't match.")
     return null
