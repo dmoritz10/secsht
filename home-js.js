@@ -149,11 +149,11 @@ for each sheet from secSht object
 
 */
 
-  // var vPwd = verifyCurrPwd()
-  // if (!vPwd) return
+  var vPwd = verifyCurrPwd()
+  if (!vPwd) return
 
-  // var nPwd = requestNewPwd()
-  // if (!nPwd) return
+  var nPwd = requestNewPwd()
+  if (!nPwd) return
 
   
   for (const sht in secSht) {
@@ -165,13 +165,6 @@ for each sheet from secSht object
           { title: sht, type: "all" }
         ])
     
-      // shtTitle = title
-      // shtId   = sht.id
-      // shtCols = sht.Cols
-      // shtRows = sht.Rows
-      // shtEnc  = sht.enc
-
-      console.log('objSht', objSht )
       
       var hdrs = await decryptArr(objSht[sht].colHdrs, currUser.pwd)
       
@@ -193,5 +186,21 @@ for each sheet from secSht object
   await updateOption('shtList', encPwd)
 
 
+
+}
+
+async function verifyCurrPwd() {
+  
+  var pwdTest = arrOptions.shtList
+  var pwd = await prompt("Enter Password", "password");
+
+  var dx = await decryptMessage(pwdTest, pwd)
+
+  console.log('x', x)
+  console.log('dx', dx)
+  console.log('t', t)
+  console.log(dx == t)
+
+  if (dx != t) {await confirm("Invalid password");return null}
 
 }
