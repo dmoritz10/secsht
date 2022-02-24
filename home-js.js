@@ -165,7 +165,7 @@ for each sheet from secSht object
     // console.log('title', )
     console.log('sht.id', secSht[sht].id)
 
-    if (sht.enc) {
+    if (secSht[sht].enc) {
 
       var objSht = await openShts(
         [
