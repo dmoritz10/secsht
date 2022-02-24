@@ -208,3 +208,17 @@ async function verifyCurrPwd() {
   return pwd
 
 }
+
+
+async function requestNewPwd() {
+  
+  var pwd = await prompt("Enter Password", "password");
+  var pdrcnfrm = await prompt("Confirm Password", "password");
+  if (pwd != pdrcnfrm) {
+    var confirmOK = await confirm("Passwords don't match.")
+    return
+  }
+
+  return pwd
+
+}
