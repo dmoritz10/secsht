@@ -177,6 +177,9 @@ for each sheet from secSht object
       
       var vals = await decryptArr(objSht[sht].vals, currUser.pwd)
 
+      console.log('hdrs', hdrs)
+      console.log('vals', vals)
+
 
 
     }
