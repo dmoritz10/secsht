@@ -149,12 +149,12 @@ for each sheet from secSht object
 
 */
 
-  var vPwd = verifyCurrPwd()
+  var vPwd = await verifyCurrPwd()
   if (!vPwd) return
 
   console.log('vPwd', vPwd)
 
-  var nPwd = requestNewPwd()
+  var nPwd = await requestNewPwd()
   if (!nPwd) return
 
   
