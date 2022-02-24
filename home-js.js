@@ -175,6 +175,8 @@ for each sheet from secSht object
       // shtCols = sht.Cols
       // shtRows = sht.Rows
       // shtEnc  = sht.enc
+
+      console.log('objSht', objSht )
       
       var hdrs = await decryptArr(objSht[sht].colHdrs, currUser.pwd)
       
