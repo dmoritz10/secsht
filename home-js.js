@@ -156,8 +156,8 @@ for each sheet from secSht object
   // if (!nPwd) return
 
   console.log('secSht', JSON.parse(JSON.stringify(secSht)))
-  console.log('secSht[BSSC]',secSht[BSSC])
-  console.log('secSht[BSSC].id',secSht[BSSC].id)
+  console.log('secSht[BSSC]',secSht['BSSC'])
+  console.log('secSht[BSSC].id',secSht['BSSC'].id)
   
   for (const sht in secSht) {
 
