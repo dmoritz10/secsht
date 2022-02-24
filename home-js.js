@@ -149,9 +149,10 @@ for each sheet from secSht object
 
 */
 
+  var pwdText = 'The quick brown fox jumped over the lazy dog'
 
-  var vPwd = await verifyCurrPwd()
-  if (!vPwd) return
+  var cPwd = await verifyCurrPwd(pwdText)
+  if (!cPwd) return
 
   console.log('vPwd', vPwd)
 
@@ -169,32 +170,31 @@ for each sheet from secSht object
           { title: sht, type: "all" }
         ])
     
-      
-      var hdrs = await decryptArr(objSht[sht].colHdrs, currUser.pwd)
-      
-      var vals = await decryptArr(objSht[sht].vals, currUser.pwd)
+      toast("Decrypting sheet" + sht)
+      var shtHdrs = objSht[sht].colHdrs
+      var shtArr = [shtHdrs].concat(objSht[sht].vals)
+      var decSht = await decryptArr(shtArr, cPwd)
 
-      console.log('hdrs', hdrs)
-      console.log('vals', vals)
+      toast("Encrypting sheet" + sht)
+      var encSht = await encryptArr(decSht, nPwd)
+
+      toast("Updating sheet " + sht)
+      await updateSheet(sht, encSht)
 
     }
 
   }
 
-  return
-
   currUser.pwd = nPwd
-  var encPwd = await encryptMessage(vPwd, nPwd)
+  var encPwd = await encryptMessage(pwdText, nPwd)
   await updateOption('shtList', encPwd)
 
   modal(false)
 
-
 }
 
-async function verifyCurrPwd() {
+async function verifyCurrPwd(pwdText) {
 
-  var pwdText = 'The quick brown fox jumped over the lazy dog'
   
   var pwdEnc = arrOptions.shtList
 
