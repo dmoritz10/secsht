@@ -216,7 +216,7 @@ async function requestNewPwd() {
   var pdrcnfrm = await prompt("Confirm Password", "password");
   if (pwd != pdrcnfrm) {
     var confirmOK = await confirm("Passwords don't match.")
-    return
+    return null
   }
 
   return pwd
