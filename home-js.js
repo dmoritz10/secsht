@@ -183,6 +183,8 @@ for each sheet from secSht object
 
   }
 
+  return
+
   currUser.pwd = nPwd
   var encPwd = await encryptMessage(vPwd, nPwd)
   await updateOption('shtList', encPwd)
@@ -198,12 +200,7 @@ async function verifyCurrPwd() {
 
   var dx = await decryptMessage(pwdTest, pwd)
 
-  console.log('x', x)
-  console.log('dx', dx)
-  console.log('t', t)
-  console.log(dx == t)
-
-  if (dx != t) {await confirm("Invalid password");return null}
+  if (dx != pwdTest) {await confirm("Invalid password");return null}
 
   return pwd
 
