@@ -152,6 +152,8 @@ for each sheet from secSht object
   var vPwd = verifyCurrPwd()
   if (!vPwd) return
 
+  console.log('vPwd', vPwd)
+
   var nPwd = requestNewPwd()
   if (!nPwd) return
 
@@ -202,5 +204,7 @@ async function verifyCurrPwd() {
   console.log(dx == t)
 
   if (dx != t) {await confirm("Invalid password");return null}
+
+  return pwd
 
 }
