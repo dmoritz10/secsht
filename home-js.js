@@ -149,6 +149,7 @@ for each sheet from secSht object
 
 */
 
+
   var vPwd = await verifyCurrPwd()
   if (!vPwd) return
 
@@ -157,7 +158,8 @@ for each sheet from secSht object
   var nPwd = await requestNewPwd()
   if (!nPwd) return
 
-  
+  modal(true)
+
   for (const sht in secSht) {
 
     if (secSht[sht].enc) {
@@ -175,11 +177,7 @@ for each sheet from secSht object
       console.log('hdrs', hdrs)
       console.log('vals', vals)
 
-
-
     }
-
-
 
   }
 
@@ -189,6 +187,7 @@ for each sheet from secSht object
   var encPwd = await encryptMessage(vPwd, nPwd)
   await updateOption('shtList', encPwd)
 
+  modal(false)
 
 
 }
