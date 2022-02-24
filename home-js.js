@@ -155,13 +155,15 @@ for each sheet from secSht object
   // var nPwd = requestNewPwd()
   // if (!nPwd) return
 
-  console.log('secSht', secSht)
+  console.log('secSht', JSON.parse(JSON.stringify(secSht)))
+  console.log('secSht[BSSC]',secSht[BSSC])
+  console.log('secSht[BSSC].id',secSht[BSSC].id)
   
   for (const sht in secSht) {
 
     console.log('sht', sht)
     // console.log('title', )
-    console.log('sht.id', secSht.sht.id)
+    console.log('sht.id', secSht[sht].id)
 
     if (sht.enc) {
 
