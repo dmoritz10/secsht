@@ -157,8 +157,7 @@ for each sheet from secSht object
 
   console.log('secSht',secSht)
   
-
-  secSht.forEach( async sht =>  {
+  for (const sht in secSht) {
 
     console.log('sht',sht)
 
@@ -185,7 +184,7 @@ for each sheet from secSht object
 
 
 
-  })
+  }
 
   currUser.pwd = nPwd
   var encPwd = await encryptMessage(vPwd, nPwd)
