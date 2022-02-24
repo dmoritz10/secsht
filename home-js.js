@@ -161,24 +161,24 @@ for each sheet from secSht object
 
     console.log('sht',sht)
     // console.log('title', )
-    console.log('sht.id')
+    console.log('sht.id', sht.id)
 
     if (sht.enc) {
 
       var objSht = await openShts(
         [
-          { title: sht.title, type: "all" }
+          { title: sht, type: "all" }
         ])
     
-      shtTitle = title
-      shtId   = sht.id
-      shtCols = sht.Cols
-      shtRows = sht.Rows
-      shtEnc  = secSht[shtTitle].enc
+      // shtTitle = title
+      // shtId   = sht.id
+      // shtCols = sht.Cols
+      // shtRows = sht.Rows
+      // shtEnc  = sht.enc
       
-      var hdrs = await decryptArr(objSht[shtTitle].colHdrs, currUser.pwd)
+      var hdrs = await decryptArr(objSht[sht].colHdrs, currUser.pwd)
       
-      var vals = await decryptArr(objSht[shtTitle].vals, currUser.pwd)
+      var vals = await decryptArr(objSht[sht].vals, currUser.pwd)
 
 
 
