@@ -178,6 +178,8 @@ async function decryptArr(msg, pwd) {
 
     }
 
+    console.log(rtn)
+
     return rtn
 
 }
