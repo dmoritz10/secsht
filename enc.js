@@ -163,7 +163,7 @@ async function decryptArr(msg, pwd) {
                 var x = await decryptMessage(r[j], pwd)
                 row.push(x)
 
-                console.log('decMsg', r, j, x)
+                console.log('decMsg', i, j, x)
 
 
             }
