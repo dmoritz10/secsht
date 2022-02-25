@@ -41,6 +41,8 @@ async function encryptSheet(title) {
 
     modal(true)
 
+    toast("Encrypting sheet " + sht, 10000)
+
     var objSht = await openShts(
         [
             { title: title, type: "all" }
@@ -70,6 +72,8 @@ async function encryptSheet(title) {
     // var et = ts - new Date()
     // alert(et)
 
+    toast("Encryption complete", 3000)
+
     modal(false)
 
     loadSheets()
@@ -83,10 +87,11 @@ async function decryptSheet(title) {
     // var ts = new Date()
 
     var confirmOK = await confirm("Warning !  Decrypting sheet can expose passwords to others with access to your account.")
-    console.log('confirmOK', confirmOK)
     if (!confirmOK) return
   
     modal(true)
+
+    toast("Decrypting sheet " + sht, 10000)
 
     var objSht = await openShts(
         [
@@ -113,6 +118,8 @@ async function decryptSheet(title) {
 
     // var et = ts - new Date()
     // alert(et)
+    
+    toast("Decryption complete", 3000)
 
     loadSheets()
 
