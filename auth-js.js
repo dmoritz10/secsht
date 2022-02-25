@@ -45,10 +45,10 @@ async function showLogin() {
     await updateOption('shtList', encPwd)
     x = encPwd
   } else {
-    // var pwd = await prompt("Enter Password", "password");
+    var pwd = await prompt("Enter Password", "password");
   }
 
-var pwd = 'tempdm10'
+// var pwd = 'tempdm10'
 
   var dx = await decryptMessage(x, pwd)
 
