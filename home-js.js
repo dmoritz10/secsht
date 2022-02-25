@@ -168,28 +168,28 @@ for each sheet from secSht object
           { title: sht, type: "all" }
         ])
     
-      toast("Decrypting sheet " + sht)
+      toast("Decrypting sheet " + sht, null)
       var shtHdrs = objSht[sht].colHdrs
       var shtArr = [shtHdrs].concat(objSht[sht].vals)
       var decSht = await decryptArr(shtArr, cPwd)
 
-      toast("Encrypting sheet " + sht)
+      toast("Encrypting sheet " + sht, null)
       var encSht = await encryptArr(decSht, nPwd)
 
-      toast("Updating sheet " + sht)
+      toast("Updating sheet " + sht, null)
       await updateSheet(sht, encSht)
 
     }
 
   }
   
-  toast("Finalizing ...")
+  toast("Finalizing ...", null)
 
   currUser.pwd = nPwd
   var encPwd = await encryptMessage(pwdText, nPwd)
   await updateOption('shtList', encPwd)
 
-  toast("Change of password is complete")
+  toast("Change of password is complete", 5000)
 
 
   modal(false)

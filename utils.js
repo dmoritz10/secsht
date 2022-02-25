@@ -248,7 +248,7 @@ function formatNumber (str) {
 
 };
 
-function toast(e) {
+function toast(e, delay = 5000) {
     /*
    
    bootbox.alert({
@@ -261,7 +261,7 @@ function toast(e) {
 
   $("#toast-content").html(e)
 
-  $("#myToast").toast({delay: 5000});
+  $("#myToast").toast({delay: delay});
 
   $("#myToast").toast('show');
 
