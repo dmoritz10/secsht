@@ -85,6 +85,7 @@ var prompt = function (title, inputType) {
     bootbox.prompt({
 
       closeButton: false,
+      backdrop: true,
       title: '<h5>' + title + '</h5>',
       // size: "small",
       // message: '<b>' + msg + '</b>',
