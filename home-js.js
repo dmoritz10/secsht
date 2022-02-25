@@ -168,12 +168,12 @@ for each sheet from secSht object
           { title: sht, type: "all" }
         ])
     
-      toast("Decrypting sheet" + sht)
+      toast("Decrypting sheet " + sht)
       var shtHdrs = objSht[sht].colHdrs
       var shtArr = [shtHdrs].concat(objSht[sht].vals)
       var decSht = await decryptArr(shtArr, cPwd)
 
-      toast("Encrypting sheet" + sht)
+      toast("Encrypting sheet " + sht)
       var encSht = await encryptArr(decSht, nPwd)
 
       toast("Updating sheet " + sht)
