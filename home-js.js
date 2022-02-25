@@ -166,7 +166,7 @@ async function btnHMChangePwdHtml() {
 
   }
   
-  toast("Finalizing ...", 0)
+  toast("Finalizing ...", 100000)
 
   currUser.pwd = nPwd
   var encPwd = await encryptMessage(pwdText, nPwd)
