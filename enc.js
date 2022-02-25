@@ -82,6 +82,10 @@ async function decryptSheet(title) {
 
     // var ts = new Date()
 
+    var confirmOK = await confirm("Warning !  Decrypting sheet can expose passwords to others with access to your account.")
+    console.log('confirmOK', confirmOK)
+    if (!confirmOK) return
+  
     modal(true)
 
     var objSht = await openShts(
