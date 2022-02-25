@@ -132,23 +132,6 @@ async function btnHMMoreVertHtml() {
 
 async function btnHMChangePwdHtml() {
 
-  
-/*
-
-Prompt for existing password
-Verify against shtList
-
-Prompt for new password / confirm
-decrypt / encrypt shtList 
-
-for each sheet from secSht object
-  if secSht.enc
-    decrypt sheet using old password
-    encrypt sheet using new password
-    display progress
-
-*/
-
   var pwdText = 'The quick brown fox jumped over the lazy dog'
 
   var cPwd = await verifyCurrPwd(pwdText, "Enter Current Password")
@@ -168,15 +151,15 @@ for each sheet from secSht object
           { title: sht, type: "all" }
         ])
     
-      toast("Decrypting sheet " + sht, 10000)
+      toast("Decrypting sheet " + sht, 100000)
       var shtHdrs = objSht[sht].colHdrs
       var shtArr = [shtHdrs].concat(objSht[sht].vals)
       var decSht = await decryptArr(shtArr, cPwd)
 
-      toast("Encrypting sheet " + sht, 10000)
+      toast("Encrypting sheet " + sht, 100000)
       var encSht = await encryptArr(decSht, nPwd)
 
-      toast("Updating sheet " + sht, 10000)
+      toast("Updating sheet " + sht, 100000)
       await updateSheet(sht, encSht)
 
     }
