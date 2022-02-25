@@ -72,7 +72,7 @@ async function encryptSheet(title) {
     // var et = ts - new Date()
     // alert(et)
 
-    toast("Encryption complete", 3000)
+    toast("Encryption complete", 0)
 
     modal(false)
 
