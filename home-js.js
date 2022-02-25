@@ -172,10 +172,9 @@ async function btnHMChangePwdHtml() {
   var encPwd = await encryptMessage(pwdText, nPwd)
   await updateOption('shtList', encPwd)
 
-  toast("Change of password is complete", 3000)
-
-
   modal(false)
+
+  toast("Change of password is complete", 3000)
 
 }
 
