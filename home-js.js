@@ -168,22 +168,22 @@ for each sheet from secSht object
           { title: sht, type: "all" }
         ])
     
-      toast("Decrypting sheet " + sht, null)
+      toast("Decrypting sheet " + sht, 0)
       var shtHdrs = objSht[sht].colHdrs
       var shtArr = [shtHdrs].concat(objSht[sht].vals)
       var decSht = await decryptArr(shtArr, cPwd)
 
-      toast("Encrypting sheet " + sht, null)
+      toast("Encrypting sheet " + sht, 0)
       var encSht = await encryptArr(decSht, nPwd)
 
-      toast("Updating sheet " + sht, null)
+      toast("Updating sheet " + sht, 0)
       await updateSheet(sht, encSht)
 
     }
 
   }
   
-  toast("Finalizing ...", null)
+  toast("Finalizing ...", 0)
 
   currUser.pwd = nPwd
   var encPwd = await encryptMessage(pwdText, nPwd)
