@@ -34,7 +34,7 @@ async function listSheet(title) {
   
   }
 
-  var sortCol = vals[0].length - 1
+  var sortCol = vals[0] ? vals[0].length - 1 : 0    // in case of empty sheet.  ie. hdrs only
 
   console.log('vals',vals)
   console.log(sortCol)
