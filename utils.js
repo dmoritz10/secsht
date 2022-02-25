@@ -56,7 +56,7 @@ var confirm = function (msg) {
     bootbox.confirm({
 
       size: "small",
-      message: '<b>' + msg + '</b>',
+      message: '<h5>' + msg + '</h5>',
       centerVertical: true,
 
 
@@ -83,7 +83,7 @@ var prompt = function (title, inputType) {
 
     bootbox.prompt({
 
-      title: title,
+      title: '<h5>' + title + '</h5>',
       size: "small",
       // message: '<b>' + msg + '</b>',
       centerVertical: true,
