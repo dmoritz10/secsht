@@ -196,12 +196,12 @@ for each sheet from secSht object
 
 }
 
-async function verifyCurrPwd(pwdText, prompt = '') {
+async function verifyCurrPwd(pwdText, prmpt = '') {
 
   
   var pwdEnc = arrOptions.shtList
 
-  var pwd = await prompt(prompt, "password");
+  var pwd = await prompt(prmpt, "password");
 
   var dx = await decryptMessage(pwdEnc, pwd)
 
@@ -212,9 +212,9 @@ async function verifyCurrPwd(pwdText, prompt = '') {
 }
 
 
-async function requestNewPwd(prompt) {
+async function requestNewPwd(prmpt) {
   
-  var pwd = await prompt(prompt, "password");
+  var pwd = await prompt(prmpt, "password");
 
   var pdrcnfrm = await prompt("Confirm Password", "password");
 
