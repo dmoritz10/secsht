@@ -290,7 +290,7 @@ async function decryptMessage(ciphertext, password) {
         })
         .catch(function (err) {
             console.log(err)
-            console.error(err);
+            // console.error(err);
             return err
         });
 
