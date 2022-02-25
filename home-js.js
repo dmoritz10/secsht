@@ -182,10 +182,15 @@ for each sheet from secSht object
     }
 
   }
+  
+  toast("Finalizing ...")
 
   currUser.pwd = nPwd
   var encPwd = await encryptMessage(pwdText, nPwd)
   await updateOption('shtList', encPwd)
+
+  toast("Change of password is complete")
+
 
   modal(false)
 
