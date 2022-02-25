@@ -94,6 +94,8 @@ async function decryptSheet(title) {
 
     var decHdrs = await decryptMessage(shtHdrs[0], currUser.pwd)
 
+    console.log('decHdrs', decHdrs)
+
     if (decHdrs != "Provider") {
         bootbox.alert('Sheet "' + shtTitle + '" is not an encrtpted Secure Sheet.');
         return
@@ -157,7 +159,13 @@ async function decryptArr(msg, pwd) {
             var r = msg[i]
             var row = []
             for (var j = 0; j < r.length; j++) {
-                row.push(await decryptMessage(r[j], pwd))
+
+                var x = await decryptMessage(r[j], pwd)
+                row.push(x)
+
+                console.log('decMsg', r, j, x)
+
+
             }
             rtn.push(row)
         }
