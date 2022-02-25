@@ -159,13 +159,7 @@ async function decryptArr(msg, pwd) {
             var r = msg[i]
             var row = []
             for (var j = 0; j < r.length; j++) {
-
-                var x = await decryptMessage(r[j], pwd)
-                row.push(x)
-
-                console.log('decMsg', i, j, x)
-
-
+                row.push(await decryptMessage(r[j], pwd))
             }
             rtn.push(row)
         }
@@ -300,6 +294,7 @@ async function decryptMessage(ciphertext, password) {
         })
         .catch(function (err) {
             console.log(err)
+
             // console.error(err);
             return err.toString()
         });
