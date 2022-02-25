@@ -41,7 +41,7 @@ async function encryptSheet(title) {
 
     modal(true)
 
-    toast("Encrypting sheet " + sht, 10000)
+    toast("Encrypting sheet " + title, 10000)
 
     var objSht = await openShts(
         [
@@ -91,7 +91,7 @@ async function decryptSheet(title) {
   
     modal(true)
 
-    toast("Decrypting sheet " + sht, 10000)
+    toast("Decrypting sheet " + title, 10000)
 
     var objSht = await openShts(
         [
