@@ -151,10 +151,10 @@ for each sheet from secSht object
 
   var pwdText = 'The quick brown fox jumped over the lazy dog'
 
-  var cPwd = await verifyCurrPwd(pwdText)
+  var cPwd = await verifyCurrPwd(pwdText, "Enter Current Password")
   if (!cPwd) return
 
-  var nPwd = await requestNewPwd()
+  var nPwd = await requestNewPwd("Enter New Password")
   if (!nPwd) return
 
   modal(true)
@@ -189,19 +189,19 @@ for each sheet from secSht object
   var encPwd = await encryptMessage(pwdText, nPwd)
   await updateOption('shtList', encPwd)
 
-  toast("Change of password is complete", 5000)
+  toast("Change of password is complete", 3000)
 
 
   modal(false)
 
 }
 
-async function verifyCurrPwd(pwdText) {
+async function verifyCurrPwd(pwdText, prompt = '') {
 
   
   var pwdEnc = arrOptions.shtList
 
-  var pwd = await prompt("Enter Password", "password");
+  var pwd = await prompt(prompt, "password");
 
   var dx = await decryptMessage(pwdEnc, pwd)
 
@@ -212,9 +212,9 @@ async function verifyCurrPwd(pwdText) {
 }
 
 
-async function requestNewPwd() {
+async function requestNewPwd(prompt) {
   
-  var pwd = await prompt("Enter Password", "password");
+  var pwd = await prompt(prompt, "password");
 
   var pdrcnfrm = await prompt("Confirm Password", "password");
 

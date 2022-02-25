@@ -33,7 +33,9 @@ async function showLogin() {
   var t = "The quick brown fox jumped over the lazy dog"
         
   if (x == t) {
-    var pwd = await prompt("Password has not be setup.  Enter Password", "password");
+    var pwd = await verifyCurrPwd(pwdText, "Password has not be setup.  Enter Password")
+    if (!pwd) return
+  
     var pdrcnfrm = await prompt("Confirm Password", "password");
     if (pwd != pdrcnfrm) {
       var confirmOK = await confirm("Passwords don't match.")
@@ -48,14 +50,7 @@ async function showLogin() {
     var pwd = await prompt("Enter Password", "password");
   }
 
-// var pwd = 'tempdm10'
-
   var dx = await decryptMessage(x, pwd)
-
-  console.log('x', x)
-  console.log('dx', dx)
-  console.log('t', t)
-  console.log(dx == t)
 
   if (dx != t) {await confirm("Invalid password");return}
 
@@ -71,7 +66,6 @@ console.log('post loadsheets')
   goHome()
 
 console.log('post  goHome')
-
 
 }
 
