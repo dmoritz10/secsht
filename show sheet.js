@@ -50,7 +50,7 @@ async function btnSSBrowseSheetHtml(e) {
   var idx = $("#ssIdx").val()
 
   console.log(e)
-  console.log('cidx',idx)
+  console.log('cidxxxx',idx)
 
   if (dir=="Next")  idx = idx++ > shtRows ? idx++ : null
   else              idx = idx-- < 0 ? idx-- : null
