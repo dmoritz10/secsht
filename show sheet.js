@@ -53,4 +53,5 @@ function copyToClpbrd(txt) {
   }, function(err) {
     console.error('Async: Could not copy text: ', err);
   });
+  
 }
