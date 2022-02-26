@@ -62,7 +62,7 @@ async function btnSSBrowseSheetHtml(e) {
 
   console.log('nidx',nidx)
 
-  if (idx) await showSheet(nidx)
+  if (nidx) await showSheet(nidx)
 
 }
 
