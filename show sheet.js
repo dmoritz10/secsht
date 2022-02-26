@@ -14,6 +14,8 @@ async function showSheet(idx) {
     var val = vals[i]
     var icon = ''
 
+    val = val.replace(/(?:\r\n|\r|\n)/g, '<br>');
+
     if (val) {
       if (validateUrl(val)) {
 
