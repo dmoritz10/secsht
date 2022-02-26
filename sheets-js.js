@@ -84,7 +84,7 @@ async function listSheet(title) {
 
     ele.find('#btnShtFavorite')[0].setAttribute("onclick", "setFavorite(" + j + ", " + shtIdx + ")");
 
-    ele.find('#btnShtShowSheet')[0].setAttribute("onclick", "showSheet(" + j + ")");
+    ele.find('#btnShtShowSheet')[0].setAttribute("onclick", "showSheet(" + j + ", " + shtTitle + ")");
 
 
     var boolFav = fav.toLowerCase() === 'true'

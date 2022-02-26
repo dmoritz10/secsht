@@ -1,4 +1,4 @@
-async function showSheet(idx) {
+async function showSheet(idx, title) {
 
   var sht = []
 
@@ -50,6 +50,8 @@ async function btnSSBrowseSheetHtml(e) {
 
   var dir = e.data.dir
   var idx = $("#ssIdx").val()
+
+  var shtRows = secSht[title].rows
 
   console.log(dir)
   console.log('zxcvv',idx)
