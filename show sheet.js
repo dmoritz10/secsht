@@ -51,8 +51,8 @@ async function btnSSBrowseSheetHtml(e) {
   var dir = e.data.dir
   var idx = $("#ssIdx").val()
 
-  console.log(e)
-  console.log('cidxxxx',idx)
+  console.log(dir)
+  console.log('zxcvv',idx)
 
   if (dir=="Next")  idx = idx++ > shtRows ? idx++ : null
   else              idx = idx-- < 0 ? idx-- : null
