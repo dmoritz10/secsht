@@ -1,16 +1,15 @@
 async function showSheet(idx) {
 
-
-
   var sht = []
 
   var vals = shtEnc ? await decryptArr(shtVals[idx], currUser.pwd) : shtVals[idx]
   
   $("#ssSheet")[0].innerHTML = vals[shtHdrs.indexOf('Provider')]
+  $("#ssIdx").val(idx)
 
   for (var i=1; i<shtHdrs.length;i++) {
 
-    var val = vals[i].replace(/\n|\r\n|\r/g, '<br/>');
+    var val = vals[i];
     var icon = ''
 
     if (val) {
@@ -25,7 +24,7 @@ async function showSheet(idx) {
       }
     }
 
-    sht.push([shtHdrs[i], vals, icon])
+    sht.push([shtHdrs[i], val.replace(/\n|\r\n|\r/g, '<br/>'), icon])
 
   }
   
@@ -45,6 +44,26 @@ async function showSheet(idx) {
         
 } 
 
+async function btnSSBrowseSheetHtml(e) {
+
+  var dir = e.data.dir
+  var idx = $("#ssIdx").val()
+
+  console.log(e)
+  console.log('cidx',idx)
+
+  if (dir=="Next")  idx = idx++ > shtRows ? idx++ : null
+  else              idx = idx-- < 0 ? idx-- : null
+
+ 
+
+  console.log('aidx',idx)
+
+  if (idx) await showSheet(idx)
+
+}
+
+
 function copyToClpbrd(txt) {
 
   navigator.clipboard.writeText(txt).then(function() {
@@ -53,5 +72,5 @@ function copyToClpbrd(txt) {
   }, function(err) {
     console.error('Async: Could not copy text: ', err);
   });
-  
+
 }

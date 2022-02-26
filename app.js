@@ -218,7 +218,12 @@ jQuery(function ($) {
                 
             });
 
-          
+            // Show Sheet
+            $('#btnSSNext')       .click({dir: "Next"}, btnSSBrowseSheetHtml);
+            $('#btnSSPrev')       .click({dir: "Prev"}, btnSSBrowseSheetHtml);
+
+
+
             // All tabs
             $('.divfullscreen').click(function(){
               document.documentElement.requestFullscreen();
@@ -237,13 +242,13 @@ jQuery(function ($) {
             setupFormValidation()
           
           
-            $("#myToast").on("show.bs.toast", function() {
-              $(this).removeClass("d-none");
-                  })
+            // $("#myToast").on("show.bs.toast", function() {
+            //   $(this).removeClass("d-none");
+            //       })
           
-            $("#myToast").on("hidden.bs.toast", function() {
-              $(this).addClass("d-none");
-                  })
+            // $("#myToast").on("hidden.bs.toast", function() {
+            //   $(this).addClass("d-none");
+            //       })
  
             $('.modal').on('shown.bs.modal', function () {
                 $(this).find('[autofocus]').focus();
