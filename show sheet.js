@@ -55,14 +55,14 @@ async function btnSSBrowseSheetHtml(e) {
   console.log('zxcvv',idx)
   console.log('shtRows', shtRows)
 
-  if (dir=="Next")  idx = idx++ > shtRows ? idx++ : null
-  else              idx = idx-- < 0 ? idx-- : null
+  if (dir=="Next")  nidx = idx+1 > shtRows ? idx++ : null
+  else              nidx = idx-1 < 0 ? idx-- : null
 
  
 
-  console.log('aidx',idx)
+  console.log('nidx',nidx)
 
-  if (idx) await showSheet(idx)
+  if (idx) await showSheet(nidx)
 
 }
 
