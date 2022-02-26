@@ -52,7 +52,7 @@ function copyToClpbrd(txt) {
 
   navigator.clipboard.writeText(txt).then(function() {
     console.log('Async: Copying to clipboard was successful!');
-    toast('Copied to clipboard')
+    toast('Copied to clipboard', 1000)
   }, function(err) {
     console.error('Async: Could not copy text: ', err);
   });
