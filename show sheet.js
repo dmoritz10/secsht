@@ -7,6 +7,8 @@ async function showSheet(idx) {
   $("#ssSheet")[0].innerHTML = vals[shtHdrs.indexOf('Provider')]
   $("#ssIdx").val(idx)
 
+  console.log('ssidx', $("#ssIdx"))
+
   for (var i=1; i<shtHdrs.length;i++) {
 
     var val = vals[i].replace(/\n|\r\n|\r/g, '<br/>');
