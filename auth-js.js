@@ -49,6 +49,7 @@ async function showLogin() {
   } else {
     var pwd = await prompt("Enter Password", "password");
   }
+var pwd = "tempdm10"
 
   var dx = await decryptMessage(x, pwd)
 
