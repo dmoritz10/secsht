@@ -9,7 +9,7 @@ async function showSheet(idx) {
 
   for (var i=1; i<shtHdrs.length;i++) {
 
-    var val = vals[i];
+    var val = vals[i].replace(/\n|\r\n|\r/g, '<br/>');
     var icon = ''
 
     if (val) {
@@ -24,7 +24,7 @@ async function showSheet(idx) {
       }
     }
 
-    sht.push([shtHdrs[i], val.replace(/\n|\r\n|\r/g, '<br/>'), icon])
+    sht.push([shtHdrs[i], val, icon])
 
   }
   
