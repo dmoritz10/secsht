@@ -42,7 +42,6 @@ async function showSheet(idx) {
     .build('#tblSheet');
 
   gotoTab('ShowSheet')
-
         
 } 
 
