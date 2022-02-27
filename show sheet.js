@@ -44,9 +44,11 @@ async function showSheet(idx, title) {
     .setTdClass('py-1 pb-0 border-0 align-bottom border-bottom')
     .build('#tblSheet');
 
-  setPrevNextBtns(idx, title)
+  
 
   gotoTab('ShowSheet')
+
+  setPrevNextBtns(idx, title)
         
 } 
 
