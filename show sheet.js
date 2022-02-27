@@ -64,8 +64,8 @@ function setPrevNextBtns(dir) {
 
   console.log('setPrevNextBtns nn', idx, title, shtRows, idx+1, idx-1, idx+1 < shtRows, idx-1 > -1)
 
-  var nextIdx = (idx+1 <= shtRows) ? idx++ : null
-  var prevIdx = (idx-1 >= 0      ) ? idx-- : null
+  var nextIdx = (idx+1 <= shtRows) ? idx+1 : null
+  var prevIdx = (idx-1 >= 0      ) ? idx-1 : null
 
   console.log('np', nextIdx, prevIdx, dir)
 
