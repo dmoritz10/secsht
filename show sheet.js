@@ -54,7 +54,7 @@ function setPrevNextBtns(idx, title) {
 
   var shtRows = secSht[title].rows
 
-  console.log('shtRowsxxxxxxxss', shtRows)
+  console.log('shtRowzxczxczxcxxss', shtRows)
 
   var nextIdx = idx+1 < shtRows ? idx++ : null
   var prevIdx = idx-1 > 0       ? idx-- : null
