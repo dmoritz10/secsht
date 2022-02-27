@@ -7,11 +7,11 @@ async function showSheet(idx, title) {
   $("#ssSheet")[0].innerHTML = vals[shtHdrs.indexOf('Provider')]
   $("#ssIdx").val(idx)
 
-  console.log('ssidxxcxxcxc', $("#ssIdx"))
+  console.log('ssidxxxx', $("#ssIdx"))
 
   for (var i=1; i<shtHdrs.length;i++) {
 
-    var val = vals[i];
+    var val = vals[i].replace(/\n|\r\n|\r/g, '<br/>');
     var icon = ''
 
     if (val) {
