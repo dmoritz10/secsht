@@ -2,6 +2,8 @@ async function showSheet(idx, title) {
 
   console.log('showSheet', idx, title)
 
+  if (!idx) idx = 2
+
   var sht = []
 
   var vals = shtEnc ? await decryptArr(shtVals[idx], currUser.pwd) : shtVals[idx]
@@ -48,7 +50,7 @@ async function showSheet(idx, title) {
 
   gotoTab('ShowSheet')
 
-  setPrevNextBtns(idx, title)
+  // setPrevNextBtns(idx, title)
         
 } 
 
