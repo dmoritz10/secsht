@@ -52,8 +52,13 @@ function setPrevNextBtns(idx, title) {
 
   var shtRows = secSht[title].rows
 
+  console.log('shtRows', shtRows)
+  console.log(idx, title)
+
   var nextIdx = idx+1 > shtRows ? idx++ : null
   var prevIdx = idx-1 < 0       ? idx-- : null
+
+  console.log(nextIdx, prevIdx)
 
   if (prevIdx)  $("#btnSSPrev").click(showSheet(prevIdx, title)).prop('disabled', false);
   else          $("#btnSSPrev").prop('disabled', true);
