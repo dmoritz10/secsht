@@ -1,5 +1,7 @@
 async function showSheet(idx, title) {
 
+  console.log('showSheet', idx, title)
+
   var sht = []
 
   var vals = shtEnc ? await decryptArr(shtVals[idx], currUser.pwd) : shtVals[idx]
