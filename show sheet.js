@@ -56,15 +56,15 @@ async function showSheet(idx, title) {
 
 function setPrevNextBtns(dir) {
 
-  var idx   = $("#ssIdx").val()
+  var idx   = $("#ssIdx").val()*1
   var title = $('#shtTitle').text()
 
   console.log($("#ssIdx"))
   console.log($("#ssIdx").val())
 
-  console.log('asddd', idx, title)
+  console.log('*1', idx, title)
 
-  var shtRows = secSht[title].rows
+  var shtRows = secSht[title].rows*1
 
   console.log('dff', shtRows)
 
