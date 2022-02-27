@@ -190,9 +190,9 @@ jQuery(function ($) {
          
             // Home tab
 
-            $('#hmSelectDropDown').on('show.bs.dropdown', function () {
-                btnHMMoreVertHtml()
-            })
+            // $('#hmSelectDropDown').on('show.bs.dropdown', function () {
+            //     btnHMMoreVertHtml()
+            // })
 
             $('#btnHMChangePwd')   .click(btnHMChangePwdHtml);
             $('#btnSignout')                .button().click(btnSignoutHtml);

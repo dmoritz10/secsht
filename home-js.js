@@ -96,20 +96,6 @@ async function loadSheets() {
 
 }
 
-function updateHomePage(ele) {
-
-  
-
-  console.log('ele', ele)
-
-
-
-
-  // ele.find('#btnCrypt')[0].setAttribute("onclick", "decryptSheet('" + sht.title + "')");
-
-
-
-}
 
 async function goHome() {
 
