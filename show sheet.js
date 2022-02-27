@@ -59,7 +59,10 @@ function setPrevNextBtns(dir) {
   var idx   = $("#ssIdx").val()
   var title = $('#shtTitle').text()
 
-  console.log('asddd')
+  console.log($("#ssIdx"))
+  console.log($("#ssIdx").val())
+
+  console.log('asddd', idx, title)
 
   var shtRows = secSht[title].rows
 
