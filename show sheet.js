@@ -62,6 +62,7 @@ function setPrevNextBtns(dir) {
 
   var shtRows = secSht[title].rows*1 - 1   // .rows includes hdrs
 
+  console.log('setPrevNextBtns nnb', idx, title, shtRows, idx+1, idx-1, idx+1 < shtRows, idx-1 > -1)
 
   var nextIdx = (idx+1 <= shtRows) ? idx+1 : null
   var prevIdx = (idx-1 >= 0      ) ? idx-1 : null
