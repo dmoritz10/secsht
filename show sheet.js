@@ -2,7 +2,7 @@ async function showSheet(idx, title) {
 
   console.log('showSheet', idx, title)
 
-  if (idx === null) {alert(idx);return}
+  if (idx === null) return                  // null is from 
 
   var sht = []
 
@@ -54,7 +54,7 @@ async function showSheet(idx, title) {
         
 } 
 
-function setPrevNextBtns(dir) {
+function prevNextProvider(dir) {
 
   var idx   = $("#ssIdx").val()*1
   var title = $('#shtTitle').text()
