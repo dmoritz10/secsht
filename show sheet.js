@@ -11,7 +11,7 @@ async function showSheet(idx, title) {
 
   for (var i=1; i<shtHdrs.length;i++) {
 
-    var val = vals[i].replace(/\n|\r\n|\r/g, '<br/>');
+    var val = vals[i];
     var icon = ''
 
     if (val) {
@@ -48,12 +48,12 @@ async function showSheet(idx, title) {
         
 } 
 
-async function setPrevNextBtns(idx, title) {
+function setPrevNextBtns(idx, title) {
 
   var shtRows = secSht[title].rows
 
   var nextIdx = idx+1 > shtRows ? idx++ : null
-  var prevIdx = idx-1 < 0 ? idx-- : null
+  var prevIdx = idx-1 < 0       ? idx-- : null
 
   if (prevIdx)  $("#btnSSPrev").click(showSheet(prevIdx, title)).prop('disabled', false);
   else          $("#btnSSPrev").prop('disabled', true);
