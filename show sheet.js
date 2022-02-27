@@ -50,13 +50,16 @@ async function showSheet(idx, title) {
 
   gotoTab('ShowSheet')
 
-  setPrevNextBtns(idx, title)
+  // setPrevNextBtns(idx, title)
         
 } 
 
-function setPrevNextBtns(idx, title) {
+function setPrevNextBtns(dir) {
 
-  console.log('now')
+  var idx   = $("#ssIdx").val()
+  var title = $('#shtTitle').val()
+
+  console.log('then')
 
   console.log(idx, title)
 
@@ -69,7 +72,10 @@ function setPrevNextBtns(idx, title) {
 
   console.log('dann', nextIdx, prevIdx)
 
-  if (prevIdx)  { $("#btnSSPrev").off().on("click", showSheet(prevIdx, title))   }
+  if (dir=="prev")  showSheet(prevIdx, title)
+  else              showSheet(nextIdx, title)
+
+  // if (prevIdx)  { $("#btnSSPrev").off().on("click", showSheet(prevIdx, title))   }
   //                 $("#btnSSPrev").prop('disabled', false);
   // }  else         $("#btnSSPrev").prop('disabled', true);
 
