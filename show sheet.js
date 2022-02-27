@@ -49,15 +49,15 @@ async function showSheet(idx, title) {
 } 
 
 function setPrevNextBtns(idx, title) {
-  
+
   console.log(idx, title)
 
   var shtRows = secSht[title].rows
 
   console.log('shtRows', shtRows)
 
-  var nextIdx = idx+1 > shtRows ? idx++ : null
-  var prevIdx = idx-1 < 0       ? idx-- : null
+  var nextIdx = idx+1 < shtRows ? idx++ : null
+  var prevIdx = idx-1 > 0       ? idx-- : null
 
   console.log(nextIdx, prevIdx)
 
