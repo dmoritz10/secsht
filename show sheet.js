@@ -1,8 +1,6 @@
 async function showSheet(idx, title) {
 
-  console.log('showSheet', idx, title)
-
-  if (idx === null) return                  // null is from 
+  if (idx === null) return                  // null is from browseProvider
 
   var sht = []
 
@@ -54,20 +52,15 @@ async function showSheet(idx, title) {
         
 } 
 
-function prevNextProvider(dir) {
+function browseProvider(dir) {
 
   var idx   = $("#ssIdx").val()*1
   var title = $('#shtTitle').text()
 
-
   var shtRows = secSht[title].rows*1 - 1   // .rows includes hdrs
-
-  console.log('setPrevNextBtns nnb', idx, title, shtRows, idx+1, idx-1, idx+1 < shtRows, idx-1 > -1)
 
   var nextIdx = (idx+1 <  shtRows) ? idx+1 : null
   var prevIdx = (idx-1 >= 0      ) ? idx-1 : null
-
-  console.log('np', nextIdx, prevIdx, dir)
 
   if (dir=="prev")  showSheet(prevIdx, title)
   else              showSheet(nextIdx, title)
@@ -79,8 +72,6 @@ function prevNextProvider(dir) {
   // if (nextIdx)  { $("#btnSSNext").on("click", showSheet(nextIdx, title))   }
   //                 $("#btnSSNext").prop('disabled', false);
   // } else          $("#btnSSNext").prop('disabled', true);
-
-  console.log('hi dan')
 
 }
 
