@@ -2,7 +2,7 @@ async function showSheet(idx, title) {
 
   console.log('sddd', idx, title)
 
-  if (!idx) idx = 2
+  // if (!idx && idx !=0) idx = 2
 
   var sht = []
 
