@@ -50,11 +50,13 @@ async function showSheet(idx, title) {
 
   gotoTab('ShowSheet')
 
-  // setPrevNextBtns(idx, title)
+  setPrevNextBtns(idx, title)
         
 } 
 
 function setPrevNextBtns(idx, title) {
+
+  console.log('now')
 
   console.log(idx, title)
 
