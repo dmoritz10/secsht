@@ -7,7 +7,7 @@ async function showSheet(idx, title) {
   $("#ssSheet")[0].innerHTML = vals[shtHdrs.indexOf('Provider')]
   $("#ssIdx").val(idx)
 
-  console.log('ssidx', $("#ssIdx"))
+  console.log('ssidxxcxxcxc', $("#ssIdx"))
 
   for (var i=1; i<shtHdrs.length;i++) {
 
