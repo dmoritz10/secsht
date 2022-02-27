@@ -62,11 +62,11 @@ function setPrevNextBtns(dir) {
   console.log($("#ssIdx"))
   console.log($("#ssIdx").val())
 
-  console.log('*1', idx, title)
+  console.log('*1sss', idx, title)
 
-  var shtRows = secSht[title].rows*1
+  var shtRows = secSht[title].rows*1 - 1
 
-  console.log('dff', shtRows)
+  console.log('dff-1', shtRows)
 
   var nextIdx = idx+1 < shtRows ? idx++ : null
   var prevIdx = idx-1 > 0       ? idx-- : null
