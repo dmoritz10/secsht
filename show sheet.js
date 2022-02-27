@@ -1,8 +1,8 @@
 async function showSheet(idx, title) {
 
-  console.log('sddd', idx, title)
+  console.log('showSheet', idx, title)
 
-  // if (!idx && idx !=0) idx = 2
+  if (idx === null) {alert(idx);return}
 
   var sht = []
 
@@ -11,7 +11,7 @@ async function showSheet(idx, title) {
   $("#ssSheet")[0].innerHTML = vals[shtHdrs.indexOf('Provider')]
   $("#ssIdx").val(idx)
 
-  console.log('ssidxxxx', $("#ssIdx"))
+  console.log('showSheet ssIdx', $("#ssIdx"))
 
   for (var i=1; i<shtHdrs.length;i++) {
 
@@ -59,19 +59,15 @@ function setPrevNextBtns(dir) {
   var idx   = $("#ssIdx").val()*1
   var title = $('#shtTitle').text()
 
-  console.log($("#ssIdx"))
-  console.log($("#ssIdx").val())
-
-  console.log('*1sss', idx, title)
 
   var shtRows = secSht[title].rows*1 - 1
 
-  console.log('dff-1', shtRows)
+  console.log('*setPrevNextBtns', idx, title, shtRows)
 
   var nextIdx = idx+1 < shtRows ? idx++ : null
   var prevIdx = idx-1 > 0       ? idx-- : null
 
-  console.log('dann', nextIdx, prevIdx)
+  console.log('np', nextIdx, prevIdx, dir)
 
   if (dir=="prev")  showSheet(prevIdx, title)
   else              showSheet(nextIdx, title)
