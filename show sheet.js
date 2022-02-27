@@ -1,6 +1,6 @@
 async function showSheet(idx, title) {
 
-  console.log('sdssds', idx, title)
+  console.log('sddd', idx, title)
 
   if (!idx) idx = 2
 
