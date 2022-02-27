@@ -61,13 +61,15 @@ function setPrevNextBtns(idx, title) {
 
   console.log(nextIdx, prevIdx)
 
-  // if (prevIdx)  { $("#btnSSPrev").on("click", showSheet(prevIdx, title))   }
+  if (prevIdx)  { $("#btnSSPrev").on("click", await showSheet(prevIdx, title))   }
   //                 $("#btnSSPrev").prop('disabled', false);
   // }  else         $("#btnSSPrev").prop('disabled', true);
 
   // if (nextIdx)  { $("#btnSSNext").on("click", showSheet(nextIdx, title))   }
   //                 $("#btnSSNext").prop('disabled', false);
   // } else          $("#btnSSNext").prop('disabled', true);
+
+  console.log('hi dan')
 
 }
 
