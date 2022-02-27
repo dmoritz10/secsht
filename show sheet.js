@@ -9,7 +9,6 @@ async function showSheet(idx, title) {
   $("#ssSheet")[0].innerHTML = vals[shtHdrs.indexOf('Provider')]
   $("#ssIdx").val(idx)
 
-  console.log('showSheet ssIdx', $("#ssIdx").val())
 
   for (var i=1; i<shtHdrs.length;i++) {
 
@@ -43,8 +42,6 @@ async function showSheet(idx, title) {
     .setTcClass(['text-end col-4 h5 text-success', 'text-start col h4', 'col-1'])
     .setTdClass('py-1 pb-0 border-0 align-bottom border-bottom')
     .build('#tblSheet');
-
-  
 
   gotoTab('ShowSheet')
 
