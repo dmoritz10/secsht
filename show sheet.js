@@ -67,7 +67,7 @@ function setPrevNextBtns(idx, title) {
 
   if (nextIdx)  {$("#btnSSNext").click(showSheet(nextIdx, title))
                  $("#btnSSNext").prop('disabled', false);
-  else           $("#btnSSNext").prop('disabled', true);
+} else           $("#btnSSNext").prop('disabled', true);
 
 }
 
