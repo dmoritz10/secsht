@@ -60,7 +60,7 @@ function setPrevNextBtns(dir) {
   var title = $('#shtTitle').text()
 
 
-  var shtRows = secSht[title].rows*1 - 1
+  var shtRows = secSht[title].rows*1 - 1   // .rows includes hdrs
 
   console.log('setPrevNextBtns n', idx, title, shtRows, idx+1, idx-1, idx+1 < shtRows, idx-1 > -1)
 
