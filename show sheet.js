@@ -42,29 +42,24 @@ async function showSheet(idx, title) {
     .setTdClass('py-1 pb-0 border-0 align-bottom border-bottom')
     .build('#tblSheet');
 
+  setPrevNextBtns(idx, title)
+
   gotoTab('ShowSheet')
         
 } 
 
-async function btnSSBrowseSheetHtml(e) {
-
-  var dir = e.data.dir
-  var idx = $("#ssIdx").val()
+async function setPrevNextBtns(idx, title) {
 
   var shtRows = secSht[title].rows
 
-  console.log(dir)
-  console.log('zxcvv',idx)
-  console.log('shtRows', shtRows)
+  var nextIdx = idx+1 > shtRows ? idx++ : null
+  var prevIdx = idx-1 < 0 ? idx-- : null
 
-  if (dir=="Next")  nidx = idx+1 > shtRows ? idx++ : null
-  else              nidx = idx-1 < 0 ? idx-- : null
+  if (prevIdx)  $("#btnSSPrev").click(showSheet(prevIdx, title)).prop('disabled', false);
+  else          $("#btnSSPrev").prop('disabled', true);
 
- 
-
-  console.log('nidx',nidx)
-
-  if (nidx) await showSheet(nidx)
+  if (nextIdx)  $("#btnSSNext").click(showSheet(nextIdx, title)).prop('disabled', false);
+  else          $("#btnSSNext").prop('disabled', true);
 
 }
 

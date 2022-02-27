@@ -219,8 +219,8 @@ jQuery(function ($) {
             });
 
             // Show Sheet
-            $('#btnSSNext')       .click({dir: "Next"}, btnSSBrowseSheetHtml);
-            $('#btnSSPrev')       .click({dir: "Prev"}, btnSSBrowseSheetHtml);
+            // $('#btnSSNext')       .click({dir: "Next"}, btnSSBrowseSheetHtml);
+            // $('#btnSSPrev')       .click({dir: "Prev"}, btnSSBrowseSheetHtml);
 
 
 
