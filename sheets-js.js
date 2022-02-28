@@ -310,9 +310,9 @@ async function updateUI (valsEnc, arrIdx) {
   var $provider = $('#shtProvider').eq(arrIdx)
 
   
-  console.log('$provider', $('#shtProvider'))
+  console.log('$provider 1', $('#shtProvider'))
 
-  console.log('$provider', $provider)
+  console.log('$provider 2', $provider)
 
   $provider.innerHTML = providerDec
 
