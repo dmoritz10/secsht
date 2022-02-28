@@ -244,7 +244,7 @@ async function btnShtmSubmitSheetHtml() {
     }
 
     var vals = []
-    
+
     vals[shtHdrs.indexOf("Provider")] = $('#shtmProvider').val()
     vals[shtHdrs.indexOf("Login")] = $('#shtmLogin').val()
     vals[shtHdrs.indexOf("Password")] = $('#shtmPassword').val()
@@ -277,15 +277,30 @@ async function btnShtmSubmitSheetHtml() {
 
 }
 
-function updateUI (valsEnc, arrIdx, shtIdx) {
+function updateUI (valsEnc, arrIdx) {
+
 // update shtVals conditionally encrypting
 // secSht[shtTitle].Rows
 // update / append shtContainer ? sort ???
 // update / append
 
+if (arrIdx = -1) {              // Add new
 
+  shtVals[arrIdx].push(valsEnc)
+  secSht[shtTitle].Rows++
 
+  arrIdx = shtVals.length-1
 
+} else {                        // update arrIdx
+
+  shtVals[arrIdx] = valsEnc
+
+}
+
+var providerDec = decryptMessage(valsEnc[0], currUser.pwd)
+
+var $provider = $('#shtProvider').eq(arrIdx)
+$provider.innerHTML = providerDec
 
 }
 
