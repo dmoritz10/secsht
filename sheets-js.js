@@ -297,8 +297,8 @@ if (arrIdx = -1) {              // Add new
   shtVals[arrIdx] = valsEnc
 
 }
-
-console.log('shtVals', await decryptArr(shtVals, currUser.pwd))
+var x = await decryptArr(shtVals, currUser.pwd)
+console.log('shtVals', x)
 
 var providerDec = await decryptMessage(valsEnc[0], currUser.pwd)
 
