@@ -283,33 +283,34 @@ async function updateUI (valsEnc, arrIdx) {
 // update / append shtContainer ? sort ???
 // update / append
 
-console.log("hi dan")
+  console.log("arrIdx", arrIdx)
 
-if (arrIdx = -1) {              // Add new
+  if (arrIdx = -1) {              // Add new
 
-  shtVals.push(valsEnc)
-  secSht[shtTitle].Rows++
+    shtVals.push(valsEnc)
+    secSht[shtTitle].Rows++
 
-  arrIdx = shtVals.length-1
+    arrIdx = shtVals.length-1
 
-} else {                        // update arrIdx
+  } else {                        // update arrIdx
 
-  shtVals[arrIdx] = valsEnc
+    shtVals[arrIdx] = valsEnc
 
-}
+  }
+  
+  console.log('arrIdx', arrIdx)
+  console.log('shtVals', shtVals)
 
-console.log('shtVals', shtVals)
+  var x = await decryptArr(shtVals, currUser.pwd)
+  console.log('shtVals', x)
 
-var x = await decryptArr(shtVals, currUser.pwd)
-console.log('shtVals', x)
+  var providerDec = await decryptMessage(valsEnc[0], currUser.pwd)
 
-var providerDec = await decryptMessage(valsEnc[0], currUser.pwd)
+  var $provider = $('#shtProvider').eq(arrIdx)
 
-var $provider = $('#shtProvider').eq(arrIdx)
+  console.log('$provider', $provider)
 
-console.log('$provider', $provider)
-
-$provider.innerHTML = providerDec
+  $provider.innerHTML = providerDec
 
 }
 
