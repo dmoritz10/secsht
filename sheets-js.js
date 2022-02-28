@@ -219,7 +219,7 @@ async function btnShtmSubmitSheetHtml() {
   var arrIdx = $('#shtmArrIdx').val()
   var shtIdx = $('#shtmShtIdx').val()
 
-  var vals = shtVals[arrIdx]
+  var vals = [...shtVals[arrIdx]]
 
   if (arrIdx) {                                                       // update existing course
 
@@ -260,6 +260,8 @@ async function btnShtmSubmitSheetHtml() {
 
   }
 
+  console.log('vals preenc',vals)
+
   var valsEnc = shtEnc ? await encryptArr(vals, currUser.pwd) : vals
 
 
@@ -267,30 +269,13 @@ async function btnShtmSubmitSheetHtml() {
 
   $("#sheet-modal").modal('hide');
 
+  updateUI(valsEnc, arrIdx, shtIdx)
+
   listSheet(shtTitle)
 
 }
 
-function highlightSht($this) {
-
-  alert('hi ')
-
-  var divs = $('#shtContainer > div');
-
- 
-  console.log('divs ', divs )
-
-
-//  $focused.addClass('bg-secondary bg-opacity-25')
-
-
- console.log('this', $this)
-
- $($this).addClass('bg-secondary bg-opacity-25')
-
-
-}
-
+function updateUI (valsEnc, arrIdx, shtIdx) {
 // update shtVals conditionally encrypting
 // secSht[shtTitle].Rows
 // update / append shtContainer ? sort ???
@@ -299,6 +284,8 @@ function highlightSht($this) {
 
 
 
+
+}
 
 function fixUrl(url) {
 
