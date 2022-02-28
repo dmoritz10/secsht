@@ -267,12 +267,13 @@ function highlight() {
 
   alert('hi dan back to this and that')
 
+  var $focused = $('shtContainer > div:focus');
+
  
-  console.log('this', this)
-  console.log('$this', $(this))
+  console.log('$focused ', $focused )
 
 
- $(div).addClass('bg-secondary bg-opacity-25')
+ $($focused).addClass('bg-secondary bg-opacity-25')
 
 }
 
