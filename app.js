@@ -218,10 +218,10 @@ jQuery(function ($) {
                 
             });
 
-            $('#shtContainer > div').click(function(this){
+            $('#shtContainer > div').click(function(e){
                 alert('clicked')
-                console.log('app click', $(this))
-                highlightSht( $(this));
+                console.log('app click', $(e))
+                highlightSht( $(e));
               });
 
             // Show Sheet
