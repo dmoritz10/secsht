@@ -309,6 +309,7 @@ async function updateUI (valsEnc, arrIdx) {
 
   var $provider = $('#shtProvider').eq(arrIdx)
 
+  console.log('shtContainer 0', $('#shtContainer'))
   console.log('shtContainer 1', $('#shtContainer').children('#shtProvider'))
   console.log('$provider 1', $('#shtProvider'))
 
