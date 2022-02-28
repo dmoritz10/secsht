@@ -120,9 +120,9 @@ async function listSheet(title) {
   });
 
 
-  console.log('shtContainer a', $('#shtContainer div'))
-  console.log('shtContainer a', $('#shtContainer div').children())
-  console.log('shtContainer a', $('#shtContainer div').children('#shtProvider'))
+  console.log('shtContainer a', $('#shtContainer > div'))
+  console.log('shtContainer a', $('#shtContainer > div').children())
+  console.log('shtContainer a', $('#shtContainer > div').children('#shtProvider'))
 
   console.log('shtContainer b', $('#shtContainer').children('#shtProvider'))
   console.log('$provider c', $('#shtProvider'))
