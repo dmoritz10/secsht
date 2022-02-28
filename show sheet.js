@@ -1,6 +1,8 @@
 async function showSheet(idx, title) {
 
-  console.log("shtContainer", $("#shtContainer").children())
+  console.log("shtContainer xxx", $("#shtContainer").children())
+
+  $("#shtContainer").children()[2].addClass('bg-primary')
 
   if (idx === null) return                  // null is from browseProvider
 
