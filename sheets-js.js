@@ -304,9 +304,13 @@ async function updateUI (valsEnc, arrIdx) {
   var x = shtEnc ? await decryptArr(shtVals, currUser.pwd) : shtVals
   console.log('shtVals', x)
 
-  var providerDec = await decryptMessage(valsEnc[0], currUser.pwd)
+  var providerDec = shtEnc ? await decryptMessage(valsEnc[0], currUser.pwd) : shtVals
+  console.log(providerDec)
 
   var $provider = $('#shtProvider').eq(arrIdx)
+
+  
+  console.log('$provider', $('#shtProvider'))
 
   console.log('$provider', $provider)
 
