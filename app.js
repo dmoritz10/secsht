@@ -215,6 +215,10 @@ jQuery(function ($) {
                 $("#shtContainer #shtProvider").filter(function() {
                   $(this).parent().parent().parent().toggle($(this).text().toLowerCase().indexOf(value) > -1)
                 });
+
+                $('$('shtContainer > div').click(function(){
+                    clicked = $(this);
+                  });
                 
             });
 
