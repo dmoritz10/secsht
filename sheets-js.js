@@ -270,7 +270,7 @@ function highlightSht($this) {
   var divs = $('#shtContainer > div');
 
  
-  console.log('divs ', $focused )
+  console.log('divs ', divs )
 
 
 //  $focused.addClass('bg-secondary bg-opacity-25')
