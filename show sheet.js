@@ -3,10 +3,10 @@ async function showSheet(idx, title) {
   var x = $("div .shtHliteProvider")
   console.log("div .shtHliteProvider class", x)
 
-  x.addClass('bg-primary')
+  // x.addClass('bg-primary')
 
-var y = x[2]
-  console.log('y2', y)
+var y = x.eq(2)
+  console.log('eq2', y)
   
 
   y.addClass('bg-primary')
