@@ -120,6 +120,12 @@ async function listSheet(title) {
   });
 
 
+  console.log('shtContainer a', $('#shtContainer'))
+  console.log('shtContainer b', $('#shtContainer').children('#shtProvider'))
+  console.log('$provider c', $('#shtProvider'))
+
+
+
   modal(false)
 
 }
