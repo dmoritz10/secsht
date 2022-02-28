@@ -263,12 +263,13 @@ async function btnShtmSubmitSheetHtml() {
 
 }
 
-function highlight(div) {
+function highlight() {
 
-  alert('hi dan back to this')
+  alert('hi dan back to this and that')
 
-  console.log('this', div)
-  console.log('$this', $(div))
+ 
+  console.log('this', this)
+  console.log('$this', $(this))
 
 
  $(div).addClass('bg-secondary bg-opacity-25')
