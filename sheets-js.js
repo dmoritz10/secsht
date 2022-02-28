@@ -265,7 +265,7 @@ async function btnShtmSubmitSheetHtml() {
 
 function highlight(div) {
 
-  alert('hi dan divs')
+  alert('hi dan back to this')
 
   console.log('this', div)
   console.log('$this', $(div))
