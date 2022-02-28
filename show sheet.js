@@ -1,5 +1,7 @@
 async function showSheet(idx, title) {
 
+  console.log($("shtSrchProvider"))
+
   if (idx === null) return                  // null is from browseProvider
 
   var sht = []

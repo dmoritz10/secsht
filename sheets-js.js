@@ -36,9 +36,7 @@ async function listSheet(title) {
 
   var sortCol = vals[0] ? vals[0].length - 1 : 0    // in case of empty sheet.  ie. hdrs only
 
-  console.log('vals',vals)
-  console.log(sortCol)
-
+  console
   shtVals = vals.sort(function(a,b){return a[sortCol].toLowerCase() > b[sortCol].toLowerCase() ? 1 : -1; });
   
   shtVals.forEach((val, idx, arr)=> arr[idx].pop()) // remove sort element from end of array
@@ -143,8 +141,8 @@ async function btnShtSelectHtml(e) {
 
 async function setFavorite(arrIdx, shtIdx) {
 
-                                                // arrIdx - the index of the element in the sorted array
-                                                // shtIdx = the index of the element in the sheet (un-sorted)
+      // arrIdx - the index of the element in the sorted array
+      // shtIdx = the index of the element in the sheet (un-sorted)
 
   var favCurr = shtVals[arrIdx][shtHdrs.indexOf("Favorite")]
 
@@ -229,15 +227,10 @@ async function btnShtmSubmitSheetHtml() {
     vals[shtHdrs.indexOf("Last Change")] = formatDate(new Date())
     vals[shtHdrs.indexOf("Favorite")] = $('#shtmFavorite').val()
 
-    shtmFavorite
-
-
   } else {
 
     if (dupProvider($('#shtmProvider').val())) {
-
       toast("Provider already exists")
-
       return
     }
 
@@ -253,7 +246,6 @@ async function btnShtmSubmitSheetHtml() {
     vals[shtHdrs.indexOf("Notes")] = $('#shtmNotes').val()
     vals[shtHdrs.indexOf("Favorite")] = false
     vals[shtHdrs.indexOf("Last Change")] = formatDate(new Date())
-
     vals[shtHdrs.indexOf("Favorite")] = $('#shtmFavorite').val()
 
     shtIdx = -1
@@ -270,6 +262,13 @@ async function btnShtmSubmitSheetHtml() {
   listSheet(shtTitle)
 
 }
+
+// update shtVals conditionally encrypting
+// secSht[shtTitle].Rows
+// update / append shtContainer ? sort ???
+// update / append
+
+
 
 
 
