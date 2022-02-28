@@ -267,7 +267,7 @@ function highlightSht($this) {
 
   alert('hi dan yet again')
 
-  var $focused = $('#shtContainer > div:focus');
+  var $focused = $('#shtContainer > div');
 
  
   console.log('$focused ', $focused )
