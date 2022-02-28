@@ -1,5 +1,6 @@
 async function showSheet(idx, title) {
 
+  highlightSht()
 
   if (idx === null) return                  // null is from browseProvider
 
