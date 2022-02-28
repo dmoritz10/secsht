@@ -6,10 +6,10 @@ async function showSheet(idx, title) {
   // x.addClass('bg-primary')
 
 var y = x.eq(2)
-  console.log('eq2', y)
+  console.log('opa', y)
   
 
-  y.addClass('bg-primary')
+  y.addClass('bg-secondary bg-opacity-25')
 
   if (idx === null) return                  // null is from browseProvider
 
