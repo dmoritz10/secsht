@@ -1,17 +1,5 @@
 async function showSheet(idx, title) {
 
-  var x = $("#shtContainer > div")
-  console.log("#shtContainer > div", x)
-
-  // x.addClass('bg-primary')
-
-  var y = x.eq(2)
-  console.log('10', y)
-  
-  y.addClass('bg-secondary bg-opacity-10')
-
-  var z = x.eq(3)
-  z.addClass('bg-opacity-10')
 
   if (idx === null) return                  // null is from browseProvider
 

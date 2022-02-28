@@ -263,6 +263,14 @@ async function btnShtmSubmitSheetHtml() {
 
 }
 
+function highlight(this) {
+
+  alert('hi dan')
+
+ $(this).addClass('bg-secondary bg-opacity-25')
+
+}
+
 // update shtVals conditionally encrypting
 // secSht[shtTitle].Rows
 // update / append shtContainer ? sort ???
