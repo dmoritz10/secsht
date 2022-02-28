@@ -36,7 +36,6 @@ async function listSheet(title) {
 
   var sortCol = vals[0] ? vals[0].length - 1 : 0    // in case of empty sheet.  ie. hdrs only
 
-  console
   shtVals = vals.sort(function(a,b){return a[sortCol].toLowerCase() > b[sortCol].toLowerCase() ? 1 : -1; });
   
   shtVals.forEach((val, idx, arr)=> arr[idx].pop()) // remove sort element from end of array
@@ -284,9 +283,11 @@ function updateUI (valsEnc, arrIdx) {
 // update / append shtContainer ? sort ???
 // update / append
 
+console.log("hi dan")
+
 if (arrIdx = -1) {              // Add new
 
-  shtVals[arrIdx].push(valsEnc)
+  shtVals.push(valsEnc)
   secSht[shtTitle].Rows++
 
   arrIdx = shtVals.length-1

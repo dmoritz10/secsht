@@ -13,7 +13,8 @@
     var shtVals
     var shtTitle
     var shtId
-  
+    var shtEnc 
+    
     var suSht = null
     var arrOptions
     var optionsIdx
