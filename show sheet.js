@@ -1,15 +1,13 @@
 async function showSheet(idx, title) {
 
-  console.log("shtContainer [2] pcp", $("#shtContainer").children()[2])
+  console.log("shtContainer get", $("#shtContainer").get(2))
 
   var x = $("#shtContainer").children()
 
   console.log('x', x[2])
   
-  $("#shtContainer").children().addClass('bg-primary')
 
-  $("#shtContainer").children()[2].css("background-color", "red")
-  $("#shtContainer").children()[2].parent().addClass('bg-primary')
+  $("#shtContainer").children().get(2).addClass('bg-primary')
 
   if (idx === null) return                  // null is from browseProvider
 
