@@ -272,7 +272,7 @@ async function btnShtmSubmitSheetHtml() {
 
 function highlightSht($this) {
 
-  alert('hi dan yets')
+  alert('hi dan')
 
   var divs = $('#shtContainer > div');
 
@@ -285,7 +285,7 @@ function highlightSht($this) {
 
  console.log('this', $this)
 
- $this.addClass('bg-secondary bg-opacity-25')
+ $(this).addClass('bg-secondary bg-opacity-25')
 
 
 }
