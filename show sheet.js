@@ -1,6 +1,6 @@
 async function showSheet(idx, title) {
 
-  console.log("shtSrchProvider", $("shtSrchProvider"))
+  console.log("shtContainer", $("shtContainer").children())
 
   if (idx === null) return                  // null is from browseProvider
 
