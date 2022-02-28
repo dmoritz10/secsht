@@ -285,7 +285,7 @@ async function updateUI (valsEnc, arrIdx) {
 
   console.log("arrIdx", arrIdx)
 
-  if (arrIdx = -1) {              // Add new
+  if (arrIdx == -1) {              // Add new
 
     shtVals.push(valsEnc)
     secSht[shtTitle].Rows++
@@ -297,7 +297,7 @@ async function updateUI (valsEnc, arrIdx) {
     shtVals[arrIdx] = valsEnc
 
   }
-  
+
   console.log('arrIdx', arrIdx)
   console.log('shtVals', shtVals)
 
