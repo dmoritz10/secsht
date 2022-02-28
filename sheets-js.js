@@ -298,7 +298,9 @@ if (arrIdx = -1) {              // Add new
 
 }
 
-var providerDec = decryptMessage(valsEnc[0], currUser.pwd)
+console.log('shtVals', shtVals)
+
+var providerDec = await decryptMessage(valsEnc[0], currUser.pwd)
 
 var $provider = $('#shtProvider').eq(arrIdx)
 
