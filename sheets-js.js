@@ -297,6 +297,9 @@ if (arrIdx = -1) {              // Add new
   shtVals[arrIdx] = valsEnc
 
 }
+
+console.log('shtVals', shtVals)
+
 var x = await decryptArr(shtVals, currUser.pwd)
 console.log('shtVals', x)
 
