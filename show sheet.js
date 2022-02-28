@@ -6,6 +6,7 @@ async function showSheet(idx, title) {
   var x = $("#shtSrchProvider").children()
 
   console.log('x', x.get(2))
+  console.log('x', x.get(2).parent())
   
 
   $("#shtSrchProvider").children().get(2).addClass('bg-primary')
