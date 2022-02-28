@@ -263,15 +263,15 @@ async function btnShtmSubmitSheetHtml() {
 
 }
 
-function highlight() {
+function highlight(div) {
 
-  alert('hi dan no this')
+  alert('hi dan divs')
 
-  console.log('this', this)
-  console.log('$this', $(this))
+  console.log('this', div)
+  console.log('$this', $(div))
 
 
- $(this).addClass('bg-secondary bg-opacity-25')
+ $(div).addClass('bg-secondary bg-opacity-25')
 
 }
 
