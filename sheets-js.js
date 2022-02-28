@@ -219,7 +219,12 @@ async function btnShtmSubmitSheetHtml() {
   var arrIdx = $('#shtmArrIdx').val()
   var shtIdx = $('#shtmShtIdx').val()
 
-  var vals = [...shtVals[arrIdx]]
+  var x = shtVals[arrIdx]
+  console.log(x)
+  console.log(...x)
+  console.log([...x])
+
+  var vals = [...x]
 
   if (arrIdx) {                                                       // update existing course
 
