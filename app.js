@@ -216,8 +216,8 @@ jQuery(function ($) {
                   $(this).parent().parent().parent().toggle($(this).text().toLowerCase().indexOf(value) > -1)
                 });
 
-                $('$('shtContainer > div').click(function(){
-                    clicked = $(this);
+                $('#shtContainer > div').click(function(){
+                    highlight( $(this));
                   });
                 
             });

@@ -263,17 +263,23 @@ async function btnShtmSubmitSheetHtml() {
 
 }
 
-function highlight() {
+function highlight($this) {
 
-  alert('hi dan back to this and that')
+  alert('hi dan back to try')
 
-  var $focused = $('shtContainer > div:focus');
+  var $focused = $('#shtContainer > div:focus');
 
  
   console.log('$focused ', $focused )
 
 
- $($focused).addClass('bg-secondary bg-opacity-25')
+ $focused.addClass('bg-secondary bg-opacity-25')
+
+
+ console.log('this', $this)
+
+ $this.addClass('bg-secondary bg-opacity-25')
+
 
 }
 
