@@ -113,7 +113,7 @@ async function listSheet(title) {
    
   }
 
-  $('#shtContainer > div').click(function(e){
+  $('#shtContainer > div').click(function(e){         // highlight clicked row
     
     $('#shtContainer > div').removeClass('bg-secondary bg-opacity-25');
     $(e.currentTarget).addClass('bg-secondary bg-opacity-25')
