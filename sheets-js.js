@@ -114,11 +114,10 @@ async function listSheet(title) {
   }
 
   $('#shtContainer > div').click(function(e){
-    alert('clicked')
-    console.log('app click', e)
-    console.log('app currentTarget', e.currentTarget)
+    
+    $('#shtContainer > div').removeClass('bg-secondary bg-opacity-25');
+    $(e.currentTarget).addClass('bg-secondary bg-opacity-25')
 
-    highlightSht( e.currentTarget );
   });
 
 
