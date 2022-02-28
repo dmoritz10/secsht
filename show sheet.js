@@ -3,6 +3,8 @@ async function showSheet(idx, title) {
   var x = $(".shtHliteProvider")
   console.log("shtHliteProvider class", x)
 
+  x.addClass('bg-primary')
+
 var y = x.get(2)
   console.log('y', y)
   
