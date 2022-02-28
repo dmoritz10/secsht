@@ -215,14 +215,14 @@ jQuery(function ($) {
                 $("#shtContainer #shtProvider").filter(function() {
                   $(this).parent().parent().parent().toggle($(this).text().toLowerCase().indexOf(value) > -1)
                 });
-
-                $('#shtContainer > div').click(function(){
-                    alert('clicked')
-                    console.log('app click', $(this))
-                    highlight( $(this));
-                  });
                 
             });
+
+            $('#shtContainer > div').click(function(){
+                alert('clicked')
+                console.log('app click', $(this))
+                highlight( $(this));
+              });
 
             // Show Sheet
             // $('#btnSSNext')       .click({dir: "Next"}, btnSSBrowseSheetHtml);
