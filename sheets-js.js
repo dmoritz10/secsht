@@ -276,7 +276,7 @@ async function btnShtmSubmitSheetHtml() {
 
 }
 
-function updateUI (valsEnc, arrIdx) {
+async function updateUI (valsEnc, arrIdx) {
 
 // update shtVals conditionally encrypting
 // secSht[shtTitle].Rows
