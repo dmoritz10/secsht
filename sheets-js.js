@@ -273,7 +273,7 @@ function highlightSht($this) {
   console.log('$focused ', $focused )
 
 
- $focused.addClass('bg-secondary bg-opacity-25')
+//  $focused.addClass('bg-secondary bg-opacity-25')
 
 
  console.log('this', $this)
