@@ -221,7 +221,7 @@ jQuery(function ($) {
             $('#shtContainer > div').click(function(){
                 alert('clicked')
                 console.log('app click', $(this))
-                highlight( $(this));
+                highlightSht( $(this));
               });
 
             // Show Sheet
