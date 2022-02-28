@@ -273,7 +273,7 @@ async function btnShtmSubmitSheetHtml() {
 
   updateUI(valsEnc, arrIdx, shtIdx)
 
-  listSheet(shtTitle)
+  // listSheet(shtTitle)
 
 }
 
