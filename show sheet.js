@@ -5,7 +5,7 @@ async function showSheet(idx, title) {
 
   x.addClass('bg-primary')
 
-var y = x.get(2)
+var y = x[2]
   console.log('y', y)
   
 
