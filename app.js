@@ -218,12 +218,7 @@ jQuery(function ($) {
                 
             });
 
-            $('#shtContainer > div').click(function(e){
-                alert('clicked')
-                console.log('app click', $(e))
-                highlightSht( $(e));
-              });
-
+            
             // Show Sheet
             // $('#btnSSNext')       .click({dir: "Next"}, btnSSBrowseSheetHtml);
             // $('#btnSSPrev')       .click({dir: "Prev"}, btnSSBrowseSheetHtml);

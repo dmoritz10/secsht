@@ -113,6 +113,13 @@ async function listSheet(title) {
    
   }
 
+  $('#shtContainer > div').click(function(e){
+    alert('clicked')
+    console.log('app click', e)
+    highlightSht( e );
+  });
+
+
   modal(false)
 
 }
@@ -265,7 +272,7 @@ async function btnShtmSubmitSheetHtml() {
 
 function highlightSht($this) {
 
-  alert('hi dan yet dfsdfsstill dfs')
+  alert('hi dan yets')
 
   var divs = $('#shtContainer > div');
 
