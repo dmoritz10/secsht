@@ -116,7 +116,9 @@ async function listSheet(title) {
   $('#shtContainer > div').click(function(e){
     alert('clicked')
     console.log('app click', e)
-    highlightSht( e );
+    console.log('app currentTarget', e.currentTarget)
+
+    highlightSht( e.currentTarget );
   });
 
 
