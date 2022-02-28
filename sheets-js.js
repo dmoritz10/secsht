@@ -265,7 +265,7 @@ async function btnShtmSubmitSheetHtml() {
 
 function highlightSht($this) {
 
-  alert('hi dan backtry agsin')
+  alert('hi dan yet again')
 
   var $focused = $('#shtContainer > div:focus');
 

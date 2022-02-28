@@ -218,7 +218,7 @@ jQuery(function ($) {
                 
             });
 
-            $('#shtContainer > div').click(function(){
+            $('#shtContainer > div').click(function(this){
                 alert('clicked')
                 console.log('app click', $(this))
                 highlightSht( $(this));
