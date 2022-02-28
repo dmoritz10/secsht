@@ -1,6 +1,6 @@
 async function showSheet(idx, title) {
 
-  console.log("shtContainer xxx", $("#shtContainer").children())
+  console.log("shtContainer [2]", $("#shtContainer").children()[2])
 
   $("#shtContainer").children()[2].addClass('bg-primary')
 
