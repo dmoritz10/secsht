@@ -1,7 +1,7 @@
 async function showSheet(idx, title) {
 
-  var x = $(".shtHliteProvider")
-  console.log("shtHliteProvider class", x)
+  var x = $("div .shtHliteProvider")
+  console.log("div .shtHliteProvider class", x)
 
   x.addClass('bg-primary')
 
