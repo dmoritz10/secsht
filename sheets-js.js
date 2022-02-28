@@ -301,7 +301,7 @@ async function updateUI (valsEnc, arrIdx) {
   console.log('arrIdx', arrIdx)
   console.log('shtVals', shtVals)
 
-  var x = await decryptArr(shtVals, currUser.pwd)
+  var x = shtEnc ? await decryptArr(shtVals, currUser.pwd) : shtVals
   console.log('shtVals', x)
 
   var providerDec = await decryptMessage(valsEnc[0], currUser.pwd)
