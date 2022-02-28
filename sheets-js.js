@@ -263,7 +263,7 @@ async function btnShtmSubmitSheetHtml() {
 
 }
 
-function highlight(this) {
+function highlight() {
 
   alert('hi dan')
 
