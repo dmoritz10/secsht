@@ -104,8 +104,6 @@ async function listSheet(title) {
 
   }
 
-  console.log('shtIdxArr', shtIdxArr)
-
   gotoTab('Sheets')
 
   var srchVal = $("#shtSearch").val()
@@ -124,17 +122,6 @@ async function listSheet(title) {
     $(e.currentTarget).addClass('bg-secondary bg-opacity-25')
 
   });
-
-
-  console.log('shtContainer aa', $('#shtContainer > div'))
-  console.log('shtContainer ab', $('#shtContainer > div').find())
-  console.log('shtContainer ac', $('#shtContainer > div').find('.shtProvider'))
-  console.log('shtContainer ad', $('#shtContainer > div').find('#shtProvider').eq(2))
-
-  console.log('shtContainer bb', $('#shtContainer').children('.shtProvider'))
-  console.log('$provider c', $('#shtProvider'))
-
-
 
   modal(false)
 
@@ -281,7 +268,7 @@ async function btnShtmSubmitSheetHtml() {
 
   $("#sheet-modal").modal('hide');
 
-  updateUI(valsEnc, arrIdx, shtIdx)
+  updateUI(valsEnc, arrIdx)
 
   // listSheet(shtTitle)
 
