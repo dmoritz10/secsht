@@ -309,11 +309,9 @@ async function updateUI (valsEnc, arrIdx) {
   }
 
   
-  var x = shtEnc ? await decryptArr(shtVals, currUser.pwd) : shtVals
-
   var providerDec = shtEnc ? await decryptMessage(valsEnc[0], currUser.pwd) : valsEnc[0]
 
-  var $provider = $('#shtContainer > div').find('#shtProvider').eq(arrIdx+1)
+  var $provider = $('#shtContainer > div').find('#shtProvider').eq(arrIdx+1) // first ele is template d-none
 
   $provider.html(providerDec)
 
