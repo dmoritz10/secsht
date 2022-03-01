@@ -225,8 +225,8 @@ async function btnShtmSubmitSheetHtml() {
 
   if (!$('#sheet-form').valid()) return
 
-  var arrIdx = $('#shtmArrIdx').val()
-  var shtIdx = $('#shtmShtIdx').val()
+  var arrIdx = $('#shtmArrIdx').val()*1
+  var shtIdx = $('#shtmShtIdx').val()*1
 
 
   if (arrIdx) {                                                       // update existing course
