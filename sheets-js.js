@@ -50,7 +50,7 @@ async function listSheet(title) {
   $("#shtContainer").empty();
   x.appendTo("#shtContainer");
 
-  shtIdx = []
+  shtIdxArr = []
 
   for (var j = 0; j < shtVals.length; j++) {
 
