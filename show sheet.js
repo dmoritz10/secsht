@@ -44,9 +44,7 @@ async function showSheet(idx) {
 
   gotoTab('ShowSheet')
 
-  $('#shtContainer > div').eq(idx).trigger( "click" )
-
-  console.log('trigger', $('#shtContainer > div').eq(idx+1))
+  $('#shtContainer > div').eq(idx+1).trigger( "click" )
 
 } 
 
