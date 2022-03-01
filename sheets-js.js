@@ -347,7 +347,7 @@ async function btnDeleteSheetHtml() {
   if (!confirmOK) return
 
 
-  var idx = $('#shtmShtIdx').val() * 1
+  var idx = shtIdxArr[$('#shtmArrIdx').val() * 1]
 
   var request = {
     "requests":
@@ -372,7 +372,7 @@ async function btnDeleteSheetHtml() {
 
   }).then(response => {
 
-    console.log('delete complete - ', shtmShtIdx)
+    console.log('delete complete - ', idx)
     console.log(response)
 
   })
