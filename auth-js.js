@@ -18,7 +18,11 @@ function btnSignoutHtml(event) {
       
 async function showLogin() {
 
-var getLogin = await login()
+var getLogin =  login()
+
+getLogin.init(function(){
+  
+});
 
 console.log('getLogin', getLogin)
 
