@@ -273,7 +273,7 @@ async function btnShtmSubmitSheetHtml() {
     vals[shtHdrs.indexOf("Favorite")] = $('#shtmFavorite').val()
 
     shtIdx = -1
-    arrIDx = -1
+    arrIdx = -1
 
   }
 
