@@ -42,6 +42,7 @@ async function listSheet(title) {
   
 
   $("#shtTitle")[0].innerHTML = shtTitle
+  $("#shtNbrProviders")[0].innerHTML = vals.length
 
   var $tblSheets = $("#shtContainer > .d-none")
 
