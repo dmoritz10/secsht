@@ -46,10 +46,8 @@ async function showSheet(idx) {
 
   $('#shtContainer > div').eq(idx).trigger( "click" )
 
-  console.log('trigger', $('#shtContainer > div').eq(idx))
+  console.log('trigger', $('#shtContainer > div').eq(idx+1))
 
-  // setPrevNextBtns(idx, title)
-        
 } 
 
 function browseProvider(dir) {
