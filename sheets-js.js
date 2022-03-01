@@ -327,7 +327,7 @@ async function updateUI (valsEnc, arrIdx) {
 
   console.log('$provider 2', $provider)
 
-  $provider.innerHTML = providerDec
+  $provider.html(providerDec)
 
 }
 
