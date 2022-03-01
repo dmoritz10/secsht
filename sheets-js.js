@@ -317,7 +317,7 @@ async function updateUI (valsEnc, arrIdx) {
   console.log('shtVals', x)
 
   var providerDec = shtEnc ? await decryptMessage(valsEnc[0], currUser.pwd) : valsEnc[0]
-  console.log(providerDec)
+  console.log('providerDec', providerDec)
 
 
   console.log('shtContainer 1', $('#shtContainer').find('#shtProvider'))
