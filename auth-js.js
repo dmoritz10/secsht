@@ -29,16 +29,26 @@ async function showLogin() {
         className: "btn btn-primary pull-left",
         callback: async function() {
   
-          if (true) {
-            console.log($('#liUser').val())
-            console.log($('#liPassword').val())
-            
-  
-          } else {
-            alert(false)
-         
-           
-          }
+          
+          console.log($('#liUser').val())
+          console.log($('#liPassword').val())
+          var usr = $('#liUser').val()
+          var pwd = $('#liPassword').val()
+          
+          var rtn = await getSSId(usr)
+          
+          if (rtn.fileId) {spreadsheetId = rtn.fileId}
+          else {$('#authSigninStatus').html(rtn.msg);return}
+        
+          var ui = await initialUI();
+
+          var dx = await decryptMessage(x, pwd)
+          var t = "The quick brown fox jumped over the lazy dog"
+          if (dx != t) {await confirm("Invalid password");return}
+        
+          currUser.usr = userName
+          currUser.pwd = pwd
+
         }
       },
       {
