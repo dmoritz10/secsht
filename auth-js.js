@@ -18,11 +18,9 @@ function btnSignoutHtml(event) {
       
 async function showLogin() {
 
-var getLogin =  login()
+var getLogin =  await login()
 
-getLogin.init(function(){
-  
-});
+
 
 console.log('getLogin', getLogin)
 
@@ -171,6 +169,10 @@ var login = function () {
         modal.modal("hide");
       }
     });
+  });
+
+  getLogin.init(function(){
+  
   });
 }
 
