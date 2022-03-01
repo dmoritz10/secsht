@@ -121,8 +121,9 @@ async function listSheet(title) {
 
 
   console.log('shtContainer aa', $('#shtContainer > div'))
-  console.log('shtContainer ab', $('#shtContainer > div').children())
-  console.log('shtContainer ac', $('#shtContainer > div').children('.shtProvider'))
+  console.log('shtContainer ab', $('#shtContainer > div').find())
+  console.log('shtContainer ac', $('#shtContainer > div').find('.shtProvider'))
+  console.log('shtContainer ac', $('#shtContainer > div').find('#shtProvider'))
 
   console.log('shtContainer bb', $('#shtContainer').children('.shtProvider'))
   console.log('$provider c', $('#shtProvider'))
