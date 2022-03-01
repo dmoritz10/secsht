@@ -30,11 +30,12 @@ async function showLogin() {
         callback: async function() {
   
           if (true) {
-  alert(true)
+            alert($('#liUser').val())
+            alert($('#liPassword').val())
             
   
           } else {
-  alert(false)
+            alert(false)
          
            
           }
@@ -44,8 +45,8 @@ async function showLogin() {
         label: "Cancel",
         className: "btn btn-default pull-left",
         callback: function() {
-  alert('Cancel')
-  login.modal("hide");
+          alert('Cancel')
+          login.modal("hide");
         }
       }
     ],
@@ -110,50 +111,4 @@ async function btnDecryptHtml(event) {
   console.log('decryptMsg')
     
 }
-
-var login = function () {
-
-  return new Promise(resolve => {
-
-    bootbox.dialog({
-      message: $(".login-form").html(),
-      title: "Login",
-      closeButton: false,
-      centerVertical: true,
-      buttons: [
-        {
-          label: "OK",
-          className: "btn btn-primary pull-left",
-          callback: function() {
-    
-            if (true) {
-    
-              resolve(true)
-    
-            } else {
-           
-              resolve (false)
-            }
-          }
-        },
-        {
-          label: "Cancel",
-          className: "btn btn-default pull-left",
-          callback: function() {
-            resolve(false);
-          }
-        }
-      ],
-      show: false,
-      onEscape: function() {
-        modal.modal("hide");
-      }
-    });
-  });
-
-  getLogin.init(function(){
-  
-  });
-}
-
 
