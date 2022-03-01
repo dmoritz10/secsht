@@ -1,4 +1,4 @@
-async function showSheet(idx, title) {
+async function showSheet(idx, shtIdx) {
 
   if (idx === null) return                  // null is from browseProvider
 
@@ -7,7 +7,8 @@ async function showSheet(idx, title) {
   var vals = shtEnc ? await decryptArr(shtVals[idx], currUser.pwd) : shtVals[idx]
   
   $("#ssSheet")[0].innerHTML = vals[shtHdrs.indexOf('Provider')]
-  $("#ssIdx").val(idx)
+  $("#ssArrIdx").val(idx)
+  $("#ssShtIdx").val(shtIdx)
 
 
   for (var i=1; i<shtHdrs.length;i++) {
@@ -90,5 +91,16 @@ function clearAndGotoTab(sht) {
   $("#ssSheet").html('')
   
   gotoTab(sht)
+
+}
+
+function editFromShowSheet() {
+
+  clearAndGotoTab("Sheets")
+
+  var arrIdx = $("#ssArrIdx").val()
+  var shtIdx = $("#ssShtIdx").val()
+
+  editSheet(arrIdx, shtIdx)
 
 }

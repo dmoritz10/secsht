@@ -18,7 +18,8 @@
       </div>
       <div class="col px-1">
         <div id="ssSheet" class="label text-success text-center h2 divfullscreen"></div>
-        <input type="text" class="form-control d-none" id="ssIdx">
+        <input type="text" class="form-control d-none" id="ssArrIdx" >
+        <input type="text" class="form-control d-none" id="ssShtIdx" >
       </div>
       <div class="col-1 px-1 mt-3">
         &nbsp;
@@ -26,6 +27,7 @@
 
     </div>
   </div>
+  
   <div class=clearfix></div>
 
   <div id="tblSheet" style=" word-break: break-word" class="m-0 me-2 p-0 pt-3 text-center bg-white ">
@@ -37,6 +39,7 @@
     <div class="text-center">
       <div class="btn-group" role="group">
         <button class="btn btn-blue btn-lg btn-raised py-2 mx-2" id="btnSSPrev" onclick="browseProvider('prev')">Prev</button>
+        <button class="btn btn-blue btn-lg btn-raised py-2 mx-2" id="btnSSEdit" onclick="editFromShowSheet()">Edit</button>
         <button class="btn btn-blue btn-lg btn-raised py-2 mx-2" id="btnSSNext" onclick="browseProvider('next')">Next</button>
       </div>
     </div>
