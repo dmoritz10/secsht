@@ -321,9 +321,9 @@ async function updateUI (valsEnc, arrIdx) {
 
 
   console.log('shtContainer 1', $('#shtContainer').find('#shtProvider'))
-  console.log('shtContainer 2', $('#shtContainer').find('#shtProvider').eq(arrIdx))
+  console.log('shtContainer 2', $('#shtContainer > div').find('#shtProvider').eq(arrIdx))
 
-  var $provider = $('#shtContainer').find('#shtProvider').eq(arrIdx)
+  var $provider = $('#shtContainer > div').find('#shtProvider').eq(arrIdx)
 
   console.log('$provider 2', $provider)
 
