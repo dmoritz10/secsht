@@ -30,8 +30,8 @@ async function showLogin() {
         callback: async function() {
   
           if (true) {
-            alert($('#liUser').val())
-            alert($('#liPassword').val())
+            console.log($('#liUser').val())
+            console.log($('#liPassword').val())
             
   
           } else {
