@@ -41,8 +41,8 @@ async function listSheet(title) {
   shtVals.forEach((val, idx, arr)=> arr[idx].pop()) // remove sort element from end of array
   
 
-  $("#shtTitle")[0].innerHTML = shtTitle
-  $("#shtNbrProviders")[0].innerHTML = vals.length
+  $("#shtTitle").html(shtTitle)
+  $("#shtNbrProviders").html(vals.length)
 
   var $tblSheets = $("#shtContainer > .d-none")
 
