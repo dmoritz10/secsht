@@ -44,6 +44,10 @@ async function showSheet(idx) {
 
   gotoTab('ShowSheet')
 
+  $('#shtContainer > div').eq(idx).trigger( "click" )
+
+  console.log('trigger', $('#shtContainer > div').eq(idx))
+
   // setPrevNextBtns(idx, title)
         
 } 
