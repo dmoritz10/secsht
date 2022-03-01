@@ -231,6 +231,7 @@ async function btnShtmSubmitSheetHtml() {
   console.log('arrId', $('#shtmArrIdx').val())
   console.log('arrId', arrIdx)
   console.log('arrId', arrIdx == true)
+  console.log('arrId', arrIdx == '')
 
 
   if (arrIdx) {                                                       // update existing course
