@@ -228,12 +228,6 @@ async function btnShtmSubmitSheetHtml() {
   var arrIdx = $('#shtmArrIdx').val()
   var shtIdx = $('#shtmShtIdx').val()
 
-  console.log('arrId', $('#shtmArrIdx').val())
-  console.log('arrId', arrIdx)
-  console.log('arrId', arrIdx == true)
-  console.log('arrId', arrIdx == '')
-
-
   if (arrIdx) {                                                       // update existing course
 
     var vals = [...shtVals[arrIdx]]
@@ -277,10 +271,7 @@ async function btnShtmSubmitSheetHtml() {
 
   }
 
-  console.log('vals preenc',vals)
-
   var valsEnc = shtEnc ? await encryptArr(vals, currUser.pwd) : vals
-
 
   await updateSheetRow(valsEnc, shtIdx)
 
@@ -317,24 +308,12 @@ async function updateUI (valsEnc, arrIdx) {
 
   }
 
-  console.log('arrIdx', arrIdx)
-  console.log('shtVals', shtVals)
-  console.log('valsEnc', valsEnc)
-
-
+  
   var x = shtEnc ? await decryptArr(shtVals, currUser.pwd) : shtVals
-  console.log('shtVals', x)
 
   var providerDec = shtEnc ? await decryptMessage(valsEnc[0], currUser.pwd) : valsEnc[0]
-  console.log('providerDec', providerDec)
-
-
-  console.log('shtContainer 1', $('#shtContainer').find('#shtProvider'))
-  console.log('shtContainer 2', $('#shtContainer > div').find('#shtProvider').eq(arrIdx+1))
 
   var $provider = $('#shtContainer > div').find('#shtProvider').eq(arrIdx+1)
-
-  console.log('$provider 2', $provider)
 
   $provider.html(providerDec)
 
