@@ -317,11 +317,11 @@ async function updateUI (valsEnc, arrIdx) {
   var providerDec = shtEnc ? await decryptMessage(valsEnc[0], currUser.pwd) : shtVals
   console.log(providerDec)
 
-  var $provider = $('#shtProvider').eq(arrIdx)
 
-  console.log('shtContainer 0', $('#shtContainer'))
-  console.log('shtContainer 1', $('#shtContainer').children('#shtProvider'))
-  console.log('$provider 1', $('#shtProvider'))
+  console.log('shtContainer 1', $('#shtContainer').find('#shtProvider'))
+  console.log('shtContainer 2', $('#shtContainer').find('#shtProvider').eq(arrIdx))
+
+  var $provider = $('#shtContainer').find('#shtProvider').eq(arrIdx)
 
   console.log('$provider 2', $provider)
 
