@@ -27,15 +27,16 @@ async function showLogin() {
       {
         label: "OK",
         className: "btn btn-primary pull-left",
-        callback: function() {
+        callback: async function() {
   
           if (true) {
-  
-            return(true)
+  alert(true)
+            
   
           } else {
+  alert(false)
          
-            return (false)
+           
           }
         }
       },
@@ -43,7 +44,8 @@ async function showLogin() {
         label: "Cancel",
         className: "btn btn-default pull-left",
         callback: function() {
-          return(false);
+  alert('Cancel')
+  return(false);
         }
       }
     ],
@@ -54,11 +56,6 @@ async function showLogin() {
   });
 
   login.modal("show");
-
-
-console.log('getLogin', getLogin)
-
-
 
 }
 
