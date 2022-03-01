@@ -310,6 +310,8 @@ async function updateUI (valsEnc, arrIdx) {
 
   console.log('arrIdx', arrIdx)
   console.log('shtVals', shtVals)
+  console.log('valsEnc', valsEnc)
+
 
   var x = shtEnc ? await decryptArr(shtVals, currUser.pwd) : shtVals
   console.log('shtVals', x)
