@@ -45,7 +45,7 @@ async function showLogin() {
         className: "btn btn-default pull-left",
         callback: function() {
   alert('Cancel')
-  return(false);
+  login.modal("hide");
         }
       }
     ],
