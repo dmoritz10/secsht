@@ -83,3 +83,12 @@ function copyToClpbrd(txt) {
   });
 
 }
+
+function clearAndGotoTab(sht) {
+
+  $("#tblSheet").html('')
+  $("#ssSheet").html('')
+  
+  gotoTab(sht)
+
+}

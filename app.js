@@ -220,6 +220,12 @@ jQuery(function ($) {
             });
 
             
+            $('#editProvider').on('hidden.bs.modal', function(e) {
+                alert('hi dan')
+                $(this).find('#sheet-form')[0].reset();
+            });
+
+            
             // Show Sheet
             // $('#btnSSNext')       .click({dir: "Next"}, btnSSBrowseSheetHtml);
             // $('#btnSSPrev')       .click({dir: "Prev"}, btnSSBrowseSheetHtml);
