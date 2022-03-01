@@ -288,7 +288,7 @@ async function updateUI (valsEnc, arrIdx) {
   if (arrIdx == -1) {              // Add new.  New to clone new entry to avoid using listSheet()
 
     // shtVals.push(valsEnc)
-    // secSht[shtTitle].Rows++
+    secSht[shtTitle].Rows++
     // arrIdx = shtVals.length-1
 
     listSheet(shtTitle)
@@ -359,12 +359,16 @@ async function btnDeleteSheetHtml() {
 
   }).then(response => {
 
+    secSht[shtTitle].Rows--
+
     console.log('delete complete - ', idx)
     console.log(response)
 
   })
 
   $("#sheet-modal").modal('hide');
+
+  
 
   listSheet(shtTitle)
 
