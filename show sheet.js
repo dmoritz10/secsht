@@ -1,4 +1,4 @@
-async function showSheet(idx, shtIdx) {
+async function showSheet(idx) {
 
   if (idx === null) return                  // null is from browseProvider
 
@@ -8,8 +8,6 @@ async function showSheet(idx, shtIdx) {
   
   $("#ssSheet")[0].innerHTML = vals[shtHdrs.indexOf('Provider')]
   $("#ssArrIdx").val(idx)
-  $("#ssShtIdx").val(shtIdx)
-
 
   for (var i=1; i<shtHdrs.length;i++) {
 
@@ -99,8 +97,7 @@ function editFromShowSheet() {
   clearAndGotoTab("Sheets")
 
   var arrIdx = $("#ssArrIdx").val()
-  var shtIdx = $("#ssShtIdx").val()
 
-  editSheet(arrIdx, shtIdx)
+  editSheet(arrIdx)
 
 }

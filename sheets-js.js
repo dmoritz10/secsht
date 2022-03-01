@@ -81,11 +81,11 @@ async function listSheet(title) {
 
     ele.find('#shtProvider')[0].innerHTML = provider
 
-    ele.find('#btnShtEdit')[0].setAttribute("onclick", "editSheet(" + j + ", " + shtIdx + ")");
+    ele.find('#btnShtEdit')[0].setAttribute("onclick", "editSheet(" + j + ")");
 
-    ele.find('#btnShtFavorite')[0].setAttribute("onclick", "setFavorite(" + j + ", " + shtIdx + ")");
+    ele.find('#btnShtFavorite')[0].setAttribute("onclick", "setFavorite(" + j + ")");
 
-    ele.find('#btnShtShowSheet')[0].setAttribute("onclick", "showSheet(" + j + ", " + shtIdx + ")");
+    ele.find('#btnShtShowSheet')[0].setAttribute("onclick", "showSheet(" + j + ")");
 
 
     var boolFav = fav.toLowerCase() === 'true'
@@ -162,7 +162,7 @@ async function btnShtSelectHtml(e) {
 
 }
 
-async function setFavorite(arrIdx, shtIdx) {
+async function setFavorite(arrIdx) {
 
       // arrIdx - the index of the element in the sorted array
       // shtIdx = the index of the element in the sheet (un-sorted)
@@ -189,6 +189,8 @@ async function setFavorite(arrIdx, shtIdx) {
     }
   }
 
+  var shtIdx = shtIdxArr[arrIdx]
+
   await updateSheetRow(shtVals[arrIdx], shtIdx)
 
   listSheet(shtTitle)
@@ -196,7 +198,7 @@ async function setFavorite(arrIdx, shtIdx) {
 }
 
 
-async function editSheet(arrIdx, shtIdx) {
+async function editSheet(arrIdx) {
 
 
   $("#sheet-modal").modal('show');
@@ -205,8 +207,6 @@ async function editSheet(arrIdx, shtIdx) {
   $('#shtmSheetName').html(shtTitle)
 
   $('#shtmArrIdx').val(arrIdx)
-  $('#shtmShtIdx').val(shtIdx)
-
 
   var vals = shtEnc ? await decryptArr(shtVals[arrIdx], currUser.pwd) : shtVals[arrIdx]
 
