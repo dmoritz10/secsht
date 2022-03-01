@@ -13,8 +13,8 @@ async function listSheet(title) {
 
   shtTitle = title
   shtId   = secSht[shtTitle].id
-  shtCols = secSht[shtTitle].Cols
-  shtRows = secSht[shtTitle].Rows
+  shtCols = secSht[shtTitle].cols
+  shtRows = secSht[shtTitle].rows
   shtEnc  = secSht[shtTitle].enc
 
   if (shtEnc) {
@@ -288,7 +288,7 @@ async function updateUI (valsEnc, arrIdx) {
   if (arrIdx == -1) {              // Add new.  New to clone new entry to avoid using listSheet()
 
     // shtVals.push(valsEnc)
-    secSht[shtTitle].Rows++
+    secSht[shtTitle].rows++
     // arrIdx = shtVals.length-1
 
     listSheet(shtTitle)
@@ -359,7 +359,7 @@ async function btnDeleteSheetHtml() {
 
   }).then(response => {
 
-    secSht[shtTitle].Rows--
+    secSht[shtTitle].rows--
 
     console.log('delete complete - ', idx)
     console.log(response)
@@ -367,8 +367,6 @@ async function btnDeleteSheetHtml() {
   })
 
   $("#sheet-modal").modal('hide');
-
-  
 
   listSheet(shtTitle)
 
