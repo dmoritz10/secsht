@@ -293,6 +293,8 @@ async function updateUI (valsEnc, arrIdx) {
 // update / append shtContainer ? sort ???
 // update / append
 
+  var arrIdx = arrIdx*1
+
   console.log("arrIdx", arrIdx)
 
   if (arrIdx == -1) {              // Add new
