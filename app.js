@@ -14,6 +14,7 @@
     var shtTitle
     var shtId
     var shtEnc 
+    var shtIdxArr
     
     var suSht = null
     var arrOptions

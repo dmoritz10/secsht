@@ -50,6 +50,8 @@ async function listSheet(title) {
   $("#shtContainer").empty();
   x.appendTo("#shtContainer");
 
+  shtIdx = []
+
   for (var j = 0; j < shtVals.length; j++) {
 
     var hdrs = [...shtHdrs]
@@ -59,7 +61,8 @@ async function listSheet(title) {
 
     var shtIdx = shtObj['idx']
 
-    shtVals[j].pop()                 // remove idx
+    shtIdxArr.push(shtVals[j])          // create parallel array of idxs to sheet
+    shtVals[j].pop()                    // remove idx shtVals after sort
 
     if (shtEnc) {
       var fav = await decryptMessage(shtObj['Favorite'], currUser.pwd)
@@ -226,10 +229,9 @@ async function btnShtmSubmitSheetHtml() {
 
   if (!$('#sheet-form').valid()) return
 
-  var arrIdx = $('#shtmArrIdx').val()
-  var shtIdx = $('#shtmShtIdx').val()
+  var arrIdx = $('#shtmArrIdx').val() ? $('#shtmArrIdx').val()*1 : -1
 
-  if (arrIdx) {                                                       // update existing course
+  if (arrIdx > -1) {                                                       // update existing course
 
     var vals = [...shtVals[arrIdx]]
 
@@ -267,10 +269,9 @@ async function btnShtmSubmitSheetHtml() {
     vals[shtHdrs.indexOf("Last Change")] = formatDate(new Date())
     vals[shtHdrs.indexOf("Favorite")] = $('#shtmFavorite').val()
 
-    shtIdx = -1
-    arrIdx = -1
-
   }
+
+  var shtIdx = arrIdx == -1 ? -1 : shtIdxArr[arrIdx]  // get the row nbr on the sheet from shtIdxArr
 
   var valsEnc = shtEnc ? await encryptArr(vals, currUser.pwd) : vals
 

@@ -52,7 +52,7 @@ async function showSheet(idx, shtIdx) {
 
 function browseProvider(dir) {
 
-  var idx   = $("#shtIdx").val()*1
+  var idx   = $("#ssArrIdx").val()*1
   var title = $('#shtTitle').text()
 
   var shtRows = secSht[title].rows*1 - 1   // .rows includes hdrs
