@@ -303,12 +303,13 @@ async function updateUI (valsEnc, arrIdx) {
 
   console.log("arrIdx", arrIdx)
 
-  if (arrIdx == -1) {              // Add new
+  if (arrIdx == -1) {              // Add new.  New to clone new entry to avoid using listSheet()
 
-    shtVals.push(valsEnc)
-    secSht[shtTitle].Rows++
+    // shtVals.push(valsEnc)
+    // secSht[shtTitle].Rows++
+    // arrIdx = shtVals.length-1
 
-    arrIdx = shtVals.length-1
+    listSheet(shtTitle)
 
   } else {                        // update arrIdx
 
