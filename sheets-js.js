@@ -61,8 +61,8 @@ async function listSheet(title) {
 
     var shtIdx = shtObj['idx']
 
-    shtIdxArr.push(shtVals[j])          // create parallel array of idxs to sheet
-    shtVals[j].pop()                    // remove idx shtVals after sort
+    var x = shtVals[j].pop()                    // remove idx shtVals after sort
+    shtIdxArr.push(x)                           // create parallel array of idxs to sheet
 
     if (shtEnc) {
       var fav = await decryptMessage(shtObj['Favorite'], currUser.pwd)
@@ -103,6 +103,8 @@ async function listSheet(title) {
     ele.appendTo("#shtContainer");
 
   }
+
+  console.log('shtIdxArr', shtIdxArr)
 
   gotoTab('Sheets')
 
