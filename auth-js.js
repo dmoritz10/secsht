@@ -49,11 +49,11 @@ async function showLogin() {
     ],
     show: false,
     onEscape: function() {
-      modal.login("hide");
+      login.modal("hide");
     }
   });
 
-  modal.login("show");
+  login.modal("show");
 
 
 console.log('getLogin', getLogin)
