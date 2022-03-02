@@ -184,6 +184,11 @@ async function requestNewPwd(prmpt) {
   
   var pwd = await prompt(prmpt, "password");
 
+  if (!strongRegex.test(pwd)) {
+    var confirmOK = await confirm("Passwords must have a least 8 characters")
+    return null
+  }
+
   var pdrcnfrm = await prompt("Confirm Password", "password");
 
   if (pwd != pdrcnfrm) {
