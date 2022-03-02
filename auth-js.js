@@ -18,6 +18,7 @@ function btnSignoutHtml(event) {
       
 function showLogin() {
 
+  $("#login-form")[0].reset();
   $("#login-modal").modal('show');
 
 }
@@ -46,7 +47,7 @@ async function submitLogin() {
   var x = arrOptions.shtList
   var t = "The quick brown fox jumped over the lazy dog"
   
-  if (x == t) {
+  if (x == t  && !$("#liDisplayConfirmPassword").hasClass('d-none')) {
     $("#liDisplayConfirmPassword").removeClass('d-none')
     $('#liMsg').html("Confirm password")
     return
