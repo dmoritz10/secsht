@@ -36,7 +36,7 @@ async function submitLogin() {
   else {$('#authSigninStatus').html(rtn.msg);return}
 
   var ui = await initialUI();
-
+  var x = arrOptions.shtList
   var dx = await decryptMessage(x, pwd)
   var t = "The quick brown fox jumped over the lazy dog"
   if (dx != t) {await confirm("Invalid password");return}
