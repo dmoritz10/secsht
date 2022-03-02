@@ -32,19 +32,7 @@ async function submitLogin() {
   var pwd = $('#liPassword').val()
   var pwdCfrm = cfrmPwdMode ? $('#liConfirmPassword').val() : null
 
-  var t = "The quick brown fox jumped over the lazy dog"
 
-
-  if (cfrmPwdMode && pwd != pwdCfrm) {
-    $('#liMsg').html("Passwords do not match")
-    return
-  } else {
-
-    var encPwd = await encryptMessage(t, pwd)
-    await updateOption('shtList', encPwd)
-
-  }
-  
   var rtn = await getSSId(usr)
   
   if (rtn.fileId) {spreadsheetId = rtn.fileId}
@@ -56,6 +44,19 @@ async function submitLogin() {
 
   var ui = await initialUI();
   var x = arrOptions.shtList
+
+  var t = "The quick brown fox jumped over the lazy dog"
+
+  if (cfrmPwdMode && pwd != pwdCfrm) {
+    $('#liMsg').html("Passwords do not match")
+    return
+  } else {
+
+    var encPwd = await encryptMessage(t, pwd)
+    await updateOption('shtList', encPwd)
+
+  }
+  
   
   if (x == t  && cfrmPwdMode) {
     $("#liDisplayConfirmPassword").removeClass('d-none')
