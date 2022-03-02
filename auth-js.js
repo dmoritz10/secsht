@@ -48,7 +48,7 @@ async function submitLogin() {
 
   var t = "The quick brown fox jumped over the lazy dog"
 
-  if (x == t) {
+  if (x == t && !cfrmPwdMode) {
     $("#liDisplayConfirmPassword").removeClass('d-none')
     $('#liMsg').html("Confirm password")
     return
