@@ -19,6 +19,7 @@ function btnSignoutHtml(event) {
 function showLogin() {
 
   $("#login-form")[0].reset();
+  $('#liMsg').html("&nbsp;")
   $("#login-modal").modal('show');
 
 }
