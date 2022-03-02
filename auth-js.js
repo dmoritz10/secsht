@@ -25,30 +25,30 @@ function showLogin() {
 async function submitLogin() {
 
   var usr = $('#liUser', '.form').val()
-          var pwd = $('#liPassword', '.form').val()
-          
-          console.log('usr', usr);
-          console.log('pwd', pwd);
-          
-          var rtn = await getSSId(usr)
-          
-          if (rtn.fileId) {spreadsheetId = rtn.fileId}
-          else {$('#authSigninStatus').html(rtn.msg);return}
-        
-          var ui = await initialUI();
+  var pwd = $('#liPassword', '.form').val()
+  
+  console.log('usr', usr);
+  console.log('pwd', pwd);
+  
+  var rtn = await getSSId(usr)
+  
+  if (rtn.fileId) {spreadsheetId = rtn.fileId}
+  else {$('#authSigninStatus').html(rtn.msg);return}
 
-          var dx = await decryptMessage(x, pwd)
-          var t = "The quick brown fox jumped over the lazy dog"
-          if (dx != t) {await confirm("Invalid password");return}
-        
-          currUser.usr = userName
-          currUser.pwd = pwd
+  var ui = await initialUI();
 
-          await loadSheets()
+  var dx = await decryptMessage(x, pwd)
+  var t = "The quick brown fox jumped over the lazy dog"
+  if (dx != t) {await confirm("Invalid password");return}
 
-          console.log('post loadsheets')
+  currUser.usr = userName
+  currUser.pwd = pwd
 
-          goHome()    
+  await loadSheets()
+
+  console.log('post loadsheets')
+
+  goHome()    
 
 
 }
