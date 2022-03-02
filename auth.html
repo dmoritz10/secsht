@@ -53,21 +53,38 @@
             <form id="login-form" method="get" action=""  >
   
               <fieldset>
-  
-                <div class="row my-0">
-                  <div class="col">
-                    <label for="liUser" class="col-form-label">User</label>
-                    <input type="text" class="form-control text-success h4" id="liUser" autofocus name="liUser" required>
-                  </div>
+                <div id="login-mode" class="">
+                    <div class="row my-0">
+                    <div class="col">
+                        <label for="liUser" class="col-form-label">User</label>
+                        <input type="text" class="form-control text-success h4" id="liUser" autofocus name="liUser" required>
+                    </div>
+                    </div>
+    
+                    <div class="row my-0">
+                    <div class="col">
+                        <label for="liPassword" class="col-form-label">Password</label>
+                        <input type="password" class="form-control text-success h4" id="liPassword" name="liPassword">
+                    </div>
+                    </div>
                 </div>
-  
-                <div class="row my-0">
-                  <div class="col">
-                    <label for="liPassword" class="col-form-label">Password</label>
-                    <input type="text" class="form-control text-success h4" id="liPassword" name="liPassword">
-                  </div>
+
+                <div id="newPwd-mode" class="d-none">
+                    <div class="row my-0">
+                    <div class="col">
+                        <label for="liPwd1" class="col-form-label">User</label>
+                        <input type="text" class="form-control text-success h4" id="liPwd1" autofocus name="liPwd1" required>
+                    </div>
+                    </div>
+    
+                    <div class="row my-0">
+                    <div class="col">
+                        <label for="liPwd2" class="col-form-label">Password</label>
+                        <input type="password" class="form-control text-success h4" id="liPwd2" name="liPwd2">
+                    </div>
+                    </div>
                 </div>
-  
+
                 <div class="row my-0">
                     <div class="col">
                       <div class="text-danger h3" id="liMsg" >&nbsp;</div>
@@ -75,6 +92,7 @@
                   </div>
                  </fieldset>
             </form>
+
           </div>
   
           <div class="modal-footer">
