@@ -29,12 +29,13 @@ async function showLogin() {
         className: "btn btn-primary pull-left",
         callback: async function(result) {
 
-          console.log('result', result)
-           
-          console.log('liuser', $('#liUser').val())
-          console.log($('#liPassword').val())
-          var usr = $('#liUser').val()
-          var pwd = $('#liPassword').val()
+       
+         
+          var usr = $('#liUser', '.form').val()
+          var pwd = $('#liPassword', '.form').val()
+          
+          console.log('usr', usr);
+          console.log('pwd', pwd);
           
           var rtn = await getSSId(usr)
           
