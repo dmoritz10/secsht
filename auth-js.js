@@ -31,7 +31,7 @@ async function submitLogin() {
 
   var usr = $('#liUser').val()
   var pwd = $('#liPassword').val()
-  var pwdCfrm = cfrmPwdMode ? $('#liConfirmPassword').val() : null
+  var pwdCfrm = $('#liConfirmPassword').val()
 
 
   var rtn = await getSSId(usr)
@@ -48,7 +48,7 @@ async function submitLogin() {
 
   var t = "The quick brown fox jumped over the lazy dog"
 
-  if (cfrmPwdMode && pwd != pwdCfrm) {
+  if (cfrmPwdMode && pwd != pwdCfrm && pwd !='') {
     $('#liMsg').html("Passwords do not match")
     return
   } else {
