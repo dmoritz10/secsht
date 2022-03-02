@@ -25,8 +25,9 @@ async function showLogin() {
     centerVertical: true,
     buttons: [
       {
-        label: "Confirm",
-        className: "btn btn-primary pull-left",
+        confirm: {
+          Label: "Confirm",
+        className: "btn btn-primary pull-left"},
         callback: async function(result) {
 
        
@@ -60,8 +61,9 @@ async function showLogin() {
         }
       },
       {
-        label: "Cancel",
-        className: "btn btn-default pull-left",
+        cancel: {
+          label: "Cancel",
+        className: "btn btn-default pull-left"},
         callback: function() {
           alert('Cancel')
           login.modal("hide");
