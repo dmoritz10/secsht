@@ -305,12 +305,29 @@ async function updateUI (valsEnc, arrIdx) {
 
   }
 
-  
   var providerDec = shtEnc ? await decryptMessage(valsEnc[0], currUser.pwd) : valsEnc[0]
-
   var $provider = $('#shtContainer > div').find('#shtProvider').eq(arrIdx+1) // first ele is template d-none
-
   $provider.html(providerDec)
+
+  var fav = valsEnc[shtHdrs.indexOf('Favorite')]
+
+  if (shtEnc) {
+    var favDec = await decryptMessage(fav, currUser.pwd)
+  } else {
+    var favDec = fav
+  }
+
+  var $fav = $('#shtContainer > div').find('#shtFavorite').eq(arrIdx+1) 
+
+  var boolFav = favDec.toLowerCase() === 'true'
+
+  if (boolFav) {
+    $fav.innerHTML = "star"
+    $fav.addClass('text-primary')
+  } else {
+    $fav.innerHTML = "star_outline"
+    $fav.removeClass('text-primary')
+  }
 
 }
 
