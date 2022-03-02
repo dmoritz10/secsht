@@ -27,7 +27,9 @@ async function showLogin() {
       {
         label: "OK",
         className: "btn btn-primary pull-left",
-        callback: async function() {
+        callback: async function(result) {
+
+          console.log('result', result)
            
           console.log('liuser', $('#liUser').val())
           console.log($('#liPassword').val())
