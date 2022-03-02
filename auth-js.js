@@ -58,6 +58,11 @@ async function submitLogin() {
     $('#liMsg').html("Passwords do not match")
     return
   } 
+  
+  if (pwd.length < 8) {
+    $('#liMsg').html("Password must contain 8 or more characters")
+    return
+  } 
 
   if (cfrmPwdMode) {
     var encPwd = await encryptMessage(t, pwd)
