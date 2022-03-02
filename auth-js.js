@@ -36,7 +36,11 @@ async function submitLogin() {
   var rtn = await getSSId(usr)
   
   if (rtn.fileId) {spreadsheetId = rtn.fileId}
-  else {$('#liMsg').html(rtn.msg);return}
+  else {
+    console.log('get file id', rtn.msg)
+    $('#liMsg').html('Invalid Login');
+    return
+  }
 
   var ui = await initialUI();
   var x = arrOptions.shtList
@@ -50,7 +54,7 @@ async function submitLogin() {
   
   var dx = await decryptMessage(x, pwd)
   if (dx != t) {
-    $('#liMsg').html("Invalid password")
+    $('#liMsg').html("Invalid Login")
     return
   }
 
