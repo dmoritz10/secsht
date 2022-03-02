@@ -188,7 +188,6 @@ jQuery(function ($) {
             // Auth tab
           
             $('#btnAuth')                   .button().click(btnAuthHtml);
-            // $('#btnAuthLogin')                .button().click(btnAuthLoginHtml);
          
             // Home tab
 
