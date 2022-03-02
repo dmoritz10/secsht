@@ -25,13 +25,24 @@ function showLogin() {
 
 async function submitLogin() {
 
+  var cfrmPwdMode = !$("#liDisplayConfirmPassword").hasClass('d-none')
+  $('#liMsg').html("")
+
   var usr = $('#liUser').val()
   var pwd = $('#liPassword').val()
-  var pwdCfrm = $('#liConfirmPassword').val()
+  var pwdCfrm = cfrmPwdMode ? $('#liConfirmPassword').val() : null
 
-  if (!$("#liDisplayConfirmPassword").hasClass('d-none') && pwd != pwdCfrm) {
+  var t = "The quick brown fox jumped over the lazy dog"
+
+
+  if (cfrmPwdMode && pwd != pwdCfrm) {
     $('#liMsg').html("Passwords do not match")
     return
+  } else {
+
+    var encPwd = await encryptMessage(t, pwd)
+    await updateOption('shtList', encPwd)
+
   }
   
   var rtn = await getSSId(usr)
@@ -45,9 +56,8 @@ async function submitLogin() {
 
   var ui = await initialUI();
   var x = arrOptions.shtList
-  var t = "The quick brown fox jumped over the lazy dog"
   
-  if (x == t  && !$("#liDisplayConfirmPassword").hasClass('d-none')) {
+  if (x == t  && cfrmPwdMode) {
     $("#liDisplayConfirmPassword").removeClass('d-none')
     $('#liMsg').html("Confirm password")
     return
