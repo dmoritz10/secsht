@@ -46,6 +46,8 @@ async function submitLogin() {
 
   await loadSheets()
 
+  $("#login-modal").modal('hide');
+
   console.log('post loadsheets')
 
   goHome()    
