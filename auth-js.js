@@ -71,13 +71,13 @@ async function submitLogin() {
     return
   }
 
-  $("#liDisplayConfirmPassword").addClass('d-none')
 
   currUser.pwd = pwd
 
   await loadSheets()
 
   $("#login-modal").modal('hide');
+  $("#liDisplayConfirmPassword").addClass('d-none')
 
   console.log('post loadsheets')
 
