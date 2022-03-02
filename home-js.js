@@ -77,7 +77,7 @@ async function loadSheets() {
             }
 
             nbrSheets++
-            nbrProviders += sht.gridProperties.rowCount
+            nbrProviders += sht.gridProperties.rowCount - 1
 
           }
 
