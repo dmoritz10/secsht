@@ -184,7 +184,9 @@ async function setFavorite(arrIdx) {
 
   await updateSheetRow(shtVals[arrIdx], shtIdx)
 
-  listSheet(shtTitle)
+  updateUI(shtVals[arrIdx], arrIdx)
+
+  // listSheet(shtTitle)
 
 }
 
