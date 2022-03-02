@@ -71,6 +71,8 @@ async function submitLogin() {
     return
   }
 
+  $("#liDisplayConfirmPassword").addClass('d-none')
+
   currUser.pwd = pwd
 
   await loadSheets()
