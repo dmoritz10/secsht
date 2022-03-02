@@ -60,7 +60,7 @@ async function submitLogin() {
   } 
   
   if (cfrmPwdMode && !strongRegex.test(pwd)) {
-    $('#liMsg').html("Password must contain 8 or more characters")
+    $('#liMsg').html(invalidPwdMsg)
     return
   } 
 
