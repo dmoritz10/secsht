@@ -21,8 +21,8 @@ async function showLogin() {
   var bootboxHtml = $(".login-form").html()
 
   bootbox.confirm(bootboxHtml, function(result) {
-    console.log($('#liUser', '.form').val());
-    console.log($('#liPassword', '.form').val());
+    console.log('user', $('#liUser').val());
+    console.log('pwd', $('#liPassword').val());
   });
 
 }
