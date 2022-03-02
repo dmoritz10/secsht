@@ -49,7 +49,10 @@ async function submitLogin() {
   }
   
   var dx = await decryptMessage(x, pwd)
-  if (dx != t) {await confirm("Invalid password");return}
+  if (dx != t) {
+    $('#liMsg').html("Invalid password")
+    return
+  }
 
   currUser.pwd = pwd
 
