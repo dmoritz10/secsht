@@ -18,7 +18,7 @@ function btnSignoutHtml(event) {
       
 async function showLogin() {
 
-  var login = bootbox.dialog({
+  var login = bootbox.confirm({
     message: $(".login-form").html(),
     title: "Login",
     closeButton: false,
