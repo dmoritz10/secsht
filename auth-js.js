@@ -25,7 +25,7 @@ async function showLogin() {
     centerVertical: true,
     buttons: [
       {
-        label: "OK",
+        label: "Confirm",
         className: "btn btn-primary pull-left",
         callback: async function(result) {
 
