@@ -26,7 +26,7 @@ function showLogin() {
 async function submitLogin() {
 
   var cfrmPwdMode = !$("#liDisplayConfirmPassword").hasClass('d-none')
-  $('#liMsg').html("")
+  $('#liMsg').html("&nbsp;")
 
   var usr = $('#liUser').val()
   var pwd = $('#liPassword').val()
