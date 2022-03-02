@@ -38,7 +38,7 @@ async function submitLogin() {
   if (rtn.fileId) {spreadsheetId = rtn.fileId}
   else {
     console.log('get file id', rtn.msg)
-    $('#liMsg').html('Invalid Login');
+    $('#liMsg').html('Invalid Login 1');
     return
   }
 
@@ -58,7 +58,7 @@ async function submitLogin() {
   }
   
   
-  if (x == t  && cfrmPwdMode) {
+  if (x == t) {
     $("#liDisplayConfirmPassword").removeClass('d-none')
     $('#liMsg').html("Confirm password")
     return
@@ -66,7 +66,7 @@ async function submitLogin() {
   
   var dx = await decryptMessage(x, pwd)
   if (dx != t) {
-    $('#liMsg').html("Invalid Login")
+    $('#liMsg').html("Invalid Login 2")
     return
   }
 
