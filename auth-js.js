@@ -55,7 +55,8 @@ async function submitLogin() {
 
     var encPwd = await encryptMessage(t, pwd)
     await updateOption('shtList', encPwd)
-
+    var x = arrOptions.shtList
+    
   }
   
   
