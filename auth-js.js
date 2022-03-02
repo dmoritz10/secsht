@@ -26,9 +26,12 @@ async function submitLogin() {
 
   var usr = $('#liUser').val()
   var pwd = $('#liPassword').val()
-  
-  console.log('usr', usr);
-  console.log('pwd', pwd);
+  var pwdCfrm = $('#liConfirmPassword').val()
+
+  if (!$("#liDisplayConfirmPassword").hasClass('d-none') && pwd != pwdCfrm) {
+    $('#liMsg').html("Passwords do not match")
+    return
+  }
   
   var rtn = await getSSId(usr)
   
@@ -37,8 +40,15 @@ async function submitLogin() {
 
   var ui = await initialUI();
   var x = arrOptions.shtList
-  var dx = await decryptMessage(x, pwd)
   var t = "The quick brown fox jumped over the lazy dog"
+  
+  if (x == t) {
+    $("#liDisplayConfirmPassword").removeClass('d-none')
+    $('#liMsg').html("Confirm password")
+    return
+  }
+  
+  var dx = await decryptMessage(x, pwd)
   if (dx != t) {await confirm("Invalid password");return}
 
   currUser.pwd = pwd
