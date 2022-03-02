@@ -48,24 +48,23 @@ async function submitLogin() {
 
   var t = "The quick brown fox jumped over the lazy dog"
 
-  if (cfrmPwdMode && pwd != pwdCfrm && pwd !='') {
-    $('#liMsg').html("Passwords do not match")
-    return
-  } else {
-
-    var encPwd = await encryptMessage(t, pwd)
-    await updateOption('shtList', encPwd)
-    var x = arrOptions.shtList
-    
-  }
-  
-  
   if (x == t) {
     $("#liDisplayConfirmPassword").removeClass('d-none')
     $('#liMsg').html("Confirm password")
     return
   }
-  
+
+  if (cfrmPwdMode && pwd != pwdCfrm && pwd !='') {
+    $('#liMsg').html("Passwords do not match")
+    return
+  } 
+
+  if (cfrmPwdMode) {
+    var encPwd = await encryptMessage(t, pwd)
+    await updateOption('shtList', encPwd)
+    var x = arrOptions.shtList
+  }
+
   var dx = await decryptMessage(x, pwd)
   if (dx != t) {
     $('#liMsg').html("Invalid Login 2")
