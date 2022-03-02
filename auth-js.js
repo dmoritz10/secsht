@@ -29,8 +29,8 @@ async function submitLogin() {
   var cfrmPwdMode = !$("#liDisplayConfirmPassword").hasClass('d-none')
   $('#liMsg').html("&nbsp;")
 
-  var usr = $('#liUser').val()
-  var pwd = $('#liPassword').val()
+  var usr     = $('#liUser').val()
+  var pwd     = $('#liPassword').val()
   var pwdCfrm = $('#liConfirmPassword').val()
 
 
@@ -38,8 +38,7 @@ async function submitLogin() {
   
   if (rtn.fileId) {spreadsheetId = rtn.fileId}
   else {
-    console.log('get file id', rtn.msg)
-    $('#liMsg').html('Invalid Login 1');
+    $('#liMsg').html('Invalid Login');
     return
   }
 
@@ -72,7 +71,7 @@ async function submitLogin() {
 
   var dx = await decryptMessage(x, pwd)
   if (dx != t) {
-    $('#liMsg').html("Invalid Login 2")
+    $('#liMsg').html("Invalid Login")
     return
   }
 
