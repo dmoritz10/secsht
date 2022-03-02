@@ -24,8 +24,8 @@ function showLogin() {
 
 async function submitLogin() {
 
-  var usr = $('#liUser', '.form').val()
-  var pwd = $('#liPassword', '.form').val()
+  var usr = $('#liUser').val()
+  var pwd = $('#liPassword').val()
   
   console.log('usr', usr);
   console.log('pwd', pwd);
