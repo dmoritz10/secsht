@@ -33,7 +33,7 @@ async function submitLogin() {
   var rtn = await getSSId(usr)
   
   if (rtn.fileId) {spreadsheetId = rtn.fileId}
-  else {$('#authSigninStatus').html(rtn.msg);return}
+  else {$('#liMsg').html(rtn.msg);return}
 
   var ui = await initialUI();
   var x = arrOptions.shtList
