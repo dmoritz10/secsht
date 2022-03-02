@@ -118,8 +118,12 @@ async function listSheet(title) {
 
   $('#shtContainer > div').click(function(e){         // highlight clicked row
     
-    $('#shtContainer > div').removeClass('bg-secondary bg-opacity-25');
-    $(e.currentTarget).addClass('bg-secondary bg-opacity-25')
+    // $('#shtContainer > div').removeClass('bg-secondary bg-opacity-25');
+    // $(e.currentTarget).addClass('bg-secondary bg-opacity-25')
+
+    $('#shtContainer > div').removeClass('sheets-focus');
+    $(e.currentTarget).addClass('sheets-focus')
+    
 
   });
 
