@@ -16,14 +16,40 @@ function btnSignoutHtml(event) {
     gotoTab('Auth')
 }
       
-async function showLogin() {
+function showLogin() {
 
-  var bootboxHtml = $(".login-form").html()
+  $("#sheet-modal").modal('show');
 
-  bootbox.confirm(bootboxHtml, function(result) {
-    console.log('user', $('#liUser').val());
-    console.log('pwd', $('#liPassword').val());
-  });
+}
+
+async function submitLogin() {
+
+  var usr = $('#liUser', '.form').val()
+          var pwd = $('#liPassword', '.form').val()
+          
+          console.log('usr', usr);
+          console.log('pwd', pwd);
+          
+          var rtn = await getSSId(usr)
+          
+          if (rtn.fileId) {spreadsheetId = rtn.fileId}
+          else {$('#authSigninStatus').html(rtn.msg);return}
+        
+          var ui = await initialUI();
+
+          var dx = await decryptMessage(x, pwd)
+          var t = "The quick brown fox jumped over the lazy dog"
+          if (dx != t) {await confirm("Invalid password");return}
+        
+          currUser.usr = userName
+          currUser.pwd = pwd
+
+          await loadSheets()
+
+          console.log('post loadsheets')
+
+          goHome()    
+
 
 }
 
