@@ -41,7 +41,7 @@ async function submitLogin() {
   var t = "The quick brown fox jumped over the lazy dog"
   if (dx != t) {await confirm("Invalid password");return}
 
-  currUser.usr = userName
+  currUser.usr = usr
   currUser.pwd = pwd
 
   await loadSheets()
