@@ -18,7 +18,7 @@ function btnSignoutHtml(event) {
       
 function showLogin() {
 
-  $("#sheet-modal").modal('show');
+  $("#login-modal").modal('show');
 
 }
 
