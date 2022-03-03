@@ -59,12 +59,12 @@ function browseProvider(dir) {
   console.log('eleArr', eleArr)
   console.log(typeof eleArr)
 
-  try {eleArr.slice(0)} catch(err) {console.log(err)}
+  try {eleArr.slice(1)} catch(err) {console.log(err)}
   console.log(eleArr)
   try {eleArr.toArray() } catch(err) {console.log(err)}
   console.log(eleArr)
 
-  try {eleArr.toArray().shift() } catch(err) {console.log(err)}
+  try {eleArr.shift() } catch(err) {console.log(err)}
   console.log(eleArr)
 
                              // remove template
