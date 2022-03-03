@@ -58,6 +58,8 @@ function browseProvider(dir) {
   var eleArr = $('#shtContainer > div')
 
   console.log('idx', idx)
+  console.log('eleArr', eleArr)
+  console.log('d-none idx', $(eleArr[idx]).hasClass('d-none'))
 
   var nextIdx = (idx+1 <  shtRows) ? idx+1 : null
 
@@ -65,8 +67,7 @@ function browseProvider(dir) {
 
   while (nextIdx) {
     console.log('while', nextIdx)
-
-console.log('d-none', $(eleArr[nextIdx]).hasClass('d-none'))
+    console.log('d-none', $(eleArr[nextIdx]).hasClass('d-none'))
 
     if ($(eleArr[nextIdx]).hasClass('d-none')) {  
       nextIdx = (idx+1 <  shtRows) ? idx+1 : null
