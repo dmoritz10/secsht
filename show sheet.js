@@ -59,10 +59,8 @@ function browseProvider(dir) {
   console.log('eleArr', eleArr)
   console.log(typeof eleArr)
 
-  try {eleArr.slice(1)} catch(err) {console.log(err)}
-  console.log('slice1', eleArr)
-  try {eleArr.toArray().slice(1) } catch(err) {console.log(err)}
-  console.log('toarray', eleArr)
+  console.log('slice1', [...eleArr].slice(1))
+  console.log('toarray', [...eleArr].toArray().slice(1))
 
   try {eleArr.shift() } catch(err) {console.log(err)}
   console.log(eleArr)
