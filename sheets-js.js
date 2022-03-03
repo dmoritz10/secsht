@@ -78,11 +78,11 @@ async function listSheet(title) {
 
     ele.find('#shtProvider')[0].innerHTML = provider
 
-    ele.find('#btnShtEdit')[0].setAttribute("onclick", "editSheet(" + arrIdx + ")");
+    ele.find('#btnShtEdit')[0].setAttribute("onclick", "editSheet(" + j + ")");
 
-    ele.find('#btnShtFavorite')[0].setAttribute("onclick", "setFavorite(" + arrIdx + ")");
+    ele.find('#btnShtFavorite')[0].setAttribute("onclick", "setFavorite(" + j + ")");
 
-    ele.find('#btnShtShowSheet')[0].setAttribute("onclick", "showSheet(" + arrIdx + ")");
+    ele.find('#btnShtShowSheet')[0].setAttribute("onclick", "showSheet(" + j + ")");
 
 
     var boolFav = fav.toLowerCase() === 'true'
@@ -95,7 +95,9 @@ async function listSheet(title) {
       ele.find('#ScFavIcon').removeClass('text-primary')
     }
 
-    ele.removeClass('d-none')
+    if ( (shtSelectFav && !(fav.toLowerCase() === 'true')) ) 
+      ele.removeClass('d-none');
+
 
     ele.appendTo("#shtContainer");
 
