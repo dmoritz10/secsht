@@ -69,7 +69,7 @@ function browseProvider(dir) {
   var prevIdx = (idx-1 <  shtRows) ? idx-1 : null
   while (prevIdx) {
     if ($(eleArr[prevIdx]).hasClass('d-none')) {  
-      nextIdx = (prevIdx-1 <  shtRows) ? prevIdx-1 : null
+      prevIdx = (prevIdx-1 <  shtRows) ? prevIdx-1 : null
     } else {
       break;
     }
