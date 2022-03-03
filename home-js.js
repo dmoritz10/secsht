@@ -40,7 +40,9 @@ async function loadSheets() {
 
         var ele = $tblSheets.clone();
 
-        if (sht.gridProperties.columnCount == arrOptions['Nbr Columns per Sheet']) {
+        if (sht.gridProperties.columnCount == arrOptions['Nbr Columns per Sheet']
+              && sht.title != 'Template'
+            ) {
 
           var enc = await testEncrypted(sht.title)
 

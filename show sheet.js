@@ -53,7 +53,7 @@ function browseProvider(dir) {
   var idx   = $("#ssArrIdx").val()*1       
   var title = $('#shtTitle').text()
 
-  var shtRows = secSht[title].rows*1 - 1   // .rows includes hdrs
+  var shtRows = secSht[title].rows*1 - 1                  // rows includes hdrs
 
   var eleArr = [...$('#shtContainer > div')].slice(1)      // remove the templace
 
@@ -80,14 +80,6 @@ function browseProvider(dir) {
 
   if (dir=="prev")  showSheet(prevIdx)
   else              showSheet(nextIdx)
-
-  // if (prevIdx)  { $("#btnSSPrev").off().on("click", showSheet(prevIdx, title))   }
-  //                 $("#btnSSPrev").prop('disabled', false);
-  // }  else         $("#btnSSPrev").prop('disabled', true);
-
-  // if (nextIdx)  { $("#btnSSNext").on("click", showSheet(nextIdx, title))   }
-  //                 $("#btnSSNext").prop('disabled', false);
-  // } else          $("#btnSSNext").prop('disabled', true);
 
 }
 
