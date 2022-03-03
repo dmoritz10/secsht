@@ -70,7 +70,7 @@ function browseProvider(dir) {
     console.log('d-none', $(eleArr[nextIdx]).hasClass('d-none'))
 
     if ($(eleArr[nextIdx]).hasClass('d-none')) {  
-      nextIdx = (idx+1 <  shtRows) ? idx+1 : null
+      nextIdx = (nextIdx+1 <  shtRows) ? nextIdx+1 : null
       console.log('loop', nextIdx)
     } else {
       break;
