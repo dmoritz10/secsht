@@ -44,7 +44,7 @@ async function listSheet(title) {
   $("#shtTitle").html(shtTitle)
   $("#shtNbrProviders").html(vals.length)
 
-  var $tblSheets = $("#shtContainer > .d-none")
+  var $tblSheets = $("#shtContainer > .d-none").eq(0)  // the 1st one is a template which is always d-none
 
   var x = $tblSheets.clone();
   $("#shtContainer").empty();
@@ -115,13 +115,9 @@ async function listSheet(title) {
 
   $('#shtContainer > div').click(function(e){         // highlight clicked row
     
-    // $('#shtContainer > div').removeClass('bg-secondary bg-opacity-25');
-    // $(e.currentTarget).addClass('bg-secondary bg-opacity-25')
-
     $('#shtContainer > div').removeClass('sheets-focus');
     $(e.currentTarget).addClass('sheets-focus')
     
-
   });
 
   modal(false)
