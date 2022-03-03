@@ -64,6 +64,7 @@ function browseProvider(dir) {
   console.log('nextIdx1', nextIdx)
 
   while (nextIdx) {
+    console.log('while', nextIdx)
 
 console.log('d-none', $(eleArr[nextIdx]).hasClass('d-none'))
 
