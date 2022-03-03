@@ -55,6 +55,8 @@ function browseProvider(dir) {
 
   var shtRows = secSht[title].rows*1 - 1   // .rows includes hdrs
 
+  var eleArr = $('#shtContainer > div')
+
   console.log('ele2', $(eleArr[2]).hasClass('d-none'))
 
   var nextIdx = (idx+1 <  shtRows) ? idx+1 : null
