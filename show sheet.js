@@ -59,12 +59,16 @@ function browseProvider(dir) {
 
   console.log('eleArr',eleArr)
 
-  eleArr.each( function(idx) {
+  eleArr.each( function(idx, ele) {
     console.log( ": " + $( this ).hasClass('d-none') );
     console.log($(this))
-    console.log(eleArr[idx].hasClass('d-none'))
+    console.log(ele.hasClass('d-none'))
 
   })
+
+  console.log('ele1', eleArr[2])
+  console.log('ele2', eleArr[2].hasClass('d-none'))
+
 
   var nextIdx = (idx+1 <  shtRows) ? idx+1 : null
   var prevIdx = (idx-1 >= 0      ) ? idx-1 : null
