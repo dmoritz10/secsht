@@ -55,23 +55,21 @@ function browseProvider(dir) {
 
   var shtRows = secSht[title].rows*1 - 1   // .rows includes hdrs
 
-  var eleArr = $('#shtContainer > div')
-
-  console.log('eleArr',eleArr)
-
-  eleArr.each( function(idx, ele) {
-    console.log( ": " + $( this ).hasClass('d-none') );
-    console.log($(this))
-    console.log($(ele))
-    console.log($(ele).hasClass('d-none'))
-
-  })
-
-  console.log('ele1', eleArr[2])
   console.log('ele2', $(eleArr[2]).hasClass('d-none'))
 
-
   var nextIdx = (idx+1 <  shtRows) ? idx+1 : null
+  while (nextIdx) {
+
+    if ($(eleArr[nextIdx]).hasClass('d-none')) {  
+      nextIdx = (idx+1 <  shtRows) ? idx+1 : null
+    } else {
+      break;
+    }
+  }
+
+  console.log('nextIdx', nextIdx)
+
+  // var nextIdx = (idx+1 <  shtRows) ? idx+1 : null
   var prevIdx = (idx-1 >= 0      ) ? idx-1 : null
 
   if (dir=="prev")  showSheet(prevIdx)
