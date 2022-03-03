@@ -60,7 +60,7 @@ function browseProvider(dir) {
   console.log('eleArr',eleArr)
 
   eleArr.each( idx => {
-    console.log( index + ": " + $( this ).hasClass('d-none') );
+    console.log( idx + ": " + $( this ).hasClass('d-none') );
 
   })
 
