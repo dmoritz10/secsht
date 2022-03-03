@@ -50,7 +50,7 @@ async function showSheet(idx) {
 
 function browseProvider(dir) {
 
-  var idx   = $("#ssArrIdx").val()*1
+  var idx   = $("#ssArrIdx").val()*1 + 1   // 0th element is the template and is always d-none
   var title = $('#shtTitle').text()
 
   var shtRows = secSht[title].rows*1 - 1   // .rows includes hdrs
