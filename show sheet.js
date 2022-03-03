@@ -55,11 +55,11 @@ function browseProvider(dir) {
 
   var shtRows = secSht[title].rows*1 - 1   // .rows includes hdrs
 
-  var $eleArr = $('#shtContainer > div')
+  var eleArr = $('#shtContainer > div')
 
   console.log('eleArr',eleArr)
 
-  $eleArr.each( idx => {
+  eleArr.each( idx => {
     console.log( index + ": " + $( this ).hasClass('d-none') );
 
   })
