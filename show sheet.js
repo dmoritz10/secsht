@@ -57,9 +57,10 @@ function browseProvider(dir) {
 
   var $eleArr = $('#shtContainer > div')
 
-  $eleArr.forEach( (ele, idx) => {
+  console.log('eleArr',eleArr)
 
-    console.log(idx, ele.hasClass('d-none'))
+  $eleArr.each( idx => {
+    console.log( index + ": " + $( this ).hasClass('d-none') );
 
   })
 
