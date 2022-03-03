@@ -68,11 +68,6 @@ async function listSheet(title) {
       var provider = shtObj['Provider']
     }
 
-    if (
-      (shtSelectFav && !(fav.toLowerCase() === 'true'))
-    ) continue;
-
-    
 
     var ele = $tblSheets.clone();
 
