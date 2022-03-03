@@ -56,10 +56,10 @@ function browseProvider(dir) {
   var shtRows = secSht[title].rows*1 - 1   // .rows includes hdrs
 
   var eleArr = $('#shtContainer > div')
-
-  eleArr.shift()                            // remove template ele
-  console.log('idx', idx)
   console.log('eleArr', eleArr)
+
+  eleArr.shift()                            // remove template
+  console.log('idx', idx)
   console.log('d-none idx', $(eleArr[idx]).hasClass('d-none'))
 
   var nextIdx = (idx+1 <  shtRows) ? idx+1 : null
