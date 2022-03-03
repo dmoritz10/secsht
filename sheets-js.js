@@ -51,7 +51,7 @@ async function listSheet(title) {
   x.appendTo("#shtContainer");
 
   shtIdxArr = []
-  var arrIdx = 0
+  var arrIdx = -1
 
   for (var j = 0; j < shtVals.length; j++) {
 
