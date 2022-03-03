@@ -56,31 +56,26 @@ function browseProvider(dir) {
   var shtRows = secSht[title].rows*1 - 1   // .rows includes hdrs
 
   var eleArr = [...$('#shtContainer > div')].slice(1)      // remove the templace
-  console.log('eleArr', eleArr)
-  
-  console.log('idx', idx)
-  console.log('d-none idx', $(eleArr[idx]).hasClass('d-none'))
 
   var nextIdx = (idx+1 <  shtRows) ? idx+1 : null
-
-  console.log('nextIdx1', nextIdx)
-
   while (nextIdx) {
-    console.log('while', nextIdx)
-    console.log('d-none', $(eleArr[nextIdx]).hasClass('d-none'))
-
     if ($(eleArr[nextIdx]).hasClass('d-none')) {  
       nextIdx = (nextIdx+1 <  shtRows) ? nextIdx+1 : null
-      console.log('loop', nextIdx)
     } else {
       break;
     }
   }
-
+  
+  var prevIdx = (idx-1 <  shtRows) ? idx-1 : null
+  while (prevIdx) {
+    if ($(eleArr[prevIdx]).hasClass('d-none')) {  
+      nextIdx = (prevIdx-1 <  shtRows) ? prevIdx-1 : null
+    } else {
+      break;
+    }
+  }
   console.log('nextIdx', nextIdx)
-
-  // var nextIdx = (idx+1 <  shtRows) ? idx+1 : null
-  var prevIdx = (idx-1 >= 0      ) ? idx-1 : null
+  console.log('prevIdx', prevIdx)
 
   if (dir=="prev")  showSheet(prevIdx)
   else              showSheet(nextIdx)
