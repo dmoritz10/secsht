@@ -323,7 +323,7 @@ async function updateUI (valsEnc, arrIdx) {
 
   console.log('favDec', favDec)
 
-  var $fav = $('#shtContainer > div').find('#shtFavorite').eq(arrIdx+1) 
+  var $fav = $('#shtContainer > div').find('#ScFavIcon').eq(arrIdx+1) 
 
   console.log('$fav', $fav)
 
