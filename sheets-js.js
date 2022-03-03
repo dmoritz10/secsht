@@ -51,19 +51,14 @@ async function listSheet(title) {
   x.appendTo("#shtContainer");
 
   shtIdxArr = []
-  var arrIdx = -1
+  var arrIdx = 0
 
   for (var j = 0; j < shtVals.length; j++) {
 
-    var hdrs = [...shtHdrs]
-    hdrs.push('idx');
-
-    var shtObj = makeObj(shtVals[j], hdrs)
-
-    var shtIdx = shtObj['idx']
+    var shtObj = makeObj(shtVals[j], shtHdrs)
 
     var x = shtVals[j].pop()                    // remove idx shtVals after sort
-    shtIdxArr.push(x)                           // create parallel array of idxs to sheet
+    shtIdxArr.push(x)                           // create parallel xref of idxs to sheet
 
     if (shtEnc) {
       var fav = await decryptMessage(shtObj['Favorite'], currUser.pwd)
@@ -77,7 +72,7 @@ async function listSheet(title) {
       (shtSelectFav && !(fav.toLowerCase() === 'true'))
     ) continue;
 
-    arrIdx++
+    
 
     var ele = $tblSheets.clone();
 
@@ -103,6 +98,8 @@ async function listSheet(title) {
     ele.removeClass('d-none')
 
     ele.appendTo("#shtContainer");
+
+    arrIdx++
 
   }
 
