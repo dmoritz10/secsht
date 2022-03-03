@@ -57,7 +57,7 @@ function browseProvider(dir) {
 
   var eleArr = $('#shtContainer > div')
   console.log('eleArr', eleArr)
-  // console.log(typeof eleArr)
+  console.log(typeof eleArr)
 
   eleArr.shift()                            // remove template
   console.log('idx', idx)
