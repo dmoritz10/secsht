@@ -67,13 +67,14 @@ function browseProvider(dir) {
   }
   
   var prevIdx = (idx-1 >= 0) ? idx-1 : null
-  while (prevIdx) {
+  while (prevIdx !== null) {
     if ($(eleArr[prevIdx]).hasClass('d-none')) {  
       prevIdx = (prevIdx-1 >= 0) ? prevIdx-1 : null
     } else {
       break;
     }
   }
+
   console.log('nextIdx', nextIdx)
   console.log('prevIdx', prevIdx)
 
