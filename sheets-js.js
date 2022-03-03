@@ -51,6 +51,7 @@ async function listSheet(title) {
   x.appendTo("#shtContainer");
 
   shtIdxArr = []
+  var arrIdx = 0
 
   for (var j = 0; j < shtVals.length; j++) {
 
@@ -76,16 +77,17 @@ async function listSheet(title) {
       (shtSelectFav && !(fav.toLowerCase() === 'true'))
     ) continue;
 
+    arrIdx++
 
     var ele = $tblSheets.clone();
 
     ele.find('#shtProvider')[0].innerHTML = provider
 
-    ele.find('#btnShtEdit')[0].setAttribute("onclick", "editSheet(" + j + ")");
+    ele.find('#btnShtEdit')[0].setAttribute("onclick", "editSheet(" + arrIdx + ")");
 
-    ele.find('#btnShtFavorite')[0].setAttribute("onclick", "setFavorite(" + j + ")");
+    ele.find('#btnShtFavorite')[0].setAttribute("onclick", "setFavorite(" + arrIdx + ")");
 
-    ele.find('#btnShtShowSheet')[0].setAttribute("onclick", "showSheet(" + j + ")");
+    ele.find('#btnShtShowSheet')[0].setAttribute("onclick", "showSheet(" + arrIdx + ")");
 
 
     var boolFav = fav.toLowerCase() === 'true'
@@ -291,27 +293,23 @@ async function updateUI (valsEnc, arrIdx) {
 
   console.log("arrIdx", arrIdx)
 
-  if (arrIdx == -1) {              // Add new.  New to clone new entry to avoid using listSheet()
+  if (arrIdx == -1) {                               // add.  In this case, still use listSheet 
 
     // shtVals.push(valsEnc)
-    secSht[shtTitle].rows++
     // arrIdx = shtVals.length-1
+    secSht[shtTitle].rows++
 
     listSheet(shtTitle)
     return
-
-  } else {                        // update arrIdx
-
-    shtVals[arrIdx] = valsEnc
-
+  
   }
+
+                                                    // update. Update ui directly w/o listSheet
+  shtVals[arrIdx] = valsEnc
 
   var providerDec = shtEnc ? await decryptMessage(valsEnc[0], currUser.pwd) : valsEnc[0]
   var $provider = $('#shtContainer > div').find('#shtProvider').eq(arrIdx+1) // first ele is template d-none
   $provider.html(providerDec)
-
-  console.log('$provider', $provider)
-
 
   var fav = valsEnc[shtHdrs.indexOf('Favorite')]
 
@@ -321,12 +319,7 @@ async function updateUI (valsEnc, arrIdx) {
     var favDec = fav
   }
 
-  console.log('favDec', favDec)
-
   var $fav = $('#shtContainer > div').find('#ScFavIcon').eq(arrIdx+1) 
-
-  console.log('$fav', $fav)
-
 
   var boolFav = favDec.toLowerCase() === 'true'
   console.log('boolFav', boolFav)
