@@ -62,8 +62,8 @@ function browseProvider(dir) {
   eleArr.each( function(idx, ele) {
     console.log( ": " + $( this ).hasClass('d-none') );
     console.log($(this))
-    console.log(ele)
-    console.log(ele.hasClass('d-none'))
+    console.log(#(ele))
+    console.log($(ele).hasClass('d-none'))
 
   })
 
