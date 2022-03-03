@@ -318,9 +318,15 @@ async function updateUI (valsEnc, arrIdx) {
     var favDec = fav
   }
 
+  console.log('favDec', favDec)
+
   var $fav = $('#shtContainer > div').find('#shtFavorite').eq(arrIdx+1) 
 
+  console.log('$fav', $fav)
+
+
   var boolFav = favDec.toLowerCase() === 'true'
+  console.log('boolFav', boolFav)
 
   if (boolFav) {
     $fav.innerHTML = "star"
