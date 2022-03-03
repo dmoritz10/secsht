@@ -310,6 +310,9 @@ async function updateUI (valsEnc, arrIdx) {
   var $provider = $('#shtContainer > div').find('#shtProvider').eq(arrIdx+1) // first ele is template d-none
   $provider.html(providerDec)
 
+  console.log('$provider', $provider)
+
+
   var fav = valsEnc[shtHdrs.indexOf('Favorite')]
 
   if (shtEnc) {
