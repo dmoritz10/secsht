@@ -68,7 +68,7 @@ function browseProvider(dir) {
   })
 
   console.log('ele1', eleArr[2])
-  console.log('ele2', eleArr[2].hasClass('d-none'))
+  console.log('ele2', $(eleArr[2]).hasClass('d-none'))
 
 
   var nextIdx = (idx+1 <  shtRows) ? idx+1 : null
