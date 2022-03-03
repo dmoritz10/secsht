@@ -298,6 +298,7 @@ async function updateUI (valsEnc, arrIdx) {
     // arrIdx = shtVals.length-1
 
     listSheet(shtTitle)
+    return
 
   } else {                        // update arrIdx
 
