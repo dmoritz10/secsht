@@ -332,10 +332,10 @@ async function updateUI (valsEnc, arrIdx) {
   console.log('boolFav', boolFav)
 
   if (boolFav) {
-    $fav.innerHTML = "star"
+    $fav[0].innerHTML = "star"
     $fav.addClass('text-primary')
   } else {
-    $fav.innerHTML = "star_outline"
+    $fav[0].innerHTML = "star_outline"
     $fav.removeClass('text-primary')
   }
 
