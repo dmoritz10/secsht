@@ -57,15 +57,7 @@ function browseProvider(dir) {
 
   var eleArr = $('#shtContainer > div').slice(1)      // remove the templace
   console.log('eleArr', eleArr)
-  console.log(typeof eleArr)
-
-  console.log('slice1', [...eleArr].slice(1))
-  console.log('toarray', [...eleArr].toArray().slice(1))
-
-  try {eleArr.shift() } catch(err) {console.log(err)}
-  console.log(eleArr)
-
-                             // remove template
+  
   console.log('idx', idx)
   console.log('d-none idx', $(eleArr[idx]).hasClass('d-none'))
 
