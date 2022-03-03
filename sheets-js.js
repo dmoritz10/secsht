@@ -95,7 +95,8 @@ async function listSheet(title) {
       ele.find('#ScFavIcon').removeClass('text-primary')
     }
 
-    if ( (shtSelectFav && !(fav.toLowerCase() === 'true')) ) 
+    if ( (shtSelectFav && !(fav.toLowerCase() === 'true')) ) {}
+    else
       ele.removeClass('d-none');
 
 
