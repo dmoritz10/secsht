@@ -59,7 +59,12 @@ function browseProvider(dir) {
   console.log('eleArr', eleArr)
   console.log(typeof eleArr)
 
-  eleArr.shift()                            // remove template
+  try {eleArr.slice(0)} catch(err) {}
+  console.log(eleArr)
+  try {eleArr.toArray().shift() } catch(err) {}
+  console.log(eleArr)
+
+                             // remove template
   console.log('idx', idx)
   console.log('d-none idx', $(eleArr[idx]).hasClass('d-none'))
 
