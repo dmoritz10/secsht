@@ -33,6 +33,9 @@ async function submitLogin() {
   var pwd     = $('#liPassword').val()
   var pwdCfrm = $('#liConfirmPassword').val()
 
+  usr = 'dmoritz10'
+  pwd = 'Tempdm10!'
+
 
   var rtn = await getSSId(usr)
   
@@ -86,6 +89,5 @@ async function submitLogin() {
   console.log('post loadsheets')
 
   goHome()    
-
 
 }
