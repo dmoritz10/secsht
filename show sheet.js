@@ -55,11 +55,19 @@ function browseProvider(dir) {
 
   var shtRows = secSht[title].rows*1 - 1   // .rows includes hdrs
 
+  var $eleArr = $('#shtContainer > div')
+
+  $eleArr.forEach( (ele, idx) => {
+
+    console.log(idx, ele.hasClass('d-none'))
+
+  })
+
   var nextIdx = (idx+1 <  shtRows) ? idx+1 : null
   var prevIdx = (idx-1 >= 0      ) ? idx-1 : null
 
-  if (dir=="prev")  showSheet(prevIdx, title)
-  else              showSheet(nextIdx, title)
+  if (dir=="prev")  showSheet(prevIdx)
+  else              showSheet(nextIdx)
 
   // if (prevIdx)  { $("#btnSSPrev").off().on("click", showSheet(prevIdx, title))   }
   //                 $("#btnSSPrev").prop('disabled', false);
