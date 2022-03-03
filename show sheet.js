@@ -55,7 +55,7 @@ function browseProvider(dir) {
 
   var shtRows = secSht[title].rows*1 - 1   // .rows includes hdrs
 
-  var eleArr = $('#shtContainer > div').slice(1)      // remove the templace
+  var eleArr = [...$('#shtContainer > div')].slice(1)      // remove the templace
   console.log('eleArr', eleArr)
   
   console.log('idx', idx)
