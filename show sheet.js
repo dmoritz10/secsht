@@ -50,12 +50,12 @@ async function showSheet(idx) {
 
 function browseProvider(dir) {
 
-  var idx   = $("#ssArrIdx").val()*1       // 0th element is the template and is always d-none
+  var idx   = $("#ssArrIdx").val()*1       
   var title = $('#shtTitle').text()
 
   var shtRows = secSht[title].rows*1 - 1   // .rows includes hdrs
 
-  var eleArr = $('#shtContainer > div')
+  var eleArr = $('#shtContainer > div').slice(1)      // remove the templace
   console.log('eleArr', eleArr)
   console.log(typeof eleArr)
 
