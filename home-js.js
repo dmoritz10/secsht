@@ -258,7 +258,7 @@ async function btnNewSheetHtml() {
   });
 
   var hdrs = ['Provider','Login','Password','Account Nbr','Pin Nbr','Login Url','Security Q/A','Notes','Auto Pay','Favorite','Last Change']
-  var encHdrs = await encryptArr(hdrs, nPwd)
+  var encHdrs = await encryptArr(hdrs, currUser.pwd)
   var resource = {
     "majorDimension": "ROWS",
     "values": [encHdrs]
