@@ -36,7 +36,7 @@ async function loadSheets() {
 
         var sht = sheets[j].properties
 
-        if (sht.title != 'template') templateSheetId = sht.sheetId
+        if (sht.title == 'template') templateSheetId = sht.sheetId
 
         console.log('sht', sht)
 
@@ -274,8 +274,8 @@ async function btnNewSheetHtml() {
         console.log('Sheet update successful')
         console.log(response)
       }, function (reason) {
-        console.error('error updating sheet "' + row + '": ' + reason.result.error.message);
-        alert('error updating sheet "' + row + '": ' + reason.result.error.message);
+        console.error('error updating sheet "' + "1" + '": ' + reason.result.error.message);
+        alert('error updating sheet "' + '1' + '": ' + reason.result.error.message);
       });
 
 }
