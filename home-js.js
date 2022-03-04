@@ -257,10 +257,11 @@ async function btnNewSheetHtml() {
     alert('error updating sheet "' + 'title' + '": ' + reason.result.error.message);
   });
 
-
+  var hdrs = ['Provider','Login','Password','Account Nbr','Pin Nbr','Login Url','Security Q/A','Notes','Auto Pay','Favorite','Last Change']
+  var encHdrs = await encryptArr(hdrs, nPwd)
   var resource = {
     "majorDimension": "ROWS",
-    "values": [['Provider','Login','Password','Account Nbr','Pin Nbr','Login Url','Security Q/A','Notes','Auto Pay','Favorite','Last Change']]
+    "values": [encHdrs]
   }
 
   var rng = calcRngA1(1, 1, 1, 11)
