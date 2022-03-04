@@ -246,7 +246,7 @@ async function btnNewSheetHtml() {
     {
      updateSheetProperties: {
       properties: {
-       sheetId: request.sheetId,
+       sheetId: sht.sheetId,
        title: title,
       },
       fields: 'title'
