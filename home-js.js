@@ -215,7 +215,7 @@ async function btnNewSheetHtml() {
   if (!title) return
 
   if (secSht[title]) {
-    await bootbox.alert('Sheet name already exists')
+    await confirm('Sheet name already exists')
     btnNewSheetHtml()
   }
 
