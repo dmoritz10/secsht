@@ -225,9 +225,6 @@ async function btnNewSheetHtml() {
 
   if (exists) {
     await confirm('A Sheet with that name already exists')
-
-console.log('hi dan')
-
     return
   }
 
@@ -249,10 +246,6 @@ console.log('hi dan')
         console.error('error: ' + reason.result.error.message);
         return null
       })
-
-  console.log('sht', sht)
-
-  
 
   const rq = {"requests" : [
     {
@@ -282,12 +275,6 @@ console.log('hi dan')
     });
 
 
-  secSht[title] = {
-    id:   sht.sheetId,
-    cols: sht.gridProperties.columnCount,
-    rows: sht.gridProperties.rowCount,
-    enc:  false
-  }
   
   var hdrs = ['Provider','Login','Password','Account Nbr','Pin Nbr','Login Url','Security Q/A','Notes','Auto Pay','Favorite','Last Change']
   var encHdrs = await encryptArr(hdrs, currUser.pwd)
@@ -313,6 +300,13 @@ console.log('hi dan')
       alert('error updating sheet "' + '1' + '": ' + reason.result.error.message);
     });
 
+  secSht[title] = {
+    id:   sht.sheetId,
+    cols: sht.gridProperties.columnCount,
+    rows: sht.gridProperties.rowCount,
+    enc:  true
+  }
+    
 
   loadSheets()
 
