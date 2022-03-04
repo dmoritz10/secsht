@@ -214,7 +214,16 @@ async function btnNewSheetHtml() {
 
   if (!title) return
 
-  if (secSht[title]) {
+  var exists = false
+  for (let x in secSht) {
+    console.log(x)
+    if (x.toLowerCase() == title.toLowerCase()) {
+      exists = true
+      break
+    }
+  }
+
+  if (exists) {
     await confirm('A Sheet with that name already exists')
 
 console.log('hi dan')
@@ -304,7 +313,7 @@ console.log('hi dan')
       alert('error updating sheet "' + '1' + '": ' + reason.result.error.message);
     });
 
-    
+
   loadSheets()
 
 }
