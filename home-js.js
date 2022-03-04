@@ -254,4 +254,28 @@ async function btnNewSheetHtml() {
 
   })
 
+
+  var resource = {
+    "majorDimension": "ROWS",
+    "values": ['Provider','Login','Password','Account','Nbr','Pin Nbr','Login','Url','Security Q/A','Notes','Auto Pay','Favorite','Last Change']    
   }
+
+    var rng = calcRngA1(1, 1, 1, 11)
+
+    var params = {
+      spreadsheetId: spreadsheetId,
+      range: "'" + 'template' + "'!" + rng,
+      valueInputOption: 'RAW'
+    };
+
+
+    await gapi.client.sheets.spreadsheets.values.update(params, resource)
+      .then(function (response) {
+        console.log('Sheet update successful')
+        console.log(response)
+      }, function (reason) {
+        console.error('error updating sheet "' + row + '": ' + reason.result.error.message);
+        alert('error updating sheet "' + row + '": ' + reason.result.error.message);
+      });
+
+}
