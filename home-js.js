@@ -38,6 +38,13 @@ async function loadSheets() {
 
         if (sht.title == 'template') templateSheetId = sht.sheetId
 
+          secSht[sht.title] = {
+            id:   sht.sheetId,
+            cols: sht.gridProperties.columnCount,
+            rows: sht.gridProperties.rowCount,
+            enc:  false
+          }
+
         console.log('sht', sht)
 
         var ele = $tblSheets.clone();
@@ -47,6 +54,8 @@ async function loadSheets() {
             ) {
 
           var enc = await testEncrypted(sht.title)
+
+          secSht[sht.title].enc = enc.enc
 
           console.log('enc', enc)
 
@@ -73,12 +82,7 @@ async function loadSheets() {
 
             ele.appendTo("#hmContainer");
 
-            secSht[sht.title] = {
-              id:   sht.sheetId,
-              cols: sht.gridProperties.columnCount,
-              rows: sht.gridProperties.rowCount,
-              enc:  enc.enc
-            }
+            
 
             nbrSheets++
             nbrProviders += sht.gridProperties.rowCount - 1
@@ -208,9 +212,19 @@ async function btnNewSheetHtml() {
 
   var title = await prompt('Enter name for new sheet', "text");
 
+  console.log(secSht[title])
+
+  for (let x in secSht) {
+
+    console.log('x', x)
+    console.log('secSht', secSht[x])
+
+  }
+
+
   var params = {
     spreadsheetId: spreadsheetId,  
-    sheetId: templateSheetId,  
+    sheetId: secSht['template'].id,  
   };
 
   var copySheetToAnotherSpreadsheetRequestBody = {
