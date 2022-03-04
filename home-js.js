@@ -228,7 +228,7 @@ async function btnNewSheetHtml() {
     destinationSpreadsheetId: spreadsheetId
   };
 
-  var request = await gapi.client.sheets.spreadsheets.sheets.copyTo(params, copySheetToAnotherSpreadsheetRequestBody)
+  var sht = await gapi.client.sheets.spreadsheets.sheets.copyTo(params, copySheetToAnotherSpreadsheetRequestBody)
   
   .then(function(response) {
     console.log(response.result);
@@ -238,7 +238,8 @@ async function btnNewSheetHtml() {
     return null
   })
 
-  console.log('request', request)
+  console.log('sht', sht)
+
   
 
   const rq = {"requests" : [
@@ -267,6 +268,16 @@ async function btnNewSheetHtml() {
     console.error('error updating sheet "' + "title" + '": ' + reason.result.error.message);
     alert('error updating sheet "' + 'title' + '": ' + reason.result.error.message);
   });
+
+  secSht[title] = {
+    id:   sht.sheetId,
+    cols: sht.gridProperties.columnCount,
+    rows: sht.gridProperties.rowCount,
+    enc:  false
+  }
+  
+
+
 
   var hdrs = ['Provider','Login','Password','Account Nbr','Pin Nbr','Login Url','Security Q/A','Notes','Auto Pay','Favorite','Last Change']
   var encHdrs = await encryptArr(hdrs, currUser.pwd)
