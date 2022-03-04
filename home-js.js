@@ -266,7 +266,7 @@ async function btnNewSheetHtml() {
 
     var params = {
       spreadsheetId: spreadsheetId,
-      range: "'" + 'template' + "'!" + rng,
+      range: "'" + title + "'!" + rng,
       valueInputOption: 'RAW'
     };
 
