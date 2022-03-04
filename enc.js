@@ -252,7 +252,7 @@ async function encryptMessage(msg) {
 
 }
 
-async function decryptMessage(ciphertext, password) {
+async function decryptMessage(ciphertext) {
 
     const password = currUser.pwd
 
