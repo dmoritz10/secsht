@@ -6,8 +6,6 @@ async function testEncrypted(title) {
             { title: title, type: "headers" }
         ])
 
-    console.log(objSht)
-
     var shtHdrs = objSht[title].colHdrs
 
     if (shtHdrs[0] == 'Provider') {
@@ -189,7 +187,9 @@ async function decryptArr(msg, pwd) {
 
 }
 
-async function encryptMessage(msg, password) {
+async function encryptMessage(msg) {
+
+    const password = currUser.pwd
 
     const encoder = new TextEncoder();
 
@@ -253,6 +253,8 @@ async function encryptMessage(msg, password) {
 }
 
 async function decryptMessage(ciphertext, password) {
+
+    const password = currUser.pwd
 
     const encoder = new TextEncoder();
     const decoder = new TextDecoder();
