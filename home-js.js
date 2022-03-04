@@ -280,7 +280,7 @@ async function btnNewSheetHtml() {
   // Put encrypted header row in new sheet
   
   var hdrs = ['Provider','Login','Password','Account Nbr','Pin Nbr','Login Url','Security Q/A','Notes','Auto Pay','Favorite','Last Change']
-  var encHdrs = await encryptArr(hdrs, currUser.pwd)
+  var encHdrs = await encryptArr(hdrs)
   var resource = {
     "majorDimension": "ROWS",
     "values": [encHdrs]

@@ -4,7 +4,7 @@ async function showSheet(idx) {
 
   var sht = []
 
-  var vals = shtEnc ? await decryptArr(shtVals[idx], currUser.pwd) : shtVals[idx]
+  var vals = shtEnc ? await decryptArr(shtVals[idx]) : shtVals[idx]
   
   $("#ssSheet")[0].innerHTML = vals[shtHdrs.indexOf('Provider')]
   $("#ssArrIdx").val(idx)

@@ -20,7 +20,7 @@ async function listSheet(title) {
   shtEnc  = secSht[shtTitle].enc
 
   if (shtEnc) {
-    shtHdrs = await decryptArr(objSht[shtTitle].colHdrs, currUser.pwd)
+    shtHdrs = await decryptArr(objSht[shtTitle].colHdrs)
   } else {
     shtHdrs = objSht[shtTitle].colHdrs
   }
@@ -31,7 +31,7 @@ async function listSheet(title) {
 
     vals[i].push(i)
     
-    if (shtEnc) vals[i].push(await decryptMessage(vals[i][0], currUser.pwd)) // sort won't take a promise
+    if (shtEnc) vals[i].push(await decryptMessage(vals[i][0])) // sort won't take a promise
     else        vals[i].push(vals[i][0])
   
   }
@@ -63,8 +63,8 @@ async function listSheet(title) {
     shtIdxArr.push(x)                           // create parallel xref of idxs to sheet
 
     if (shtEnc) {
-      var fav = await decryptMessage(shtObj['Favorite'], currUser.pwd)
-      var provider = await decryptMessage(shtObj['Provider'], currUser.pwd)
+      var fav = await decryptMessage(shtObj['Favorite'])
+      var provider = await decryptMessage(shtObj['Provider'])
     } else {
       var fav = shtObj['Favorite']
       var provider = shtObj['Provider']
@@ -156,13 +156,13 @@ async function setFavorite(arrIdx) {
   var favCurr = shtVals[arrIdx][shtHdrs.indexOf("Favorite")]
 
   if (shtEnc) {
-    var x = await decryptMessage(favCurr, currUser.pwd)
+    var x = await decryptMessage(favCurr)
     var fav = x.toLowerCase() === 'true'
 
     if (fav) {
-      shtVals[arrIdx][shtHdrs.indexOf("Favorite")] = await encryptMessage("FALSE", currUser.pwd)
+      shtVals[arrIdx][shtHdrs.indexOf("Favorite")] = await encryptMessage("FALSE")
     } else {
-      shtVals[arrIdx][shtHdrs.indexOf("Favorite")] = await encryptMessage("TRUE", currUser.pwd)
+      shtVals[arrIdx][shtHdrs.indexOf("Favorite")] = await encryptMessage("TRUE")
     }
 
   } else {
@@ -196,7 +196,7 @@ async function editSheet(arrIdx) {
 
   $('#shtmArrIdx').val(arrIdx)
 
-  var vals = shtEnc ? await decryptArr(shtVals[arrIdx], currUser.pwd) : shtVals[arrIdx]
+  var vals = shtEnc ? await decryptArr(shtVals[arrIdx]) : shtVals[arrIdx]
 
   var shtObj = makeObj(vals, shtHdrs)
 
@@ -263,7 +263,7 @@ async function btnShtmSubmitSheetHtml() {
 
   var shtIdx = arrIdx == -1 ? -1 : shtIdxArr[arrIdx]  // get the row nbr on the sheet from shtIdxArr
 
-  var valsEnc = shtEnc ? await encryptArr(vals, currUser.pwd) : vals
+  var valsEnc = shtEnc ? await encryptArr(vals) : vals
 
   await updateSheetRow(valsEnc, shtIdx)
 
@@ -300,14 +300,14 @@ async function updateUI (valsEnc, arrIdx) {
                                                     // update. Update ui directly w/o listSheet
   shtVals[arrIdx] = valsEnc
 
-  var providerDec = shtEnc ? await decryptMessage(valsEnc[0], currUser.pwd) : valsEnc[0]
+  var providerDec = shtEnc ? await decryptMessage(valsEnc[0]) : valsEnc[0]
   var $provider = $('#shtContainer > div').find('#shtProvider').eq(arrIdx+1) // first ele is template d-none
   $provider.html(providerDec)
 
   var fav = valsEnc[shtHdrs.indexOf('Favorite')]
 
   if (shtEnc) {
-    var favDec = await decryptMessage(fav, currUser.pwd)
+    var favDec = await decryptMessage(fav)
   } else {
     var favDec = fav
   }

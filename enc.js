@@ -17,7 +17,7 @@ async function testEncrypted(title) {
 
     }
 
-    if (await decryptMessage(shtHdrs[0], currUser.pwd) == "Provider") {
+    if (await decryptMessage(shtHdrs[0]) == "Provider") {
 
         return {
             enc: true,
@@ -49,7 +49,7 @@ async function encryptSheet(title) {
     var shtHdrs = objSht[title].colHdrs
     var shtArr = [shtHdrs].concat(objSht[title].vals)
 
-    var decHdrs = await decryptMessage(shtHdrs[0], currUser.pwd)
+    var decHdrs = await decryptMessage(shtHdrs[0])
 
     if (decHdrs == "Provider") {
         bootbox.alert('Sheet "' + shtTitle + '" is already encrypted.');
@@ -61,7 +61,7 @@ async function encryptSheet(title) {
         return
     }
 
-    var encShtArr = await encryptArr(shtArr, currUser.pwd)
+    var encShtArr = await encryptArr(shtArr)
 
     await updateSheet(title, encShtArr)
 
@@ -99,7 +99,7 @@ async function decryptSheet(title) {
     var shtHdrs = objSht[title].colHdrs
     var shtArr = [shtHdrs].concat(objSht[title].vals)
 
-    var decHdrs = await decryptMessage(shtHdrs[0], currUser.pwd)
+    var decHdrs = await decryptMessage(shtHdrs[0])
 
     console.log('decHdrs', decHdrs)
 
@@ -108,7 +108,7 @@ async function decryptSheet(title) {
         return
     }
 
-    var decShtArr = await decryptArr(shtArr, currUser.pwd)
+    var decShtArr = await decryptArr(shtArr)
 
     await updateSheet(title, decShtArr)
 
@@ -126,7 +126,7 @@ async function decryptSheet(title) {
 }
 
 
-async function encryptArr(msg, pwd) {
+async function encryptArr(msg, pwd = currUser.pwd) {
 
     var rtn = []
 
@@ -156,7 +156,7 @@ async function encryptArr(msg, pwd) {
 
 }
 
-async function decryptArr(msg, pwd) {
+async function decryptArr(msg, pwd = currUser.pwd) {
 
     var rtn = []
 
@@ -181,15 +181,11 @@ async function decryptArr(msg, pwd) {
 
     }
 
-    console.log(rtn)
-
     return rtn
 
 }
 
-async function encryptMessage(msg) {
-
-    const password = currUser.pwd
+async function encryptMessage(msg, password = currUser.pwd) {
 
     const encoder = new TextEncoder();
 
@@ -252,9 +248,7 @@ async function encryptMessage(msg) {
 
 }
 
-async function decryptMessage(ciphertext) {
-
-    const password = currUser.pwd
+async function decryptMessage(ciphertext, password = currUser.pwd) {
 
     const encoder = new TextEncoder();
     const decoder = new TextDecoder();

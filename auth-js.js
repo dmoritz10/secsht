@@ -36,9 +36,6 @@ async function submitLogin() {
   usr = 'dmoritz10'
   pwd = 'Tempdm10!'
 
-  currUser.pwd = pwd
-
-
   var rtn = await getSSId(usr)
   
   if (rtn.fileId) {spreadsheetId = rtn.fileId}
