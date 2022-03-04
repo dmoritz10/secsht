@@ -204,7 +204,7 @@ async function requestNewPwd(prmpt) {
 
 async function btnNewSheetHtml() {
 
-  var title = await prompt('Enter name for new sheet', "sheet name");
+  var title = await prompt('Enter name for new sheet', "text");
 
   var request = {
     'requests': [{
