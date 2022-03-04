@@ -233,13 +233,13 @@ console.log('hi dan')
 
   var sht = await gapi.client.sheets.spreadsheets.sheets.copyTo(params, copySheetToAnotherSpreadsheetRequestBody)
   
-  .then(function(response) {
-    console.log(response.result);
-    return response.result
-  }, function(reason) {
-    console.error('error: ' + reason.result.error.message);
-    return null
-  })
+    .then(function(response) {
+      console.log(response.result);
+      return response.result
+      }, function(reason) {
+        console.error('error: ' + reason.result.error.message);
+        return null
+      })
 
   console.log('sht', sht)
 
@@ -258,19 +258,20 @@ console.log('hi dan')
    ;
    
 
-   await gapi.client.sheets.spreadsheets.batchUpdate({
+  await gapi.client.sheets.spreadsheets.batchUpdate({
     spreadsheetId: spreadsheetId,
-    resource: rq
+    resource: rq})
 
-  }).then(response => {
+    .then(response => {
 
-    console.log('rename complete')
-    console.log(response)
+      console.log('rename complete')
+      console.log(response)
 
-  }, function (reason) {
-    console.error('error updating sheet "' + "title" + '": ' + reason.result.error.message);
-    alert('error updating sheet "' + 'title' + '": ' + reason.result.error.message);
-  });
+    }, function (reason) {
+      console.error('error updating sheet "' + "title" + '": ' + reason.result.error.message);
+      alert('error updating sheet "' + 'title' + '": ' + reason.result.error.message);
+    });
+
 
   secSht[title] = {
     id:   sht.sheetId,
@@ -279,9 +280,6 @@ console.log('hi dan')
     enc:  false
   }
   
-
-
-
   var hdrs = ['Provider','Login','Password','Account Nbr','Pin Nbr','Login Url','Security Q/A','Notes','Auto Pay','Favorite','Last Change']
   var encHdrs = await encryptArr(hdrs, currUser.pwd)
   var resource = {
@@ -291,14 +289,11 @@ console.log('hi dan')
 
   var rng = calcRngA1(1, 1, 1, 11)
 
-  console.log('rng', rng)
-
   var params = {
     spreadsheetId: spreadsheetId,
     range: "'" + title + "'!" + rng,
     valueInputOption: 'RAW'
   };
-
 
   await gapi.client.sheets.spreadsheets.values.update(params, resource)
     .then(function (response) {
@@ -309,6 +304,7 @@ console.log('hi dan')
       alert('error updating sheet "' + '1' + '": ' + reason.result.error.message);
     });
 
+    
   loadSheets()
 
 }
