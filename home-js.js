@@ -252,7 +252,10 @@ async function btnNewSheetHtml() {
     console.log('rename complete')
     console.log(response)
 
-  })
+  }, function (reason) {
+    console.error('error updating sheet "' + "title" + '": ' + reason.result.error.message);
+    alert('error updating sheet "' + 'title' + '": ' + reason.result.error.message);
+  });
 
 
   var resource = {
