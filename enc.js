@@ -198,7 +198,7 @@ async function encryptMessage(msg, password) {
 
     const PBKDF2 = async (
         password, salt, iterations,
-        length, hash, algorithm = 'AES-GSM') => {
+        length, hash, algorithm = 'AES-CBC') => {
 
         keyMaterial = await window.crypto.subtle.importKey(
             'raw',
@@ -230,7 +230,7 @@ async function encryptMessage(msg, password) {
     const key = await PBKDF2(password, salt, 100000, 256, 'SHA-256');
 
     const encrypted = await window.crypto.subtle.encrypt(
-        { name: "AES-GSM", iv },
+        { name: "AES-CBC", iv },
         key,
         plain_text
     );
@@ -262,7 +262,7 @@ async function decryptMessage(ciphertext, password) {
 
     const PBKDF2 = async (
         password, salt, iterations,
-        length, hash, algorithm = 'AES-GSM') => {
+        length, hash, algorithm = 'AES-CBC') => {
 
         const keyMaterial = await window.crypto.subtle.importKey(
             'raw',
@@ -295,7 +295,7 @@ async function decryptMessage(ciphertext, password) {
     const key = await PBKDF2(password, salt, 100000, 256, 'SHA-256');
 
     const decrypted = await window.crypto.subtle.decrypt(
-        { name: "AES-GSM", iv },
+        { name: "AES-CBC", iv },
         key,
         encrypted.slice(salt_len + iv_len)
     )
