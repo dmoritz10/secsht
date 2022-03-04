@@ -228,7 +228,7 @@ async function btnNewSheetHtml() {
   console.log('request', request)
   
 
-  const requests = "x" : [
+  const requests = {"x" : [
     {
      updateSheetProperties: {
       properties: {
@@ -237,7 +237,7 @@ async function btnNewSheetHtml() {
       },
       fields: 'title'
       }
-     }]
+     }]}
    ;
    
 
