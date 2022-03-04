@@ -262,6 +262,8 @@ async function btnNewSheetHtml() {
 
     var rng = calcRngA1(1, 1, 1, 11)
 
+    console.log('rng', rng)
+
     var params = {
       spreadsheetId: spreadsheetId,
       range: "'" + 'template' + "'!" + rng,
