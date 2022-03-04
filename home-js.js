@@ -152,7 +152,11 @@ async function btnHMChangePwdHtml() {
 
   }
   
+  console.log('encShts', encShts)
+
   for (const sht in encShts) {
+
+    console.log('sht', sht)
 
       var objSht = await openShts(
         [
@@ -171,7 +175,7 @@ async function btnHMChangePwdHtml() {
 
   }
 
-  
+
   toast("Finalizing ...", 5000)
 
   currUser.pwd = nPwd
