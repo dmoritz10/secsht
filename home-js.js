@@ -206,27 +206,21 @@ async function btnNewSheetHtml() {
 
   var title = await prompt('Enter name for new sheet', "text");
 
-  var request = {
-    'requests': [{
-        'addSheet': {
-            'properties': {
-                'title': title
-            }
-        }
-    }]
-    }
-    
+  var params = {
+    spreadsheetId: spreadsheetId,  
+    sheetId: 1672569502,  // TODO: Update placeholder value.
+  };
 
-    await gapi.client.sheets.spreadsheets.batchUpdate({
-      spreadsheetId: spreadsheetId,
-      resource: request
-  
-    }).then(response => {
+  var copySheetToAnotherSpreadsheetRequestBody = {
+    // The ID of the spreadsheet to copy the sheet to.
+    destinationSpreadsheetId: spreadsheetId,  
+  };
 
-  
-      console.log('sheet add complete ')
-      console.log(response)
-  
-    })
-
+  var request = gapi.client.sheets.spreadsheets.sheets.copyTo(params, copySheetToAnotherSpreadsheetRequestBody);
+  request.then(function(response) {
+    // TODO: Change code below to process the `response` object:
+    console.log(response.result);
+  }, function(reason) {
+    console.error('error: ' + reason.result.error.message);
+  });
 }
