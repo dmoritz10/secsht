@@ -213,7 +213,8 @@ async function btnNewSheetHtml() {
 
   var copySheetToAnotherSpreadsheetRequestBody = {
     // The ID of the spreadsheet to copy the sheet to.
-    destinationSpreadsheetId: spreadsheetId,  
+    destinationSpreadsheetId: spreadsheetId, 
+    title: title 
   };
 
   var request = gapi.client.sheets.spreadsheets.sheets.copyTo(params, copySheetToAnotherSpreadsheetRequestBody);
