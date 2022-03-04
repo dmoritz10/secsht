@@ -125,6 +125,8 @@ async function btnHMChangePwdHtml() {
 
   modal(true)
 
+  var encShts = []
+
   for (const sht in secSht) {
 
     if (secSht[sht].enc) {
@@ -140,15 +142,17 @@ async function btnHMChangePwdHtml() {
       var decSht = await decryptArr(shtArr, cPwd)
 
       toast("Updating sheet " + sht, 5000)
-      await updateSheet(sht, encSht)
+      await updateSheet(sht, decSht)
+
+      encShts.push(sht)
+
+      secSht[sht].enc = false
 
     }
 
   }
   
-  for (const sht in secSht) {
-
-    if (secSht[sht].enc) {
+  for (const sht in encShts) {
 
       var objSht = await openShts(
         [
@@ -156,12 +160,14 @@ async function btnHMChangePwdHtml() {
         ])
     
       toast("Encrypting sheet " + sht, 5000)
-      var encSht = await encryptArr(decSht, nPwd)
+      var shtHdrs = objSht[sht].colHdrs
+      var shtArr = [shtHdrs].concat(objSht[sht].vals)
+      var encSht = await encryptArr(shtArr, nPwd)
 
       toast("Updating sheet " + sht, 5000)
       await updateSheet(sht, encSht)
 
-    }
+      secSht[sht].enc = true
 
   }
 
