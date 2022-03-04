@@ -45,8 +45,6 @@ async function loadSheets() {
             enc:  false
           }
 
-        console.log('sht', sht)
-
         var ele = $tblSheets.clone();
 
         if (sht.gridProperties.columnCount == arrOptions['Nbr Columns per Sheet']
@@ -56,8 +54,6 @@ async function loadSheets() {
           var enc = await testEncrypted(sht.title)
 
           secSht[sht.title].enc = enc.enc
-
-          console.log('enc', enc)
 
           if (enc.secSht) {
 
@@ -81,8 +77,6 @@ async function loadSheets() {
             ele.removeClass('d-none')
 
             ele.appendTo("#hmContainer");
-
-            
 
             nbrSheets++
             nbrProviders += sht.gridProperties.rowCount - 1
@@ -118,11 +112,6 @@ async function goHome() {
   gotoTab('Home')
 
 }
-
-// async function btnHMMoreVertHtml() {
-
-  
-// }
 
 async function btnHMChangePwdHtml() {
 
@@ -175,7 +164,7 @@ async function btnHMChangePwdHtml() {
     }
 
   }
-  
+
   toast("Finalizing ...", 5000)
 
   currUser.pwd = nPwd
@@ -189,7 +178,6 @@ async function btnHMChangePwdHtml() {
 }
 
 async function verifyCurrPwd(pwdText, prmpt = '') {
-
   
   var pwdEnc = arrOptions.shtList
 
