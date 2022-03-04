@@ -150,6 +150,22 @@ async function btnHMChangePwdHtml() {
       var shtArr = [shtHdrs].concat(objSht[sht].vals)
       var decSht = await decryptArr(shtArr, cPwd)
 
+      toast("Updating sheet " + sht, 5000)
+      await updateSheet(sht, encSht)
+
+    }
+
+  }
+  
+  for (const sht in secSht) {
+
+    if (secSht[sht].enc) {
+
+      var objSht = await openShts(
+        [
+          { title: sht, type: "all" }
+        ])
+    
       toast("Encrypting sheet " + sht, 5000)
       var encSht = await encryptArr(decSht, nPwd)
 
