@@ -215,8 +215,8 @@ async function btnNewSheetHtml() {
   if (!title) return
 
   if (secSht[title]) {
-    await confirm('Sheet name already exists')
-    btnNewSheetHtml()
+    await confirm('A Sheet with that name already exists')
+    return
   }
 
   var params = {
