@@ -219,8 +219,10 @@ async function btnNewSheetHtml() {
   
   .then(function(response) {
     console.log(response.result);
+    return response.result
   }, function(reason) {
     console.error('error: ' + reason.result.error.message);
+    return null
   })
 
   console.log('request', request)
