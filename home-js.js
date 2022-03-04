@@ -228,6 +228,7 @@ async function btnNewSheetHtml() {
     return
   }
 
+  // create new sheet by copying template sheet.  It has exactly 11 columns and 1 row.
   var params = {
     spreadsheetId: spreadsheetId,  
     sheetId: secSht['template'].id,  
@@ -247,6 +248,9 @@ async function btnNewSheetHtml() {
         return null
       })
 
+
+  // rename sheet to that provided by user
+
   const rq = {"requests" : [
     {
      updateSheetProperties: {
@@ -259,7 +263,6 @@ async function btnNewSheetHtml() {
      }]}
    ;
    
-
   await gapi.client.sheets.spreadsheets.batchUpdate({
     spreadsheetId: spreadsheetId,
     resource: rq})
@@ -274,7 +277,7 @@ async function btnNewSheetHtml() {
       alert('error updating sheet "' + 'title' + '": ' + reason.result.error.message);
     });
 
-
+  // Put encrypted header row in new sheet
   
   var hdrs = ['Provider','Login','Password','Account Nbr','Pin Nbr','Login Url','Security Q/A','Notes','Auto Pay','Favorite','Last Change']
   var encHdrs = await encryptArr(hdrs, currUser.pwd)
