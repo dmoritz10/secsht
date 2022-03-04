@@ -164,7 +164,7 @@ var openShts = async function (shts) {
 
     function(response) {
 
-      console.log('Error: ' + response.result.error.message);
+      console.log('Error: ' + shtTitle + ' - ' + response.result.error.message);
           
     });
 
