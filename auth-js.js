@@ -36,6 +36,8 @@ async function submitLogin() {
   usr = 'dmoritz10'
   pwd = 'Tempdm10!'
 
+  currUser.pwd = pwd
+
 
   var rtn = await getSSId(usr)
   
@@ -66,6 +68,8 @@ async function submitLogin() {
     return
   } 
 
+  currUser.pwd = pwd
+
   if (cfrmPwdMode) {
     var encPwd = await encryptMessage(t, pwd)
     await updateOption('shtList', encPwd)
@@ -75,11 +79,12 @@ async function submitLogin() {
   var dx = await decryptMessage(x, pwd)
   if (dx != t) {
     $('#liMsg').html("Invalid Login")
+    currUser.pwd = null
     return
   }
 
 
-  currUser.pwd = pwd
+  
 
   await loadSheets()
 
