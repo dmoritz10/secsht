@@ -154,9 +154,11 @@ async function btnHMChangePwdHtml() {
   
   console.log('encShts', encShts)
 
-  for (const sht in encShts) {
+  for (const s in encShts) {
 
-    console.log('sht', encShts[sht])
+      var sht =  encShts[sht]
+
+    console.log('sht', sht)
 
       var objSht = await openShts(
         [
