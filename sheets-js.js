@@ -11,6 +11,8 @@ async function listSheet(title) {
       { title: title, type: "all" }
     ])
 
+    console.log('objSht', objSht)
+
   shtTitle = title
   shtId   = secSht[shtTitle].id
   shtCols = secSht[shtTitle].cols
