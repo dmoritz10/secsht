@@ -208,20 +208,40 @@ async function btnNewSheetHtml() {
 
   var params = {
     spreadsheetId: spreadsheetId,  
-    sheetId: 1672569502,  // TODO: Update placeholder value.
+    sheetId: 1672569502,  
   };
 
   var copySheetToAnotherSpreadsheetRequestBody = {
-    // The ID of the spreadsheet to copy the sheet to.
-    destinationSpreadsheetId: spreadsheetId, 
-    title: title 
+    destinationSpreadsheetId: spreadsheetId
   };
 
-  var request = gapi.client.sheets.spreadsheets.sheets.copyTo(params, copySheetToAnotherSpreadsheetRequestBody);
-  request.then(function(response) {
-    // TODO: Change code below to process the `response` object:
+  var request = await gapi.client.sheets.spreadsheets.sheets.copyTo(params, copySheetToAnotherSpreadsheetRequestBody)
+  
+  .then(function(response) {
     console.log(response.result);
   }, function(reason) {
     console.error('error: ' + reason.result.error.message);
-  });
+  })
+  
+
+  const requests = [
+    {
+     updateSheetProperties: {
+      properties: {
+       sheetId: 'id-of-the-sheet-that-you-want-to-rename',
+       title: title,
+      },
+      fields: 'title'
+      }
+     }
+   ];
+   
+   sheetsService.spreadsheets.batchUpdate({
+    spreadsheetId: 'some-spreasheet-id',
+    requestBody: {
+     requests,
+    },
+   });
+
+  })
 }
