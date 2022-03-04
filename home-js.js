@@ -219,7 +219,7 @@ async function btnNewSheetHtml() {
     console.log(x)
     if (x.toLowerCase() == title.toLowerCase()) {
       exists = true
-      break
+      break;
     }
   }
 
