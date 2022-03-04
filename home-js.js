@@ -36,12 +36,14 @@ async function loadSheets() {
 
         var sht = sheets[j].properties
 
+        if (sht.title != 'template') templateSheetId = sht.sheetId
+
         console.log('sht', sht)
 
         var ele = $tblSheets.clone();
 
         if (sht.gridProperties.columnCount == arrOptions['Nbr Columns per Sheet']
-              && sht.title != 'Template'
+              && sht.title != 'template'
             ) {
 
           var enc = await testEncrypted(sht.title)
@@ -208,7 +210,7 @@ async function btnNewSheetHtml() {
 
   var params = {
     spreadsheetId: spreadsheetId,  
-    sheetId: 1672569502,  
+    sheetId: templateSheetId,  
   };
 
   var copySheetToAnotherSpreadsheetRequestBody = {
