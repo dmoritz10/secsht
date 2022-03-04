@@ -257,7 +257,7 @@ async function btnNewSheetHtml() {
 
   var resource = {
     "majorDimension": "ROWS",
-    "values": ['Provider','Login','Password','Account','Nbr','Pin Nbr','Login','Url','Security Q/A','Notes','Auto Pay','Favorite','Last Change']    
+    "values": [['Provider','Login','Password','Account','Nbr','Pin Nbr','Login','Url','Security Q/A','Notes','Auto Pay','Favorite','Last Change']]
   }
 
     var rng = calcRngA1(1, 1, 1, 11)
