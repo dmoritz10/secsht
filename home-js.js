@@ -263,24 +263,26 @@ async function btnNewSheetHtml() {
     "values": [['Provider','Login','Password','Account Nbr','Pin Nbr','Login Url','Security Q/A','Notes','Auto Pay','Favorite','Last Change']]
   }
 
-    var rng = calcRngA1(1, 1, 1, 11)
+  var rng = calcRngA1(1, 1, 1, 11)
 
-    console.log('rng', rng)
+  console.log('rng', rng)
 
-    var params = {
-      spreadsheetId: spreadsheetId,
-      range: "'" + title + "'!" + rng,
-      valueInputOption: 'RAW'
-    };
+  var params = {
+    spreadsheetId: spreadsheetId,
+    range: "'" + title + "'!" + rng,
+    valueInputOption: 'RAW'
+  };
 
 
-    await gapi.client.sheets.spreadsheets.values.update(params, resource)
-      .then(function (response) {
-        console.log('Sheet update successful')
-        console.log(response)
-      }, function (reason) {
-        console.error('error updating sheet "' + "1" + '": ' + reason.result.error.message);
-        alert('error updating sheet "' + '1' + '": ' + reason.result.error.message);
-      });
+  await gapi.client.sheets.spreadsheets.values.update(params, resource)
+    .then(function (response) {
+      console.log('Sheet update successful')
+      console.log(response)
+    }, function (reason) {
+      console.error('error updating sheet "' + "1" + '": ' + reason.result.error.message);
+      alert('error updating sheet "' + '1' + '": ' + reason.result.error.message);
+    });
+
+  loadSheets()
 
 }
