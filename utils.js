@@ -113,8 +113,6 @@ var openShts = async function (shts) {
 
       var sheet = shts[s]
 
-      console.log("sheet", sheet)
-
       switch (sheet.type) {
 
         case "headers":

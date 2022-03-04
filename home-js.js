@@ -156,7 +156,7 @@ async function btnHMChangePwdHtml() {
 
   for (const s in encShts) {
 
-      var sht =  encShts[sht]
+      var sht =  encShts[s]
 
     console.log('sht', sht)
 
