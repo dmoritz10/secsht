@@ -212,15 +212,12 @@ async function btnNewSheetHtml() {
 
   var title = await prompt('Enter name for new sheet', "text");
 
-  console.log(secSht[title])
+  if (!title) return
 
-  for (let x in secSht) {
-
-    console.log('x', x)
-    console.log('secSht', secSht[x])
-
+  if (secSht[title]) {
+    await bootbox.alert('Sheet name already exists')
+    btnNewSheetHtml()
   }
-
 
   var params = {
     spreadsheetId: spreadsheetId,  
