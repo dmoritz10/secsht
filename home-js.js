@@ -201,3 +201,32 @@ async function requestNewPwd(prmpt) {
   return pwd
 
 }
+
+async function btnNewSheetHtml() {
+
+  var title = await prompt('Enter name for new sheet', "sheet name");
+
+  var request = {
+    'requests': [{
+        'addSheet': {
+            'properties': {
+                'title': title
+            }
+        }
+    }]
+    }
+    
+
+    await gapi.client.sheets.spreadsheets.batchUpdate({
+      spreadsheetId: spreadsheetId,
+      resource: request
+  
+    }).then(response => {
+
+  
+      console.log('sheet add complete ')
+      console.log(response)
+  
+    })
+
+}

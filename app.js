@@ -208,6 +208,9 @@ jQuery(function ($) {
 
             $('#btnHMChangePwd')   .click(btnHMChangePwdHtml);
             $('#btnSignout')                .button().click(btnSignoutHtml);
+            $('#btnNewSheet')                .button().click(btnNewSheetHtml);
+
+            
 
           
             // Sheets
