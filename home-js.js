@@ -228,7 +228,7 @@ async function btnNewSheetHtml() {
   console.log('request', request)
   
 
-  const requests = {"x" : [
+  const rq = {"requests" : [
     {
      updateSheetProperties: {
       properties: {
@@ -243,7 +243,7 @@ async function btnNewSheetHtml() {
 
    await gapi.client.sheets.spreadsheets.batchUpdate({
     spreadsheetId: spreadsheetId,
-    resource: requests
+    resource: rq
 
   }).then(response => {
 
