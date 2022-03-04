@@ -222,13 +222,15 @@ async function btnNewSheetHtml() {
   }, function(reason) {
     console.error('error: ' + reason.result.error.message);
   })
+
+  console.log('request', request)
   
 
   const requests = [
     {
      updateSheetProperties: {
       properties: {
-       sheetId: 'id-of-the-sheet-that-you-want-to-rename',
+       sheetId: request.sheetId,
        title: title,
       },
       fields: 'title'
@@ -236,11 +238,15 @@ async function btnNewSheetHtml() {
      }
    ];
    
-   sheetsService.spreadsheets.batchUpdate({
-    spreadsheetId: 'some-spreasheet-id',
-    requestBody: {
-     requests,
-    },
-   });
+   await gapi.client.sheets.spreadsheets.batchUpdate({
+    spreadsheetId: spreadsheetId,
+    resource: requests
+
+  }).then(response => {
+
+    console.log('rename complete')
+    console.log(response)
+
+  })
 
   }
