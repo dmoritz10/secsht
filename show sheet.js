@@ -12,12 +12,13 @@ async function showSheet(idx) {
   for (var i=1; i<shtHdrs.length;i++) {
 
     var val = vals[i].replace(/\n|\r\n|\r/g, '<br/>');
+    val = "<span class='text-nowrap'" + val + "</span>"
     var icon = ''
 
     if (val) {
       if (validateUrl(val)) {
 
-        icon =  '<div class="label cursor-pointer"><a target="_blank"  href=' + val + '><span class="material-icons">open_in_new</span></a></div>'
+        icon =  '<div class="label cursor-pointer "><a target="_blank"  href=' + val + '><span class="material-icons">open_in_new</span></a></div>'
 
       } else {
 
