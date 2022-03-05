@@ -53,7 +53,7 @@ function browseProvider(dir) {
   var idx   = $("#ssArrIdx").val()*1       
   var title = $('#shtTitle').text()
 
-  var shtRows = secSht[title].rows*1 - 1                  // rows includes hdrs
+  var shtRows = secSht[title].rows*1 - 1                   // rows includes hdrs
 
   var eleArr = [...$('#shtContainer > div')].slice(1)      // remove the templace
 
@@ -74,9 +74,6 @@ function browseProvider(dir) {
       break;
     }
   }
-
-  console.log('nextIdx', nextIdx)
-  console.log('prevIdx', prevIdx)
 
   if (dir=="prev")  showSheet(prevIdx)
   else              showSheet(nextIdx)

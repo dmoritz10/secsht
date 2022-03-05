@@ -102,8 +102,6 @@ async function loadSheets() {
 async function goHome() {
 
   var signinStatus = await gapi.auth2.getAuthInstance().isSignedIn.get()
-  console.log('signinStatus')
-  console.log(signinStatus)
    if (!signinStatus) {
      gotoTab('Auth')
      return

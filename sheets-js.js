@@ -150,9 +150,6 @@ async function btnShtSelectHtml(e) {
 
 async function setFavorite(arrIdx) {
 
-      // arrIdx - the index of the element in the sorted array
-      // shtIdx = the index of the element in the sheet (un-sorted)
-
   var favCurr = shtVals[arrIdx][shtHdrs.indexOf("Favorite")]
 
   if (shtEnc) {
@@ -180,8 +177,6 @@ async function setFavorite(arrIdx) {
   await updateSheetRow(shtVals[arrIdx], shtIdx)
 
   updateUI(shtVals[arrIdx], arrIdx)
-
-  // listSheet(shtTitle)
 
 }
 
@@ -271,8 +266,6 @@ async function btnShtmSubmitSheetHtml() {
 
   updateUI(valsEnc, arrIdx)
 
-  // listSheet(shtTitle)
-
 }
 
 async function updateUI (valsEnc, arrIdx) {
@@ -297,7 +290,7 @@ async function updateUI (valsEnc, arrIdx) {
   
   }
 
-                                                    // update. Update ui directly w/o listSheet
+  // update. Update ui directly w/o listSheet
   shtVals[arrIdx] = valsEnc
 
   var providerDec = shtEnc ? await decryptMessage(valsEnc[0]) : valsEnc[0]

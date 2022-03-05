@@ -2,9 +2,6 @@
 
 async function getSSId(currUser) {
 
-  console.log(currUser)
-
-
   var q = "name = 'secsht - " + currUser +
       "' AND " + "mimeType='application/vnd.google-apps.spreadsheet'" +
       " AND " + "trashed = false"
@@ -87,8 +84,6 @@ var prompt = function (title, inputType) {
       closeButton: false,
       backdrop: true,
       title: '<h5>' + title + '</h5>',
-      // size: "small",
-      // message: '<b>' + msg + '</b>',
       centerVertical: true,
       inputType: inputType,
 
@@ -254,15 +249,6 @@ function formatNumber (str) {
 };
 
 function toast(e, delay = 5000) {
-    /*
-   
-   bootbox.alert({
-       message: '<b>' + e + '</b>',
-       centerVertical: true,
-       size: 'small'
-   });
-   return
-    */
 
   $("#toast-content").html(e)
 
@@ -338,9 +324,9 @@ function setupFormValidation() {
  
 }
 
-    function validateUrl(value) {
-      return /^(?:(?:(?:https?|ftp):)?\/\/)(?:\S+(?::\S*)?@)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:[/?#]\S*)?$/i.test(value);
-    }
+function validateUrl(value) {
+  return /^(?:(?:(?:https?|ftp):)?\/\/)(?:\S+(?::\S*)?@)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:[/?#]\S*)?$/i.test(value);
+}
 
 
 function readOption(key, defaultReturn = '') {
