@@ -18,7 +18,7 @@ async function showSheet(idx) {
       if (validateUrl(val)) {
 
         icon =  '<div class="label cursor-pointer "><a target="_blank"  href=' + val + '><span class="material-icons">open_in_new</span></a></div>'
-        val = "<span class='text-nowrap'" + val + "</span>"
+        val = "<span class='text-nowrap'>" + val + "</span>"
 
       } else {
 
