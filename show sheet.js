@@ -60,7 +60,7 @@ function browseProvider(dir) {
 
   var nextIdx = (idx+1 <  shtRows) ? idx+1 : null
   while (nextIdx) {
-    if ($(eleArr[nextIdx]).hasClass('d-none')) {  
+    if ($(eleArr[nextIdx]).hasClass('d-none') || $(eleArr[nextIdx]).css('display') == 'none') {  
       nextIdx = (nextIdx+1 <  shtRows) ? nextIdx+1 : null
     } else {
       break;
@@ -69,7 +69,7 @@ function browseProvider(dir) {
   
   var prevIdx = (idx-1 >= 0) ? idx-1 : null
   while (prevIdx !== null) {
-    if ($(eleArr[prevIdx]).hasClass('d-none')) {  
+    if ($(eleArr[prevIdx]).hasClass('d-none') || $(eleArr[nextIdx]).css('display') == 'none') {  
       prevIdx = (prevIdx-1 >= 0) ? prevIdx-1 : null
     } else {
       break;
