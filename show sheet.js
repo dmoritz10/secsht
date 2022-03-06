@@ -79,7 +79,7 @@ function browseProvider(dir) {
   console.log($(eleArr[nextIdx]).hasClass('d-none'))
   console.log($(eleArr[nextIdx]).css('display') == 'none')
 
-  console.log(prevIdx,nextIdx)
+  console.log('prev/next',prevIdx,nextIdx)
 
 
   if (dir=="prev")  showSheet(prevIdx)
