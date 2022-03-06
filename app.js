@@ -118,9 +118,9 @@ jQuery(function ($) {
                 signin.currUser['emailName'] = signin.currUser['email'].split('@')[0]
 
                 if (signin.currUser.firstName) {
-                    $('#authSigninStatus').html('Hi ' + signin.currUser.firstName + '.<br>You are signed in.')
+                    $('#authSigninStatus').html('Hi ' + signin.currUser.firstName + '.<br>You are Authorized.')
                 } else {
-                    $('#authSigninStatus').html('Hi ' + signin.currUser.emailName + '.<br>You are signed in.')
+                    $('#authSigninStatus').html('Hi ' + signin.currUser.emailName + '.<br>You are Authorized.')
                 }
 
                 console.log('showLogin')
@@ -129,7 +129,7 @@ jQuery(function ($) {
 
             } else {
 
-                console.log('NOT signed in')
+                console.log('NOT Authorized')
 
                 $('#authSigninStatus').html('You are signed out.  Authorization is required.')
 
