@@ -60,6 +60,8 @@ function browseProvider(dir) {
 
   var nextIdx = (idx+1 <  shtRows) ? idx+1 : null
   while (nextIdx) {
+  console.log('next1',nextIdx)
+
     if ($(eleArr[nextIdx]).hasClass('d-none') || $(eleArr[nextIdx]).css('display') == 'none') {  
       console.log('next')
       console.log(nextIdx)
@@ -73,6 +75,8 @@ function browseProvider(dir) {
   
   var prevIdx = (idx-1 >= 0) ? idx-1 : null
   while (prevIdx !== null) {
+    console.log('prev1',prevIdx)
+
     if ($(eleArr[prevIdx]).hasClass('d-none') || $(eleArr[nextIdx]).css('display') == 'none') {  
       console.log('prev')
       console.log(prevIdx)
