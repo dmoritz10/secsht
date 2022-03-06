@@ -12,7 +12,7 @@ async function testEncrypted(title) {
 
         return {
             enc: false,
-            secSht: true
+            isSecSht: true
         }
 
     }
@@ -21,14 +21,14 @@ async function testEncrypted(title) {
 
         return {
             enc: true,
-            secSht: true
+            isSecSht: true
         }
 
     }
 
     return {
         enc: null,
-        secSht: false
+        isSecSht: false
     }
 
 }

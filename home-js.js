@@ -54,6 +54,8 @@ async function loadSheets() {
           var enc = await testEncrypted(sht.title)
 
           secSht[sht.title].enc = enc.enc
+          secSht[sht.title].isSecSht = enc.isSecSht
+
 
           if (enc.secSht) {
 
