@@ -58,6 +58,8 @@ function browseProvider(dir) {
 
   var eleArr = [...$('#shtContainer > div')].slice(1)      // remove the templace
 
+console.log('idx', idx)
+
   var nextIdx = (idx+1 <  shtRows) ? idx+1 : null
   while (nextIdx) {
   console.log('next1',nextIdx)
