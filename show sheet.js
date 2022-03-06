@@ -79,7 +79,7 @@ console.log('idx', idx)
   while (prevIdx !== null) {
     console.log('prev1',prevIdx)
 
-    if ($(eleArr[prevIdx]).hasClass('d-none') || $(eleArr[nextIdx]).css('display') == 'none') {  
+    if ($(eleArr[prevIdx]).hasClass('d-none') || $(eleArr[prevIdx]).css('display') == 'none') {  
       console.log('prev')
       console.log(prevIdx)
       console.log($(eleArr[nextIdx]).hasClass('d-none'))
