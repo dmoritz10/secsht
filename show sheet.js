@@ -77,7 +77,8 @@ function browseProvider(dir) {
       console.log('prev')
       console.log(prevIdx)
       console.log($(eleArr[nextIdx]).hasClass('d-none'))
-      console.log($(eleArr[nextIdx]).css('display') == 'none')     prevIdx = (prevIdx-1 >= 0) ? prevIdx-1 : null
+      console.log($(eleArr[nextIdx]).css('display') == 'none')     
+      prevIdx = (prevIdx-1 >= 0) ? prevIdx-1 : null
     } else {
       break;
     }
