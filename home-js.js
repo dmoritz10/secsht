@@ -39,10 +39,11 @@ async function loadSheets() {
         if (sht.title == 'template') templateSheetId = sht.sheetId
 
           secSht[sht.title] = {
-            id:   sht.sheetId,
-            cols: sht.gridProperties.columnCount,
-            rows: sht.gridProperties.rowCount,
-            enc:  false
+            id:       sht.sheetId,
+            cols:     sht.gridProperties.columnCount,
+            rows:     sht.gridProperties.rowCount,
+            enc:      false,
+            isSecSht: false
           }
 
         var ele = $tblSheets.clone();
