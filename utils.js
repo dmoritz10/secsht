@@ -3,8 +3,8 @@
 async function getSSId(currUser) {
 
   // var q = "name = 'secsht - " + currUser +
-  var q = "name = " + currUser +
-      " AND " + "mimeType='application/vnd.google-apps.spreadsheet'" +
+  var q = "name = '" + currUser +
+      "' AND " + "mimeType='application/vnd.google-apps.spreadsheet'" +
       " AND " + "trashed = false"
 
   var ssId = await gapi.client.drive.files.list({
