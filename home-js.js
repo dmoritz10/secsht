@@ -151,7 +151,12 @@ async function btnHMChangePwdHtml() {
     }
 
   }
-  
+
+  currUser.pwd = nPwd
+  var encPwd = await encryptMessage(pwdText, nPwd)
+  await updateOption('shtList', encPwd)
+  toast("New Password now in effet " + sht, 5000)
+
   console.log('encShts', encShts)
 
   for (const s in encShts) {
@@ -180,9 +185,6 @@ async function btnHMChangePwdHtml() {
 
   toast("Finalizing ...", 5000)
 
-  currUser.pwd = nPwd
-  var encPwd = await encryptMessage(pwdText, nPwd)
-  await updateOption('shtList', encPwd)
 
   modal(false)
 
