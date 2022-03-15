@@ -206,7 +206,7 @@ async function editSheet(arrIdx) {
   $('#shtmNotes').val(shtObj['Notes'])
   $('#shtmFavorite').val(shtObj['Favorite'])
 
-  $('#btnDeleteSheet').removeClass('d-none')
+  $('#btnShtmDelete').removeClass('d-none')
 
 }
 
@@ -335,7 +335,7 @@ async function btnAddSheetHtml() {
   $("#sheet-form")[0].reset();
   $('#shtmModalTitle').html('')
 
-   $('#btnDeleteSheet').addClass('d-none')
+   $('#btnShtmDelete').addClass('d-none')
 
 }
 
