@@ -341,7 +341,7 @@ async function btnAddSheetHtml() {
 
 async function btnDeleteSheetHtml() {
 
-  var confirmOK = await confirm("Are you sure you want to delete this provider ?")
+  var confirmOK = await confirm("Are you sure you want to delete this Provider ?")
 
   if (!confirmOK) return
 
