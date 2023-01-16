@@ -335,7 +335,7 @@ async function btnAddSheetHtml() {
   $("#sheet-form")[0].reset();
   $('#shtmModalTitle').html('')
 
-   $('#btnShtmDelete').addClass('d-none')
+  $('#btnShtmDelete').addClass('d-none')
 
 }
 
