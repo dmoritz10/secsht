@@ -174,7 +174,7 @@ async function setFavorite(arrIdx) {
 
   var shtIdx = shtIdxArr[arrIdx]
 
-  await updateSheetRow(shtVals[arrIdx], shtIdx)
+  await updateSheetRow(shtVals[arrIdx], shtIdx * 1 + 2)
 
   updateUI(shtVals[arrIdx], arrIdx)
 
@@ -260,8 +260,9 @@ async function btnShtmSubmitSheetHtml() {
 
   var valsEnc = shtEnc ? await encryptArr(vals) : vals
 
-  await updateSheetRow(valsEnc, shtIdx)
-
+  if (shtIdx > -1)  await updateSheetRow(valsEnc, shtIdx * 1 + 2, shtTitle)
+  else              await appendSheetRow(valsEnc, shtTitle)
+  
   $("#sheet-modal").modal('hide');
 
   updateUI(valsEnc, arrIdx)
