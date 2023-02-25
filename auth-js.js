@@ -1,7 +1,7 @@
 
 
-const API_KEY   = 'AIzaSyA47A-jDhu3jOQZqo6OYOV4aGsCIY0YT4M'
-const CLI_ID    = '806474795673-vcajgv4ncv6rq09j4o01d8tg7f487smm.apps.googleusercontent.com'  
+const API_KEY   = 'AIzaSyCYrWkprrHDVYL6E5TnEzz_Bg7b4K_3SiI'
+const CLI_ID    = '716528452663-807bq8jkrv5tq32efmoj1diefpnu41fp.apps.googleusercontent.com'  
 const SCOPES    = 'https://www.googleapis.com/auth/spreadsheets https://www.googleapis.com/auth/drive';
 const DISCOVERY = ['https://sheets.googleapis.com/$discovery/rest?version=v4', 
                   'https://www.googleapis.com/discovery/v1/apis/drive/v3/rest'
