@@ -42,8 +42,11 @@ async function loadSheets() {
           secSht[sht.title].enc = enc.enc
           secSht[sht.title].isSecSht = enc.isSecSht
 
+console.log('1', enc)
 
           if (enc.isSecSht) {
+
+            console.log('2', enc)
 
             ele.find('#hmSheet')[0].innerHTML = sht.title
 
