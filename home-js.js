@@ -1,24 +1,9 @@
 
 async function loadSheets() {
 
-    await checkAuth()
+  var shts = await getSheets()
 
-    var sheets = await gapi.client.sheets.spreadsheets.get({
-        
-        spreadsheetId: spreadsheetId
-      
-      }).then(function(response) {
-        
-        return response.result.sheets
-      
-      }, function(response) {
-        console.log('Error: ' + response.result.error.message);
-        return null
-    
-      });
-
-    console.log('loadSheets', sheets)
-
+  var sheets = shts.result.sheets
 
     if (sheets) {
 
@@ -103,6 +88,7 @@ async function loadSheets() {
 
 
 async function goHome() {
+
 
   gotoTab('Home')
 
