@@ -5,6 +5,8 @@ async function loadSheets() {
 
   var sheets = shts.result.sheets
 
+  console.log('shts', shts)
+
     if (sheets) {
 
       var $tblSheets = $("#hmContainer > .d-none")
@@ -20,6 +22,8 @@ async function loadSheets() {
       for (var j = 0; j < sheets.length; j++) {
 
         var sht = sheets[j].properties
+
+
 
         if (sht.title == 'template') templateSheetId = sht.sheetId
 
