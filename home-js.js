@@ -56,7 +56,7 @@ async function loadSheets() {
               ele.find('#btnCrypt')[0].innerHTML = "decrypt"
               ele.find('#btnCrypt').addClass('btn-success')
               ele.find('#btnCrypt').removeClass('btn-danger')
-              ele.find('#btnCrypt')[0].setAttribute("onclick", "decryptSheet('" + sht.title + "',null,null,'Provider')");
+              ele.find('#btnCrypt')[0].setAttribute("onclick", "decryptSheet('" + sht.title + "',,,'Provider')");
 
             } else {
               ele.find('#btnCrypt')[0].innerHTML = "encrypt"
