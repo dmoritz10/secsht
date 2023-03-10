@@ -174,7 +174,21 @@ async function setFavorite(arrIdx) {
 
   var shtIdx = shtIdxArr[arrIdx]
 
-  await updateSheetRow(shtVals[arrIdx], shtIdx * 1 + 2)
+  // await updateSheetRow(shtVals[arrIdx], shtIdx * 1 + 2)
+
+  var rpt = true
+  var cntr = 0
+  var startTime = new Date()
+
+  while (rpt) {
+
+    console.log('while', cntr, startTime)
+    var response = await updateSheetRow(shtVals[arrIdx], shtIdx * 1 + 2)
+    console.log('response', response)
+
+    if (cntr>100) rpt = false
+
+  }
 
   updateUI(shtVals[arrIdx], arrIdx)
 
