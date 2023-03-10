@@ -179,13 +179,14 @@ async function setFavorite(arrIdx) {
   var rpt = true
   var cntr = 0
   var startTime = new Date()
+  const ts = (dt) => dt.toISOString().substring(11,23)
 
   while (rpt) {
 
     cntr++
-    console.log('while', cntr, startTime, shtTitle)
+    console.log('while', cntr, ts(startTime), shtTitle)
     var response = await updateSheetRow(shtVals[arrIdx], shtIdx * 1 + 2, shtTitle)
-    console.log('response', response)
+    console.log('response', response, ts(new Date()))
 
     if (cntr>100) rpt = false
 
