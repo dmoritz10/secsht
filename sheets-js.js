@@ -174,7 +174,7 @@ async function setFavorite(arrIdx) {
 
   var shtIdx = shtIdxArr[arrIdx]
 
-  // await updateSheetRow(shtVals[arrIdx], shtIdx * 1 + 2)
+  // await updateSheetRow(shtVals[arrIdx], shtIdx * 1 + 2, shtTitle)
 
   var rpt = true
   var cntr = 0
@@ -183,7 +183,7 @@ async function setFavorite(arrIdx) {
   while (rpt) {
 
     cntr++
-    console.log('while', cntr, startTime)
+    console.log('while', cntr, startTime, shtTitle)
     var response = await updateSheetRow(shtVals[arrIdx], shtIdx * 1 + 2, shtTitle)
     console.log('response', response)
 
