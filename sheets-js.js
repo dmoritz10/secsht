@@ -174,25 +174,25 @@ async function setFavorite(arrIdx) {
 
   var shtIdx = shtIdxArr[arrIdx]
 
-  // await updateSheetRow(shtVals[arrIdx], shtIdx * 1 + 2, shtTitle)
+  await updateSheetRow(shtVals[arrIdx], shtIdx * 1 + 2, shtTitle)
 
-  var rpt = true
-  var cntr = 0
-  var startTime = new Date()
-  const ts = (dt) => dt.toISOString().substring(11,23)
-  const ls = 'x'.repeat(10*1024)
+  // var rpt = true
+  // var cntr = 0
+  // var startTime = new Date()
+  // const ts = (dt) => dt.toISOString().substring(11,23)
+  // const ls = 'x'.repeat(10*1024)
 
-  while (rpt) {
+  // while (rpt) {
 
-    cntr++
-    console.log('while', cntr, ts(startTime), shtTitle)
-    shtVals[arrIdx][shtHdrs.indexOf("Favorite")] = cntr + ' - ' + ls
-    var response = await updateSheetRow(shtVals[arrIdx], shtIdx * 1 + 2, shtTitle)
-    console.log('response', response, ts(new Date()))
+  //   cntr++
+  //   console.log('while', cntr, ts(startTime), shtTitle)
+  //   shtVals[arrIdx][shtHdrs.indexOf("Favorite")] = cntr + ' - ' + ls
+  //   var response = await updateSheetRow(shtVals[arrIdx], shtIdx * 1 + 2, shtTitle)
+  //   console.log('response', response, ts(new Date()))
 
-    if (cntr>1000) rpt = false
+  //   if (cntr>1000) rpt = false
 
-  }
+  // }
 
   updateUI(shtVals[arrIdx], arrIdx)
 
