@@ -127,6 +127,8 @@ jQuery(function ($) {
             // All tabs
             
             setupFormValidation()
+
+            $('[data-bs-toggle="popover"]').popover()
           
           
             // $("#myToast").on("show.bs.toast", function() {
