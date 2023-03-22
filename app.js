@@ -128,9 +128,6 @@ jQuery(function ($) {
             
             setupFormValidation()
 
-            $('[data-bs-toggle="popover"]').popover()
-          
-          
             // $("#myToast").on("show.bs.toast", function() {
             //   $(this).removeClass("d-none");
             //       })
