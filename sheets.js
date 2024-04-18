@@ -353,13 +353,15 @@ async function updateUI (valsEnc, arrIdx) {
     var autoPayDec = autoPay
   }
 
+  var ele = $('#shtContainer > div').find('#btnAutoPay').eq(arrIdx+1) 
+
   if (autoPayDec)   {
-    ele.find('#btnAutoPay').removeClass('d-none')
-    ele.find('#btnAutoPay').prop('title', autoPayDec);
+    ele.removeClass('d-none')
+    ele.prop('title', autoPayDec);
   }
   else              {
-    ele.find('#btnAutoPay').addClass('d-none')
-    ele.find('#btnAutoPay').prop('title', );
+    ele.addClass('d-none')
+    ele.prop('title', );
   }
  
 }
