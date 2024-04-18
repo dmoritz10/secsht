@@ -85,12 +85,10 @@ async function listSheet(title) {
 
     var autoPayBtn = ele.find('#btnAutoPay')[0]
 
-    console.log('autopay', ele.find('#btnAutoPay'), ele.find('#btnAutoPay')[0], ele.find('#btnShtShowSheet'))
-
-    if (autoPay)  ele.find('#btnAutoPay')[0].removeClass('d-none')
-    else          ele.find('#btnAutoPay')[0].addClass('d-none')
+    if (autoPay)  ele.find('#btnAutoPay').removeClass('d-none')
+    else          ele.find('#btnAutoPay').addClass('d-none')
    
-    ele.find('#btnAutoPay')[0].prop('title', autoPay);
+    ele.find('#btnAutoPay').prop('title', autoPay);
 
     var boolFav = fav.toLowerCase() === 'true'
 
