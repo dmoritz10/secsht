@@ -345,6 +345,23 @@ async function updateUI (valsEnc, arrIdx) {
     $fav.removeClass('text-primary')
   }
 
+  var autoPay = valsEnc[shtHdrs.indexOf('Auto Pay')]
+
+  if (shtEnc) {
+    var autoPayDec = await decryptMessage(autoPay)
+  } else {
+    var autoPayDec = autoPay
+  }
+
+  if (autoPayDec)   {
+    ele.find('#btnAutoPay').removeClass('d-none')
+    ele.find('#btnAutoPay').prop('title', autoPayDec);
+  }
+  else              {
+    ele.find('#btnAutoPay').addClass('d-none')
+    ele.find('#btnAutoPay').prop('title', );
+  }
+ 
 }
 
 function fixUrl(url) {
