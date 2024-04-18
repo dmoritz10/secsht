@@ -65,11 +65,13 @@ async function listSheet(title) {
     if (shtEnc) {
       var fav = await decryptMessage(shtObj['Favorite'])
       var provider = await decryptMessage(shtObj['Provider'])
+      var autoPay = await decryptMessage(shtObj['Auto Pay'])
     } else {
       var fav = shtObj['Favorite']
       var provider = shtObj['Provider']
+      var autoPay = shtObj['Auto Pay']
     }
-
+    
 
     var ele = $tblSheets.clone();
 
@@ -81,6 +83,10 @@ async function listSheet(title) {
 
     ele.find('#btnShtShowSheet')[0].setAttribute("onclick", "showSheet(" + j + ")");
 
+    if (autopay)  ele.find('#btnAutoPay')[0].removeClass('d-none')
+    else          ele.find('#btnAutoPay')[0].addClass('d-none')
+   
+    ele.find('#btnAutoPay')[0].prop('title', autoPay);
 
     var boolFav = fav.toLowerCase() === 'true'
 
