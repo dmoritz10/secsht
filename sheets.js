@@ -83,6 +83,10 @@ async function listSheet(title) {
 
     ele.find('#btnShtShowSheet')[0].setAttribute("onclick", "showSheet(" + j + ")");
 
+    var autoPayBtn = ele.find('#btnAutoPay')[0]
+
+    console.log('autopay', ele.find('#btnAutoPay'), ele.find('#btnAutoPay')[0], ele.find('#btnShtShowSheet'))
+
     if (autoPay)  ele.find('#btnAutoPay')[0].removeClass('d-none')
     else          ele.find('#btnAutoPay')[0].addClass('d-none')
    
